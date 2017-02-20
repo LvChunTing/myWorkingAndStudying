@@ -28,7 +28,11 @@
         <entry file="file://$PROJECT_DIR$/GitStash/gitStash">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="38">
+<<<<<<< Updated upstream
               <caret line="2" column="52" lean-forward="false" selection-start-line="2" selection-start-column="52" selection-end-line="2" selection-end-column="52" />
+=======
+              <caret line="2" column="48" lean-forward="false" selection-start-line="2" selection-start-column="48" selection-end-line="2" selection-end-column="48" />
+>>>>>>> Stashed changes
               <folding />
             </state>
           </provider>
@@ -169,7 +173,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< Updated upstream
     <option name="totallyTimeSpent" value="459000" />
+=======
+    <option name="totallyTimeSpent" value="372000" />
+>>>>>>> Stashed changes
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="728" extended-state="0" />
@@ -240,6 +248,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
           <caret line="2" column="48" lean-forward="false" selection-start-line="2" selection-start-column="48" selection-end-line="2" selection-end-column="48" />
+<<<<<<< Updated upstream
           <folding />
         </state>
       </provider>
@@ -248,6 +257,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
           <caret line="2" column="52" lean-forward="false" selection-start-line="2" selection-start-column="52" selection-end-line="2" selection-end-column="52" />
+=======
+>>>>>>> Stashed changes
           <folding />
         </state>
       </provider>
