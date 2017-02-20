@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ae869449-6ce3-4800-8ec8-ad6cae6074ab" name="Default" comment="">
-<<<<<<< Updated upstream
+<<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GitStash/gitStash" afterPath="$PROJECT_DIR$/GitStash/gitStash" />
 =======
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GitStash/Git Stash" afterPath="$PROJECT_DIR$/GitStash/Git Stash" />
->>>>>>> Stashed changes
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GitStash/Git Stash" />
+>>>>>>> dev
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -30,6 +31,18 @@
       <file leaf-file-name="gitStash" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GitStash/gitStash">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="38">
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+              <caret line="2" column="52" lean-forward="false" selection-start-line="2" selection-start-column="52" selection-end-line="2" selection-end-column="52" />
+=======
+              <caret line="2" column="48" lean-forward="false" selection-start-line="2" selection-start-column="48" selection-end-line="2" selection-end-column="48" />
+>>>>>>> Stashed changes
+=======
+              <caret line="2" column="48" lean-forward="false" selection-start-line="2" selection-start-column="48" selection-end-line="2" selection-end-column="48" />
+>>>>>>> Stashed changes
+=======
             <state relative-caret-position="19">
               <caret line="1" column="55" lean-forward="false" selection-start-line="1" selection-start-column="55" selection-end-line="1" selection-end-column="55" />
               <folding />
@@ -40,13 +53,9 @@
       <file leaf-file-name="Git Stash" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GitStash/Git Stash">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
             <state relative-caret-position="0">
-              <caret line="0" column="29" lean-forward="false" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="29" />
-=======
-            <state relative-caret-position="19">
-              <caret line="1" column="28" lean-forward="false" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
->>>>>>> Stashed changes
+              <caret line="0" column="32" lean-forward="false" selection-start-line="0" selection-start-column="32" selection-end-line="0" selection-end-column="32" />
+>>>>>>> dev
               <folding />
             </state>
           </provider>
@@ -90,10 +99,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-<<<<<<< Updated upstream
-=======
-      <pane id="Scratches" />
->>>>>>> Stashed changes
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -112,11 +118,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-<<<<<<< Updated upstream
       <pane id="Scratches" />
-=======
->>>>>>> Stashed changes
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -198,20 +200,23 @@
       <updated>1487561117651</updated>
       <workItem from="1487561121343" duration="591000" />
       <workItem from="1487572051679" duration="75000" />
-<<<<<<< Updated upstream
-      <workItem from="1487572883590" duration="454000" />
-=======
-      <workItem from="1487572437235" duration="29000" />
->>>>>>> Stashed changes
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
 <<<<<<< Updated upstream
-    <option name="totallyTimeSpent" value="2003000" />
+<<<<<<< Updated upstream
+    <option name="totallyTimeSpent" value="459000" />
 =======
-    <option name="totallyTimeSpent" value="1578000" />
+    <option name="totallyTimeSpent" value="372000" />
 >>>>>>> Stashed changes
+=======
+    <option name="totallyTimeSpent" value="372000" />
+>>>>>>> Stashed changes
+=======
+    <option name="totallyTimeSpent" value="1549000" />
+>>>>>>> dev
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="728" extended-state="0" />
@@ -249,30 +254,6 @@
     <entry file="file://$PROJECT_DIR$/GitStash/gitStash">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
-          <caret line="1" column="55" lean-forward="false" selection-start-line="1" selection-start-column="55" selection-end-line="1" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GitStash/Git Stash">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GitStash/gitStash">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GitStash/gitStash">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
           <caret line="1" column="37" lean-forward="false" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
           <folding />
         </state>
@@ -281,29 +262,76 @@
     <entry file="file://$PROJECT_DIR$/GitStash/gitStash">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
+<<<<<<< HEAD
           <caret line="0" column="25" lean-forward="true" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
+=======
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> dev
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/GitStash/gitStash.orig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="4" lean-forward="true" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
+=======
+    <entry file="file://$PROJECT_DIR$/GitStash/gitStash">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="37" lean-forward="false" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
+>>>>>>> dev
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GitStash/gitStash">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="19">
+          <caret line="1" column="55" lean-forward="false" selection-start-line="1" selection-start-column="55" selection-end-line="1" selection-end-column="55" />
+=======
+        <state relative-caret-position="0">
+          <caret line="0" column="25" lean-forward="true" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
+>>>>>>> dev
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/GitStash/gitStash">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="48" lean-forward="false" selection-start-line="2" selection-start-column="48" selection-end-line="2" selection-end-column="48" />
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
     <entry file="file://$PROJECT_DIR$/GitStash/gitStash.orig" />
     <entry file="file://$PROJECT_DIR$/GitStash/gitStash">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
           <caret line="1" column="55" lean-forward="false" selection-start-line="1" selection-start-column="55" selection-end-line="1" selection-end-column="55" />
+>>>>>>> dev
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/GitStash/gitStash">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="52" lean-forward="false" selection-start-line="2" selection-start-column="52" selection-end-line="2" selection-end-column="52" />
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
     <entry file="file://$PROJECT_DIR$/GitStash/Git Stash">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
         <state relative-caret-position="0">
-          <caret line="0" column="29" lean-forward="false" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="29" />
-=======
-        <state relative-caret-position="19">
-          <caret line="1" column="28" lean-forward="false" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
->>>>>>> Stashed changes
+          <caret line="0" column="32" lean-forward="false" selection-start-line="0" selection-start-column="32" selection-end-line="0" selection-end-column="32" />
+>>>>>>> dev
           <folding />
         </state>
       </provider>
