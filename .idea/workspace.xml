@@ -29,7 +29,11 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="38">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
               <caret line="2" column="52" lean-forward="false" selection-start-line="2" selection-start-column="52" selection-end-line="2" selection-end-column="52" />
+=======
+              <caret line="2" column="48" lean-forward="false" selection-start-line="2" selection-start-column="48" selection-end-line="2" selection-end-column="48" />
+>>>>>>> Stashed changes
 =======
               <caret line="2" column="48" lean-forward="false" selection-start-line="2" selection-start-column="48" selection-end-line="2" selection-end-column="48" />
 >>>>>>> Stashed changes
@@ -174,7 +178,11 @@
   </component>
   <component name="TimeTrackingManager">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <option name="totallyTimeSpent" value="459000" />
+=======
+    <option name="totallyTimeSpent" value="372000" />
+>>>>>>> Stashed changes
 =======
     <option name="totallyTimeSpent" value="372000" />
 >>>>>>> Stashed changes
@@ -249,6 +257,7 @@
         <state relative-caret-position="38">
           <caret line="2" column="48" lean-forward="false" selection-start-line="2" selection-start-column="48" selection-end-line="2" selection-end-column="48" />
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
           <folding />
         </state>
       </provider>
@@ -257,6 +266,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
           <caret line="2" column="52" lean-forward="false" selection-start-line="2" selection-start-column="52" selection-end-line="2" selection-end-column="52" />
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
           <folding />
