@@ -1,0 +1,61 @@
+@charset "utf-8";
+.kuang{
+	position: relative;
+	width: 350px;
+	height: 432px;
+	/*border: 5px solid #000;*/
+	overflow: hidden;
+	margin-left: 500px;
+}
+.tukuang{
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+	width:2450px ;
+	position: absolute;
+	z-index: 1;
+	left: -350px;
+}
+.tukuang li{
+	float: left;
+}
+.zuojiantou,.youjiantou{
+	width: 18px;
+	height: 32px;
+	background-color:rgba(0,0,0,0.5);
+	position: absolute;
+	z-index: 2;
+	cursor: pointer;
+	display: none;
+}
+.youjiantou{
+	top: 50%;
+	margin: -16px 0;
+	right: 20px;
+}
+.zuojiantou{
+	top: 50%;
+	margin: -16px 0;
+	left: 20px;
+}
+.kuang:hover .zuojiantou{
+	display: block;
+}
+.kuang:hover .youjiantou{
+	display: block;
+}
+.hengxian_box{
+	width: 100%;
+	position: absolute;
+	bottom: 14px;
+	text-align: center;
+	z-index: 2;
+}
+.hengxian1{
+	width: 20px;
+	height: 8px;
+	background-color:#000 ;
+	display: inline-block;
+	opacity: 0.5;
+	cursor: pointer;
+}

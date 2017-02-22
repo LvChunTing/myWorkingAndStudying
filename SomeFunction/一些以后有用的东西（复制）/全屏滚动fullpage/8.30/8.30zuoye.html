@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>8.30作业</title>
+
+		<link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css" />
+		<link rel="stylesheet" type="text/css" href="css/8.30zuoye.css" />
+		
+	</head>
+
+	<body>
+		<div id="dowebok">
+			<div class="section page1">
+				<div class="We">
+					<span class="we">We</span>
+				</div>
+				<div class="yingwen1">
+					Though open-air schools–which emphasized welcoming, flexible sp how are you? Hellow wo de tian na,wo zhen shi zui le, zhao bu dao ying wen zen me ban. zhi neng pin yin lai cou shu a,bu zhi dao yao shuo dian shen me hao le ying gai gou le .
+				</div>
+				<div class="Guess">
+					Guess...
+				</div>
+			</div>
+			<div class="section page2">
+				<div class="You">
+				<span class="you">You</span>
+				</div>
+				<div class="yingwen2">
+					Though open-air schools–which emphasized welcoming, flexible sp how are you? Hellow wo de tian na,wo zhen shi zui le, zhao bu dao ying wen zen me ban. zhi neng pin yin lai cou shu a,bu zhi dao yao shuo dian shen me hao le ying gai gou le .
+				</div>
+				<div class="Pro">
+					Probably like...
+				</div>
+			</div>
+			<div class="section page3">
+				<div class="OR">
+				<span class="or">Or</span>
+				</div>
+				<div class="yingwen3">
+					Though open-air schools–which emphasized welcoming, flexible sp how are you? Hellow wo de tian na,wo zhen shi zui le, zhao bu dao ying wen zen me ban. zhi neng pin yin lai cou shu a,bu zhi dao yao shuo dian shen me hao le ying gai gou le .
+				</div>				
+			    <div class="heimuz fl">
+			    	
+			    </div>
+			    <div class="heimuy fr">
+			    	
+			    </div>
+			    <div class="clear">
+			    	
+			    </div>
+			</div>
+			<div class="section page4">
+			<div class="No">
+				<span class="no">None</span>
+				</div>
+				<div class="yingwen4">
+					Though open-air schools–which emphasized welcoming, flexible sp how are you? Hellow wo de tian na,wo zhen shi zui le, zhao bu dao ying wen zen me ban. zhi neng pin yin lai cou shu a,bu zhi dao yao shuo dian shen me hao le ying gai gou le .
+				</div>
+				<div class="Of">
+					 Of these photos...
+				</div>
+				<div class="zhe1">
+					
+				</div>
+				<div class="zhe2">
+					
+					
+				</div>
+				<div class="zhe3">
+					
+				</div>
+				<div class="zhe4">
+					
+				</div>
+			</div>
+			<div class="section page5">
+				<div class="Ma">
+				<span class="ma">No matter</span>
+				</div>
+				<div class="yingwen5">
+					Though open-air schools–which emphasized welcoming, flexible sp how are you? Hellow wo de tian na,wo zhen shi zui le, zhao bu dao ying wen zen me ban. zhi neng pin yin lai cou shu a,bu zhi dao yao shuo dian shen me hao le ying gai gou le .
+				</div>
+				<div class="Wh">
+					What you like...
+				</div>
+			</div>
+			<div class="section page6">
+			<div class="CA">
+				<span class="ca">Capturing soul</span>
+				</div>
+				<div class="yingwen6">
+					Though open-air schools–which emphasized welcoming, flexible sp how are you? Hellow wo de tian na,wo zhen shi zui le, zhao bu dao ying wen zen me ban. zhi neng pin yin lai cou shu a,bu zhi dao yao shuo dian shen me hao le ying gai gou le .
+				</div>
+				<div class="is">
+					is what we do!
+				</div>	
+				<div class="jinruzhuye">
+					<a href="#" target="_blank">
+						<div class="yw">
+							Home 
+						</div>
+						<div class="zw">
+							进入主页
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery.fullPage.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function() {
+		$('#dowebok').fullpage({
+		navigation: "true",
+	    afterLoad:function(anchorLink,index) {
+	    	//page1动画 从上部出来
+	    	if(index==1){
+	    		    $(".page1 .Guess").animate({top:"225px"},800,function () {
+	    			$(".page1 .We").animate({top:"90px"},800)
+	    			$(".page1 .yingwen1").animate({top:"90px"},800)
+	    		})
+	    	}else{
+	    		$(".page1 .We").css({top:"-204px"})
+	    		$(".page1 .yingwen1").css({top:"-204px"})
+	    		$(".page1 .Guess").css({top:"-339px"})
+	    	}
+	    //page2动画 淡入淡出
+    	    if(index==2){
+	    		$(".page2 .You").fadeIn("slow")
+	    		$(".page2 .yingwen2").fadeIn("slow")
+	    		$(".page2 .Pro").fadeIn("slow")
+	    	}else{
+	    		$(".page2 .You").css({display:"none"})
+	    		$(".page2 .yingwen2").css({display:"none"})
+	    		$(".page2 .Pro").css({display:"none"})
+	    	}	
+	   //page3 动画  黑幕拉开
+	       	 if(index==3){
+	    		$(".page3 .heimuz").animate({left:"-682px"},1000)
+	    		$(".page3 .heimuy").animate({right:"-682px"},1000)
+	    	}else{
+	    		$(".page3 .heimuz").css({left:0})
+	    		$(".page3 .heimuy").css({right:0})
+	    	}	
+	    //page4动画  放下
+	       	 if(index==4){
+	       	 	$(".page4 .zhe1").animate({top:"-209.5px",left:"-682px"},500)
+	       	 	$(".page4 .zhe2").animate({top:"-209.5px",right:"-682px"},500)
+	       	 	$(".page4 .zhe3").animate({bottom:"-209.5px",left:"-682px"},500)
+	       	 	$(".page4 .zhe4").animate({bottom:"-209.5px",right:"-682px"},500,function () {
+	       	 	$(".page4 .No").slideDown("slow")
+	       	 	$(".page4 .yingwen4").slideDown("slow")
+	    		$(".page4 .Of").slideDown("slow")
+	       	 	})
+//	    		$(".page4 .No").slideDown("slow")
+//	    		$(".page4 .yingwen4").slideDown("slow")
+//	    		$(".page4 .Of").slideDown("slow")
+	    	}else{
+	    		$(".page4 .No").css({display:"none"})
+	    		$(".page4 .yingwen4").css({display:"none"})
+	    		$(".page4 .Of").css({display:"none"})
+	    		$(".page4 .zhe1").css({top:0,left:0})
+	    		$(".page4 .zhe2").css({top:0,right:0})
+	    		$(".page4 .zhe3").css({bottom:0,left:0})
+	    		$(".page4 .zhe4").css({bottom:0,right:0})
+	    	}	
+	    	//page5动画  弹一下
+	    	if(index==5){
+	    		$(".page5 .yingwen5").animate({left:"376px"},500,function () {
+	    			$(".page5 .Ma").animate({left:"311px"},500,function () {
+	    				$(".page5 .Wh").animate({left:"130px"},function () {
+	    					$(".page5 .yingwen5").animate({left:"50"},1500)
+	    					$(".page5 .Ma").animate({left:"50"},1500)
+	    					$(".page5 .Wh").animate({left:"50"},1500)
+	    				})
+	    			})
+	    		})
+	    	}else{
+	    		$(".page5 .yingwen5").css({left:"-374px"})
+	    		$(".page5 .Ma").css({left:"-439px"})
+	    		$(".page5 .Wh").css({left:"-620px"})
+	    	}
+	    	//page6动画 从右侧飞入
+	    	if (index==6) {
+	    		$(".page6 .yingwen6").animate({right:"335px"},1000,function () {
+	    			$(".page6 .CA").animate({right:"439px"},1000,function () {
+	    				$(".page6 .is").animate({right:"620px"},1000,function () {
+	    					$(".page6 .jinruzhuye").fadeIn("slow")
+	    				})
+	    			})
+	    		})
+	    		
+	    		
+	    	} else{
+	    		$(".page6 .yingwen6").css({right: "-324px"})
+	    		$(".page6 .CA").css({right:"-594px"})
+	    		$(".page6 .is").css({right:"-500px"})
+	    		$(".page6 .jinruzhuye").css({display:"none"})
+	    	}
+	    }
+	    });
+		});
+		
+       
+	</script>
+<script type="text/javascript">
+//	
+//$(document).ready(function() {
+//	$.fn.fullpage({
+//		slidesColor: ['#0075D1', '#C2E5FF', '#FDF6E1', '#E9E9E9', '#F3F3F3', '#F9F3DC'],
+//		anchors: ['page1', 'page2', 'page3', 'page4', 'page5', 'page6'],
+//		menu: '#menu',
+//		afterRender: function(){
+//			$('.screen-main span').each(function(){
+//				var $rel = $(this).attr('rel');
+//				var $arr = $rel.split(',');
+//				$(this).animate({
+//					left: $arr[2] + 'px',
+//					top: $arr[3] + 'px'
+//				}, 500);
+//			});
+//			$('.inner a').each(function(){
+//				var $rel = $(this).attr('rel');
+//				var $arr = $rel.split(',');
+//				$(this).animate({
+//					left: $arr[0] + 'px',
+//					top: $arr[1] + 'px'
+//				}, 500);
+//			});
+//		},
+//		afterLoad: function(anchorLink, index){
+//			if(index == 1){
+//				$('.screen-main span').each(function(){
+//					var $rel = $(this).attr('rel');
+//					var $arr = $rel.split(',');
+//					$(this).animate({
+//						left: $arr[2] + 'px',
+//						top: $arr[3] + 'px'
+//					}, 500);
+//				});
+//			}
+//			if(index == 2 || index == 3 || index == 4 || index == 5){
+//				$('.inner').eq(index - 2).find('a').each(function(){
+//					var $rel = $(this).attr('rel');
+//					var $arr = $rel.split(',');
+//					$(this).animate({
+//						left: $arr[2] + 'px',
+//						top: $arr[3] + 'px'
+//					}, 500);
+//				});
+//			}
+//			if(index == 6){
+//				$('.zanzhu-con a').fadeIn(1000);
+//			}
+//		},
+//		onLeave: function(index, direction){
+//			if(index == 1){
+//				$('.screen-main span').each(function(){
+//					var $rel = $(this).attr('rel');
+//					var $arr = $rel.split(',');
+//					$(this).animate({
+//						left: $arr[0] + 'px',
+//						top: $arr[1] + 'px'
+//					}, 500);
+//				});
+//			}
+//			if(index == 2 || index == 3 || index == 4 || index == 5){
+//				$('.inner').eq(index - 2).find('a').each(function(){
+//					var $rel = $(this).attr('rel');
+//					var $arr = $rel.split(',');
+//					$(this).animate({
+//						left: $arr[0] + 'px',
+//						top: $arr[1] + 'px'
+//					}, 500);
+//				});
+//			}
+//			if(index == 6){
+//				$('.zanzhu-con a').fadeOut(1000);
+//			}
+//		}
+//	});
+//});
+</script>
+</html>

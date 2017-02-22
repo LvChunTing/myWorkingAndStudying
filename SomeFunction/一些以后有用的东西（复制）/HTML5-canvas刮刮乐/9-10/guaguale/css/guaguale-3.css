@@ -1,0 +1,27 @@
+@charset "utf-8";
+.beijing{
+	height: 485px;
+	width: 687px;
+	background-color:#c01319 ;
+}
+.zi{
+	text-align: center;
+}
+.zi span{
+	font-size: 24px;
+	font-family: "微软雅黑";
+	color: #c01319;
+	font-weight: bold;
+	padding: 20px 0;
+	width: 300px;
+	background-color: yellow;
+	display: inline-block;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+#canvas{
+	position: absolute;
+	top: 8px;
+	left: 8px;
+}

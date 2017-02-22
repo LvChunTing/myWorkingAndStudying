@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>轮播图-手写版</title>
+		<style type="text/css">
+			.banner {
+				width: 1000px;
+				height: 332px;
+				overflow: hidden;
+				margin: 0 auto;
+				position: relative;
+			}
+			
+			ul {
+				margin: 0;
+				padding: 0;
+				list-style-type: none;
+				width: 4010px;
+				height: 332px;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			
+			ul li {
+				float: left;
+			}
+			
+			.prev,
+			.next {
+				width: 50px;
+				height: 90px;
+				background: url(img/hn_ico_banner.png) no-repeat top center;
+				display: none;
+				position: absolute;
+				top: 50%;
+				margin: -45px 0;
+				cursor: pointer;
+			}
+			.banner:hover .prev{
+				display: block;
+			}
+			.banner:hover .next{
+				display: block;
+			}
+			.prev {
+				left: 10px;
+				background-position: 0 -90px;
+			}
+			
+			.next {
+				right: 10px;
+				background-position: 0 0;
+			}
+			
+			.btn {
+				width: 100%;
+				height: 10px;
+				position: absolute;
+				bottom: 20px;
+				text-align: center;
+			}
+			
+			.btn span {
+				display: inline-block;
+				width: 40px;
+				height: 4px;
+				line-height: 4px;
+				background-color: #FFF;
+				opacity: 0.6;
+				margin: 0 5px;
+				cursor: pointer;
+			}
+			
+			.active {
+				background-color: #007AFF!important;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="banner">
+			<ul>
+				<li><img src="img/1.jpg" width="1000px" height="332px" /></li>
+				<li><img src="img/2.jpg" width="1000px" height="332px" /></li>
+				<li><img src="img/3.jpg" width="1000px" height="332px" /></li>
+				<li><img src="img/4.jpg" width="1000px" height="332px" /></li>
+			</ul>
+			<div class="prev">
+
+			</div>
+			<div class="next">
+
+			</div>
+			<div class="btn">
+			</div>
+		</div>
+		<script src="js/jquery-1.8.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//获取轮播图中图片的数量
+			var len = $("ul li").length;
+			//根据轮播图里图片的数量插入横线
+			for(var i = 0; i < len; i++) {
+				//每有一张图片 加一个横线
+				$(".btn").append("<span></span>");
+				//给每一个li加上一个唯一的ID (不直接用index来做是因为每一次动画实现的时候 ul li中次序都变了 )
+				$("ul li").eq(i).attr({id: i});
+			}
+			//判断是第几张图片显示，相应的横线变成蓝色
+			//点击next
+			$(".next").click(function() {
+				//点击next和prev时应该停止自动播放事件 
+				clearInterval(autoplay);
+				//停止自动播放事件之后要重启自动播放事件
+				autoplay=setInterval(function() {
+				$("ul").stop(true, true).animate({left: "-1000px"}, 500, function() {
+					//将第一张图片放到最后一张的后边
+					$("li:last").after($("li:first"));
+					//将ul换到最初的位置
+					$("ul").css({left: 0})
+				})
+				flagnext()
+			}, 3000)
+					//ul向左移动一张图片的距离
+					$("ul").stop(true, true).animate({left: "-1000px"}, 500, function() {
+						//将第一张图片放到最后一张的后边
+						$("li:last").after($("li:first"));
+						//将ul换到最初的位置
+						$("ul").css({left: 0})
+					})
+					flagnext()
+				})
+				//点击prev
+			$(".prev").click(function() {
+				//点击next和prev时应该停止自动播放事件 
+				clearInterval(autoplay);
+				autoplay=setInterval(function() {
+				$("ul").stop(true, true).animate({left: "-1000px"}, 500, function() {
+					//将第一张图片放到最后一张的后边
+					$("li:last").after($("li:first"));
+					//将ul换到最初的位置
+					$("ul").css({left: 0})
+				})
+				flagnext()
+			}, 3000)
+					//先将最后一张图片放到第一张的前边
+					$("li:first").before($("li:last"));
+					$("ul").css({left: "-1000px"})
+						//将ul换到最初的位置
+					$("ul").stop(true, true).animate({left: "0px"}, 500, function() {})
+					flagprev()
+				})
+				//默认状态下，第一张图片显示，第一根横线是active
+			$(".btn span").eq(0).addClass("active")
+				//单独独立出来一个方法用来判断第几章图片是可见的并且给相应的横线加上active
+			function flagnext() {
+				//判断哪张图片是显示的 因为判断的是上一个状态的第一个  所以要+1
+				var index = $("li:first").attr("id") - 0 + 1;
+				if(index == len) {
+					index = 0;
+				}
+				$(".btn span").removeClass("active");
+				$(".btn span").eq(index).addClass("active");
+			}
+			//向左和向右应该是两个方法
+			function flagprev() {
+				//判断哪张图片是显示的
+				var index = $("li:first").attr("id");
+				$(".btn span").removeClass("active");
+				$(".btn span").eq(index).addClass("active");
+			}
+            //点击横线事件
+            $(".btn span").click(function () {
+            	//也是先要停止自动播放事件
+            		clearInterval(autoplay);
+            		autoplay=setInterval(function() {
+				$("ul").stop(true, true).animate({left: "-1000px"}, 500, function() {
+					//将第一张图片放到最后一张的后边
+					$("li:last").after($("li:first"));
+					//将ul换到最初的位置
+					$("ul").css({left: 0})
+				})
+				flagnext()
+			}, 3000)
+            		/*获取有active的那个是第几个*/
+            	var nindex = $(".btn span[class=active]").index();
+            	$(".btn span").removeClass("active");
+            	$(this).addClass("active");
+            	var sindex = $(this).index();
+            	//这个是为了判断 点横线的时候应该向左还是向右滑动
+            	var cha = sindex - nindex;
+            	if (cha>0) {
+            		//显示类似向右走相当于点了next 将点击对应的图片前面所有的图 放到最后
+            	$("ul").stop(true, true).animate({left: "-"+1000*cha+"px"}, 500, function() {
+            	var Prevall = $("ul li[id="+sindex+"]").prevAll().toArray().reverse();
+            	$("li:last").after(Prevall);
+            	$("ul").css({left: 0})
+                   })
+            	} else if(cha<0){
+            		//相当于点了prev 除了要把点的那个对应的后面所有的图片放到最前面以外，点的那个对应的图片也要放在最前面 
+            		//所以先取到点的那个对应的图片后面的所有 再把点的那个对应的图片插到数组最前面
+            	var Prevall = $("ul li[id="+sindex+"]").nextAll().toArray();
+            	Prevall.unshift($("ul li[id="+sindex+"]"))
+            	$("li:first").before(Prevall);
+            	$("ul").css({left: 1000*cha+"px"});
+            	$("ul").stop(true, true).animate({left: 0}, 500, function() {
+                   })
+            	}
+            })
+			//定时滚动
+			var autoplay=setInterval(function() {
+				$("ul").stop(true, true).animate({left: "-1000px"}, 500, function() {
+					//将第一张图片放到最后一张的后边
+					$("li:last").after($("li:first"));
+					//将ul换到最初的位置
+					$("ul").css({left: 0})
+				})
+				flagnext()
+			}, 3000)
+			//暂停
+			
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	</head>
+	<body>
+		<canvas id="canvas" width="500" height="500"></canvas>
+		<script type="text/javascript">
+			var oCanvas = document.getElementById("canvas")
+			var context = oCanvas.getContext("2d")
+			context.fillStyle = "yellow"
+			context.fillRect(0,0,500,500)
+			//时钟的初始状态
+			//先绘制一个圆
+			context.beginPath()
+			context.strokeStyle = "#000"
+			context.lineWidth = 4
+			context.arc(250,250,230,0,2*Math.PI,true)
+			context.stroke()
+			context.closePath()
+			//绘制刻度
+			//小刻度
+			context.save();
+			context.translate(250,250)
+			for (var i = 0; i < 60; i++) {
+			context.rotate(2*Math.PI/60)
+			context.beginPath();
+			context.moveTo(0,-210);
+			context.lineTo(0,-225);
+			context.strokeStyle = "#000";
+			context.lineWidth = 4;
+			context.stroke();
+			context.closePath();
+			}
+			context.restore();
+			//大刻度
+			context.save();
+			context.translate(250,250)
+			for (var i = 0; i < 12; i++) {
+			context.rotate(2*Math.PI/12)
+			context.beginPath();
+			context.moveTo(0,-200);
+			context.lineTo(0,-225);
+			context.strokeStyle = "#000";
+			context.lineWidth = 6;
+			context.stroke();
+			context.closePath();
+			}
+			context.restore();
+		   //各种针
+		   var Date = new Date;
+		   var H = Date.getHours()*5	
+		   var M = Date.getMinutes()
+		   var S = Date.getSeconds()
+		   //时针
+			context.save()
+			context.translate(250,250)
+			context.rotate((2*Math.PI/60)*H)
+			context.beginPath()
+			context.moveTo(0,10)
+			context.lineTo(0,-150)
+			context.strokeStyle = "#000";
+			context.lineWidth = 6;
+			context.stroke();
+			context.closePath()
+			context.restore()
+			//开始画分针
+			context.save()
+			context.translate(250,250)
+			context.rotate((2*Math.PI/60)*M)
+			context.beginPath()
+			context.moveTo(0,10)
+			context.lineTo(0,-190)
+			context.strokeStyle = "#000";
+			context.lineWidth = 5;
+			context.stroke();
+			context.closePath()
+			context.restore();
+			//开始画秒针
+			context.save();
+			context.translate(250,250)
+			context.rotate((2*Math.PI/60)*S)
+			context.beginPath()
+			context.moveTo(0,15)
+			context.lineTo(0,-220)
+			context.strokeStyle = "red";
+			context.lineWidth =3;
+			context.stroke();
+			context.closePath();
+			
+			//中间的小圆
+			context.beginPath();
+			context.arc(0,0,5,0,2*Math.PI,true)
+			context.strokeStyle = "red";
+			context.fillStyle = "#FFF"
+			context.fill();
+			context.stroke();
+			context.closePath();
+			//尾部的小圆
+			context.beginPath();
+			context.arc(0,-190,5,0,2*Math.PI,true)
+			context.strokeStyle = "red";
+			context.fillStyle = "#FFF"
+			context.fill();
+			context.stroke();
+			context.closePath();
+			context.restore()	
+			//这是让时钟循环指针
+			var a=S,b=M,c=H;
+			setInterval(function () {
+			context.clearRect(0, 0, oCanvas.width, oCanvas.height);
+			context.fillStyle = "yellow"
+			context.fillRect(0,0,500,500)
+			//先绘制一个圆
+			context.beginPath()
+			context.strokeStyle = "#000"
+			context.lineWidth = 4
+			context.arc(250,250,230,0,2*Math.PI,true)
+			context.stroke()
+			context.closePath()
+			//绘制刻度
+			//小刻度
+			context.save();
+			context.translate(250,250)
+			for (var i = 0; i < 60; i++) {
+			context.rotate(2*Math.PI/60)
+			context.beginPath();
+			context.moveTo(0,-210);
+			context.lineTo(0,-225);
+			context.strokeStyle = "#000";
+			context.lineWidth = 4;
+			context.stroke();
+			context.closePath();
+			}
+			context.restore();
+			//大刻度
+			context.save();
+			context.translate(250,250)
+			for (var i = 0; i < 12; i++) {
+			context.rotate(2*Math.PI/12)
+			context.beginPath();
+			context.moveTo(0,-200);
+			context.lineTo(0,-225);
+			context.strokeStyle = "#000";
+			context.lineWidth = 6;
+			context.stroke();
+			context.closePath();
+			}
+			context.restore();
+				a+=1;
+				b+=(1/60);
+				c+=(5/3600);
+			//开始画时针
+			context.save()
+			context.translate(250,250)
+			context.rotate((2*Math.PI/60)*c)
+			context.beginPath()
+			context.moveTo(0,10)
+			context.lineTo(0,-150)
+			context.strokeStyle = "#000";
+			context.lineWidth = 6;
+			context.stroke();
+			context.closePath()
+			context.restore()
+			//开始画分针
+			context.save()
+			context.translate(250,250)
+			context.rotate((2*Math.PI/60)*b)
+			context.beginPath()
+			context.moveTo(0,10)
+			context.lineTo(0,-190)
+			context.strokeStyle = "#000";
+			context.lineWidth = 5;
+			context.stroke();
+			context.closePath()
+			context.restore();
+			//开始画秒针
+			context.save();
+			context.translate(250,250)
+			context.rotate((2*Math.PI/60)*a)
+			context.beginPath()
+			context.moveTo(0,15)
+			context.lineTo(0,-220)
+			context.strokeStyle = "red";
+			context.lineWidth =3;
+			context.stroke();
+			context.closePath();
+			//中间的小圆
+			context.beginPath();
+			context.arc(0,0,5,0,2*Math.PI,true)
+			context.strokeStyle = "red";
+			context.fillStyle = "#FFF"
+			context.fill();
+			context.stroke();
+			context.closePath();
+			//尾部的小圆
+			context.beginPath();
+			context.arc(0,-190,5,0,2*Math.PI,true)
+			context.strokeStyle = "red";
+			context.fillStyle = "#FFF"
+			context.fill();
+			context.stroke();
+			context.closePath();
+			context.restore()	
+			},1000)
+			
+		</script>
+	</body>
+</html>

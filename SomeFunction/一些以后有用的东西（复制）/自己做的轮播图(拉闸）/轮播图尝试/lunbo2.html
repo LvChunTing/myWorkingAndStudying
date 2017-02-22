@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" type="text/css" href="css/lunbo2.css" />
+
+	<body>
+		<div class="beijing">
+			<ul>
+				<li class="li1"></li>
+				<li class="li2"></li>
+				<li class="li3"></li>
+				<li class="li1"></li>
+				<div class="clear">
+				</div>
+			</ul>
+			<div class="zuojiantou">
+				<img src="img/zuojiantou.png" width="18px" height="32px" />
+			</div>
+			<div class="youjiantou">
+				<img src="img/youjiantou.png" width="18px" height="32px" />
+			</div>
+			<div class="hengxian_box">
+				<div class="hengxian1">
+				</div>
+				<div class="hengxian1">
+				</div>
+				<div class="hengxian1">
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var $beijing = $(".beijing");
+			var $ul = $('ul')
+			var $hengxian = $(".hengxian_box")
+			$hengxian.find(".hengxian1").eq(0).css({
+				backgroundColor: "red"
+			})
+			function zidong() {
+				var m = $ul.position().left
+				 setInterval(function dong() {
+					if(m < -2732) {
+						m = 0
+						$ul.css({left:0})
+					}
+					m -= 1366;
+					$ul.animate({left:m + "px"}, 500)
+					
+					var n = m / 1366;
+					n = Math.abs(n);
+
+					if(n == 3) {
+						n = 0
+					}
+					console.log(n);
+					
+					$hengxian.find(".hengxian1").eq(n).css({
+						backgroundColor: "red"
+					})
+					$hengxian.find(".hengxian1").eq(n).siblings(".hengxian1").css({
+						backgroundColor: "#000"
+					})
+				}, 2000)
+			}
+			zidong();
+		})
+	</script>
+
+</html>

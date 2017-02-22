@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	</head>
+
+	<body>
+		<canvas id="canvas" width="500" height="500"></canvas>
+
+		<script type="text/javascript">
+			var oCanvas = document.getElementById("canvas")
+			var context = oCanvas.getContext("2d")
+			context.fillStyle = "yellow"
+			context.fillRect(0, 0, 500, 500)
+//				//写字
+//			context.font = "24px Helvetica, Arial, sans-serif"
+//			context.fillText("恭喜你，没中奖！", 150, 200)
+				//画个矩形盖住字
+			context.beginPath()
+			context.fillStyle = "#c0c0c0"
+			context.fillRect(100, 100,300, 200)
+			context.closePath()
+			var m =""
+			var n = Math.random()
+			x=n.toFixed(1)
+			console.log(x);
+			if (x==0.0||x==0.1) {
+				m +="一等奖：350亿"
+			}else if (x>0.1&&x<0.4) {
+				m+="二等奖：100亿"
+			}else if (x>0.4&&x<0.8) {
+				m+="三等奖：50亿"
+			}else if(x==1.0){
+				m+="特等奖：地球都是你的！"
+			}else{
+				m+="这都抽不中，手真臭"
+			}
+			document.onmousemove = function () {
+			var X = event.clientX
+			X-=25;
+			var Y = event.clientY
+			Y-=25;
+            context.beginPath()
+			context.fillStyle="yellow"
+			context.fillRect(X,Y,50,50)
+			context.closePath()
+			//写字
+			context.fillStyle = "#c0c0c0"
+			context.font = "24px Helvetica, Arial, sans-serif"
+			context.fillText(m, 150, 200)
+			
+			}
+			
+			
+		</script>
+
+	</body>
+
+</html>

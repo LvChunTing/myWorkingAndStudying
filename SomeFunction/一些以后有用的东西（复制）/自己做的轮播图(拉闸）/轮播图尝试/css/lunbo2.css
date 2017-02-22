@@ -1,0 +1,83 @@
+@charset "utf-8";
+body{
+	margin: 0;
+}
+.clear{
+	clear: both;
+}
+/*width:1366px*/
+.beijing{
+	overflow: hidden;
+	height:550px ;
+	position: relative;
+	width: 1366px;
+}
+.beijing ul{
+	width: 5464px;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	left: 0;
+}
+.beijing ul li{
+	float: left;
+	width: 1366px;
+}
+.li1{
+	height:550px ;
+	
+	background: url(../img/banner01.jpg) no-repeat top center;
+}
+.li2{
+	height:550px ;
+	
+	background: url(../img/banner02.jpg) no-repeat top center;
+	
+}
+.li3{
+	height:550px ;
+	
+	background: url(../img/banner03.jpg) no-repeat top center;
+	
+}
+.hengxian_box{
+	width: 100%;
+	position: absolute;
+	bottom: 14px;
+	text-align: center;
+	z-index: 2;
+}
+.hengxian1{
+	width: 20px;
+	height: 8px;
+	background-color:#000 ;
+	display: inline-block;
+	opacity: 0.5;
+	cursor: pointer;
+}
+.zuojiantou,.youjiantou{
+	width: 18px;
+	height: 32px;
+	background-color:rgba(0,0,0,0.5);
+	position: absolute;
+	z-index: 2;
+	cursor: pointer;
+	display: none;
+}
+.youjiantou{
+	top: 50%;
+	margin: -16px 0;
+	right: 160px;
+}
+.zuojiantou{
+	top: 50%;
+	margin: -16px 0;
+	left: 160px;
+}
+.beijing:hover .zuojiantou{
+	display: block;
+}
+.beijing:hover .youjiantou{
+	display: block;
+}

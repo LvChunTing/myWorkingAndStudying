@@ -1,0 +1,81 @@
+@charset "utf-8";
+html {
+	font-size: 16px;
+	font-family: "微软雅黑";
+}
+
+.write {
+	border: 1px solid #000;
+	display: inline-block;
+	width: 450px;
+	height: 400px;
+	margin: 5px;
+	padding: 5px;
+}
+.mtop {
+	margin-top: 10px;
+}
+textarea{
+	resize: none;
+	width: 350px;
+	height: 100px;
+}
+/*贴纸的样式*/
+.tags{
+	font-size: 12px;
+	position: absolute;
+	width: 235px;
+	min-height: 200px;
+}
+/*贴纸的头部样式*/
+.tags .tags_heard{
+	width: 235px;
+	height: 68px;
+    position: relative;
+}
+.tags .tags_heard span{
+	position: absolute;
+	bottom: 10px;
+}
+.tags .tags_heard .tiao{
+	left: 20px;
+}
+.tags .tags_heard .tags_time{
+	left: 87px;
+}
+.tags .tags_heard .del{
+	font-size: 14px;
+	right: 10px;
+	cursor: pointer;
+}
+/*贴纸的内容部样式*/
+.tags .tags_con{
+	width: 237px;
+	min-height: 70px;
+}
+.tags .tags_con span{
+	display: inline-block;
+	margin-left: 20px;
+	padding: 5px;
+}
+
+/*贴纸的底部样式*/
+.tags .tags_foot{
+	height: 72px;
+	position: relative;
+}
+.tags .tags_foot img{
+	position: absolute;
+	bottom: 20px;
+	left: 28px;
+}
+.tags .tags_foot span{
+	position: absolute;
+	bottom:28px;
+	right: 26px;
+	display: inline-block;
+	max-width: 140px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}

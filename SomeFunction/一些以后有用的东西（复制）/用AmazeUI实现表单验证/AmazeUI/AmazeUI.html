@@ -1,0 +1,252 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <title>Hello Amaze UI</title>
+
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+  <!--<link rel="icon" type="image/png" href="assets/i/favicon.png">-->
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <!--<link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">-->
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+  <!--<link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">-->
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <!--<meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">-->
+  <meta name="msapplication-TileColor" content="#0e90d2">
+
+  <link rel="stylesheet" href="assets/css/amazeui.min.css">
+  <link rel="stylesheet" type="text/css" href=""/>
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+	<!--表单验证-->
+	<form action="" class="am-form" data-am-validator class="am-form" id="myForm">
+  <fieldset>
+    <legend>JS 表单验证</legend>
+    <div class="am-form-group">
+      <label for="doc-vld-name-2">用户名：</label>
+      <input type="text" id="doc-vld-name-2" name="name" minlength="3" placeholder="输入用户名（至少 3 个字符）" required/>
+    </div>
+
+    <div class="am-form-group">
+      <label for="doc-vld-email-2">邮箱：</label>
+      <input type="email" name="email" id="doc-vld-email-2" placeholder="输入邮箱" required/>
+    </div>
+
+    <div class="am-form-group">
+      <label for="doc-vld-url-2">网址：</label>
+      <input type="url" id="doc-vld-url-2" name="web" placeholder="输入网址" required/>
+    </div>
+
+    <div class="am-form-group">
+      <label for="doc-vld-age-2">年龄：</label>
+      <input type="number" class="" name="age"  id="doc-vld-age-2" placeholder="输入年龄  18-120" min="18" max="120" required />
+    </div>
+    <div class="am-form-group">
+      <label for="doc-vld-ta-2">评论：</label>
+      <textarea id="doc-vld-ta-2" name="pinglun" minlength="10" maxlength="100"></textarea>
+    </div>
+
+    <button class="am-btn am-btn-secondary" id="tijiao"  type="button">提交</button>
+  </fieldset>
+</form>
+	
+	<!--下拉框-->
+	<div class="am-dropdown" data-am-dropdown>
+  <button class="am-btn am-btn-primary am-dropdown-toggle" data-am-dropdown-toggle>下拉列表 <span class="am-icon-caret-down"></span></button>
+  <ul class="am-dropdown-content">
+    <li class="am-dropdown-header">标题</li>
+    <li><a href="#">快乐的方式不只一种</a></li>
+    <li class="am-active"><a href="#">最荣幸是</a></li>
+    <li><a href="#">谁都是造物者的光荣</a></li>
+    <li class="am-disabled"><a href="#">就站在光明的角落</a></li>
+    <li class="am-divider"></li>
+    <li><a href="#">天空海阔 要做最坚强的泡沫</a></li>
+  </ul>
+</div>
+	<input type="checkbox" name="" id="" value="" />zijide 
+	<!--复选框-->
+	<div class="am-g">
+  <div class="am-u-sm-6">
+    <h3>复选框</h3>
+    <label class="am-checkbox">
+      <input type="checkbox" value="" data-am-ucheck> 没有选中
+    </label>
+    <label class="am-checkbox">
+      <input type="checkbox" checked="checked" value="" data-am-ucheck checked>
+      已选中
+    </label>
+    <label class="am-checkbox">
+      <input type="checkbox" value="" data-am-ucheck disabled>
+      禁用/未选中
+    </label>
+    <label class="am-checkbox">
+      <input type="checkbox" checked="checked" value="" data-am-ucheck disabled
+             checked>
+      禁用/已选中
+    </label>
+  </div>
+
+  <div class="am-u-sm-6">
+    <h3>单选框</h3>
+    <label class="am-radio">
+      <input type="radio" name="radio1" value="" data-am-ucheck>
+      未选中
+    </label>
+    <label class="am-radio">
+      <input type="radio" name="radio1" value="" data-am-ucheck checked>
+      已选中
+    </label>
+
+    <label class="am-radio">
+      <input type="radio" name="radio2" value="" data-am-ucheck disabled>
+      禁用/未选中
+    </label>
+    <label class="am-radio">
+      <input type="radio" name="radio2" value="" data-am-ucheck checked
+             disabled>
+      禁用/已选中
+    </label>
+  </div>
+</div>
+<p>
+  Hello Amaze UI.
+</p>
+<button
+  type="button"
+  class="am-btn am-btn-warning"
+  id="doc-confirm-toggle">
+  Confirm
+</button>
+
+<ul class="am-list confirm-list" id="doc-modal-list">
+  <li><a data-id="1" href="#">每个人都有一个死角， 自己走不出来，别人也闯不进去。</a><i class="am-icon-close"></i></li>
+  <li><a data-id="2" href="#">我把最深沉的秘密放在那里。</a><i class="am-icon-close"></i></li>
+  <li><a data-id="3" href="#">你不懂我，我不怪你。</a><i class="am-icon-close"></i></li>
+  <li><a data-id="4" href="#">每个人都有一道伤口， 或深或浅，盖上布，以为不存在。</a><i class="am-icon-close"></i></li>
+</ul>
+
+<div class="am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
+  <div class="am-modal-dialog">
+    <div class="am-modal-hd"> </div>
+    <div class="am-modal-bd">
+      你，确定要删除这条记录吗？
+    </div>
+    <div class="am-modal-footer">
+      <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+      <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+    </div>
+  </div>
+</div>
+
+
+
+<!--轮播图-->
+<div class="lunbo am-slider am-slider-default" id="your-slider" data-am-flexslider="{playAfterPaused: 1}">
+  <ul class="am-slides">
+    <li><img src="assets/img/01300540187788139879139371130.jpg" /></li>
+    <li><img src="assets/img/111zuichoude.jpg"/></li>
+    <li><img src="assets/img/tou.jpg"/></li>
+  </ul>
+</div>
+<!--在这里编写你的代码-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="assets/js/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="assets/js/amazeui.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+  $('#doc-modal-list').find('.am-icon-close').add('#doc-confirm-toggle').
+    on('click', function() {
+      $('#my-confirm').modal({
+        relatedTarget: this,
+        onConfirm: function(options) {
+          var $link = $(this.relatedTarget).prev('a');
+          var msg = $link.length ? '你要删除的链接 ID 为 ' + $link.data('id') :
+            '确定了，但不知道要整哪样';
+          alert(msg);
+           $(this.relatedTarget).parents("li").remove()
+          alert("所选内容已删除");
+        },
+           closeOnConfirm: false,
+        onCancel: function() {
+          alert('算求，不弄了');
+        }
+      });
+    });
+});
+//$('.am-slider').flexslider();
+$('#your-slider').flexslider({
+  playAfterPaused: 1,
+slideshowSpeed: 2000, 
+  before: function(slider) {
+    if (slider._pausedTimer) {
+      window.clearTimeout(slider._pausedTimer);
+      slider._pausedTimer = null;
+    }
+  },
+  after: function(slider) {
+    var pauseTime = slider.vars.playAfterPaused;
+    if (pauseTime && !isNaN(pauseTime) && !slider.playing) {
+      if (!slider.manualPause && !slider.manualPlay && !slider.stopped) {
+        slider._pausedTimer = window.setTimeout(function() {
+          slider.play();
+        }, pauseTime);
+      }
+    }
+  }
+  // 设置其他参数
+});
+//$(function() {
+//var $confirm = $('#your-confirm');
+//var $confirmBtn = $confirm.find('[data-am-modal-confirm]');
+//var $cancelBtn = $confirm.find('[data-am-modal-cancel]');
+//$confirmBtn.off('click.confirm.modal.amui').on('click', function() {
+//	alert(123)
+//});
+//
+//$cancelBtn.off('click.cancel.modal.amui').on('click', function() {
+//	alert(456)
+//});
+//});
+</script>
+<!--验证表单提交-->
+<script type="text/javascript">
+	$("#tijiao").click(function (event) {
+		// - 返回表单验证状态
+	var flag=$('#myForm').validator('isFormValid')
+	if (flag) {
+		alert("验证通过")
+		var data=$('form').serialize();
+		console.log(data);
+	} else{
+		alert("验证失败")
+	}
+	
+	})
+</script>
+</body>
+</html>

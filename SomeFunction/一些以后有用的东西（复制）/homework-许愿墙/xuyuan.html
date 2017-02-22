@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>许愿墙</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/xuyuan.css" />
+	</head>
+
+	<body>
+		<div class="write">
+			<div class="mtop name">
+				<label for="name">许愿留名：</label>
+				<input type="text" name="name" id="name" value="" />
+			</div>
+			<div class="mtop con">
+				<label for="con">许愿内容：</label>
+				<textarea name="con" id="con" rows="" cols=""></textarea>
+			</div>
+			<div class="mtop icon">
+				<sapn>许愿图标：</sapn>
+				<input type="radio" name="icon" id="apple" value="apple" checked="checked" />
+				<img src="img/apple.gif" />
+				<input type="radio" name="icon" id="heart" value="heart" />
+				<img src="img/heart.gif" />
+				<input type="radio" name="icon" id="tree" value="tree" />
+				<img src="img/tree.gif" />
+			</div>
+			<div class="mtop color">
+				<span>许愿颜色：</span>
+				<select name="color" id="color">
+					<option value="blue">淡蓝色</option>
+					<option value="pink">粉色</option>
+					<option value="orange">橘黄色</option>
+					<option value="purple" selected="selected">紫色</option>
+					<option value="yellow">黄色</option>
+				</select>
+			</div>
+			<input type="button" name="" id="wish" value="许愿" class="mtop" />
+		</div>
+	</body>
+	<script src="js/jquery-1.8.3.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		//点击次数初始化
+		var time = 0;
+		//当前贴纸的zindex
+		var Zindex = time;
+		//获取当前浏览器的宽高
+		var Width = $(window).width();
+		var Height = $(window).height();
+		$("#wish").click(function() {
+				time++;
+				var name = $("#name").val();//获取名字
+				var con = $("#con").val();//获取内容
+				var icon = $("input[name=icon]:checked").val(); //找到被选中的单选框的value值
+				var color = $("#color").val();//获取颜色
+				//获取点击的时间
+				var MyDate = new Date();
+				var year = MyDate.getFullYear();
+				var month = MyDate.getMonth() + 1;
+				var day = MyDate.getDate();
+				var hour = MyDate.getHours();
+				var min = MyDate.getMinutes();
+				var Time = year + "-" + month + "-" + day + " " + hour + ":" + min;
+				var Left = (Math.random() * 1000).toFixed(0) - 0; //随机距离左边的位置
+				var Top = (Math.random() * 1000).toFixed(0) - 0; //随机距离顶部的位置
+					//判断是否在写愿望的区域内 
+				if(Left < 462 && Top < 412) {
+					Left += 462;
+				}
+				//判断tags是否超过了屏幕(等最后再写)
+				if(Left > (Width - 254)) {
+					Left = Width - 254;
+				}
+                if (Top>(Height-70)&&Left < 462) {
+                	Top = 0;
+                	Left += 500;
+                }
+                 if (Top>(Height-70)) {
+                	Top = 0;
+                }
+				//拼接字符串 在屏幕中添加新的DIV
+				var html = ""
+				html += '<div class="tags" style="top:' + Top + 'px;left:' + Left + 'px;z-index:' + Zindex + ';">'
+				html += '<div class="tags_heard" style="background: url(img/heard_' + color + '.gif) top center no-repeat;">'
+				html += '<span class="tiao">第[' + time + ']条</span> <span class="tags_time">' + Time + '</span> <span class="del">X</span>'
+				html += '</div>'
+				html += '<div class="tags_con" style="background: url(img/con_' + color + '.gif) top  repeat-y;background-position-x: -2px;">'
+				html += '<span>' + con + '</span>'
+				html += '</div>'
+				html += '<div class="tags_foot" style="background: url(img/foot_' + color + '.gif) top center no-repeat;">'
+				html += '<img src="img/' + icon + '.gif" />'
+				html += '<span>' + name + '</span>'
+				html += '</div></div>'
+				$("body").append(html)
+					//绑定删除事件
+				$(".del").on("click", function() {
+						$(this).parents(".tags").hide();
+					})
+					//绑定点击到最顶层事件
+				$(".tags").on("click", function() {
+					Zindex++;
+					$(this).css({
+						"z-index": Zindex
+					})
+
+				})
+			})
+	</script>
+
+</html>

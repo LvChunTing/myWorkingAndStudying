@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			var time = new Date();
+			var future = new Date(2116, 07, 31);
+			var a = future - time;
+			var b = a / 86400000;
+			b=parseInt(b);
+			//天
+			var c = (a % 86400000);
+			var d = (c / (60 * 60 * 1000));
+			d=parseInt(d);
+//			d = d.toFixed(0); //小时
+			var e = (c % (60 * 60 * 1000));
+			var f = (e / (60 * 1000))
+			f=parseInt(f);
+//			f = f.toFixed(0); //分
+			var g = (e % (60 * 1000));
+			var h = (g / 1000);
+			h=parseInt(h);
+//			h = h.toFixed(0);//秒
+			var x =(g%1000)//毫秒
+			var i = time.getMonth() + 1
+			console.log("现在的时间是：" + time.getFullYear() + "年" + i + "月" + time.getDate() + "日" + time.getHours() + "时" + time.getMinutes() + "分" + time.getSeconds() + "秒"+time.getMilliseconds()+"毫秒");
+			console.log("距离2116年8月11日还有：" + b + "天" + d + "时" + f + "分" + h + "秒"+x+"毫秒");
+		</script>
+		<script type="text/javascript">
+			//			1、编写一个函数，去除重复的数字，输出去重之后的数组
+			//			2、将输出的数组按照从小到大的顺序排序
+			var arr = [1, 2, 65, 34, 12, 2, 53, 1, 34, 52, 65, 23,1,1,1];
+			function quchong() {
+				for(i = 0; i < arr.length; i++) {
+					for(j = i + 1; j < arr.length; j++) {
+						if(arr[i] == arr[j]) {
+							arr.splice(j, 1);
+							j-=1;
+						}
+					}
+				}
+			};
+		
+			quchong(arr);
+			console.log(arr);
+			arr.sort(function(a,b){
+				if(a>b){
+					return true;
+				}
+				return false;
+			});
+			console.log(arr);
+		</script>
+	</body>
+
+</html>

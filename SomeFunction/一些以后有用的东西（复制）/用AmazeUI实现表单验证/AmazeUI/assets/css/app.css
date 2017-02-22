@@ -1,0 +1,13 @@
+/* Write your styles */
+.confirm-list i {
+    position: absolute;
+    right: 0;
+    top: 12px;
+    color: #888;
+    width: 32px;
+    text-align: center;
+    cursor: pointer;
+}
+/*.lunbo{
+	height: 360px;
+}*/

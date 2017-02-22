@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<style type="text/css">
+		body{
+			margin: 0;
+		}
+			#fugai{
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="beijing" width="687" height="500"></canvas>
+		<canvas id="fugai" width="687" height="500"></canvas>
+	</body>
+	<script type="text/javascript">
+			var oCanvas = document.getElementById("beijing")
+			var oCanvasF =  document.getElementById("fugai")
+			var context = oCanvas.getContext("2d")
+			var contextF = oCanvasF.getContext("2d")
+			//背景
+			var img = new  Image
+			context.fillStyle = "#c01319"
+			context.fillRect(0, 0, 687, 500)
+			//放背景图片
+			img.src = "img/guagualebeijing.jpg"
+			img.onload=function () {
+				context.drawImage(img,0,0)
+			}
+			//写字的那个矩形
+			context.save()
+			context.beginPath()
+			context.fillStyle = "yellow"
+			context.fillRect(193,350,300,100)
+			context.fill()
+			context.closePath()
+			context.restore()
+			//写字
+			var m =""
+			var n = Math.random()
+			x=n.toFixed(1)
+			console.log(x);
+			if (x==0.0||x==0.1) {
+				m +="一等奖：350亿"
+			}else if (x>0.1&&x<0.4) {
+				m+="二等奖：100亿"
+			}else if (x>0.4&&x<0.8) {
+				m+="三等奖：50亿"
+			}else if(x==1.0){
+				m+="特等奖：地球都是你的！"
+			}else{
+				m+="这都抽不中，手真臭"
+			}
+			//写字
+			context.fillStyle = "#c01319"
+			context.font = "24px Helvetica, Arial, sans-serif"
+			context.fillText(m, 250, 410)
+			//覆盖层
+			contextF.save()
+			contextF.beginPath()
+			contextF.fillStyle = "#c0c0c0"
+			contextF.fillRect(193,350,300,100)
+			contextF.fill()
+			contextF.closePath()
+			contextF.restore()
+			document.onmousemove = function () {
+			var X = event.clientX
+			X-=25;
+			var Y = event.clientY
+			Y-=25;
+            contextF.beginPath()
+            contextF.clearRect(X,Y,50,50)
+//          contextF.clearRect(X,Y,25,0,2*Math.PI,true)
+			contextF.closePath()
+			}
+	</script>
+</html>

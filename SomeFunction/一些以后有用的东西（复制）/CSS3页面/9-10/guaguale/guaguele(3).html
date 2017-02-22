@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/guaguale-3.css" />
+	</head>
+
+	<body>
+		<div class="beijing">
+			<div class="tu">
+				<img src="img/guagualebeijing.jpg" width="687px" height="363px" />
+			</div>
+			<div class="zi">
+				<span id="Zi"></span>
+			</div>
+		</div>
+		<div class="chongzhi">
+			<input type="button" name="zailai" id="zailai" value="再来一次" />
+		</div>
+		<canvas id="canvas" width="687" height="485"></canvas>
+	</body>
+	<script type="text/javascript">
+        window.onload = function () {
+		var Zi = document.getElementById("Zi")
+		var KS = document.getElementById("kaishi")
+		var ZL = document.getElementById("zailai")
+		var oCanvas = document.getElementById("canvas")
+		var context = oCanvas.getContext("2d")
+
+		//canvas上边的布局
+		context.save();
+		context.beginPath();
+		context.fillStyle="transparent";
+		context.fillRect(0,0,687,485);
+		context.fill();
+		context.closePath();
+		context.restore();
+		//画画布上的灰色遮盖
+		context.save()
+		context.beginPath()
+		context.fillStyle = "#c0c0c0"
+		context.fillRect(194,363,300,74)
+		context.fill()
+		context.closePath()
+		context.restore()
+		//当鼠标移动时刷成透明色
+		function shua() {
+					document.onmousemove = function () {
+		context.globalCompositeOperation = "destination-out"
+			var X = event.clientX
+			var Y = event.clientY
+		context.save()	
+		context.beginPath()
+		context.arc(X,Y,25,0,2*Math.PI,true)
+		context.fill()
+		context.closePath()
+		context.restore()
+		}
+		}
+		//背景的布局以及文字的产生
+			    shua()
+				huanzi()
+	    ZL.onclick = function () {
+			location.reload()
+				
+		}
+		function huanzi() {
+		var m = ""
+		var n = Math.random()
+		x = n.toFixed(1)
+		console.log(x);
+		if(x == 0.0 || x == 0.1) {
+			m += "一等奖：350亿"
+		} else if(x > 0.1 && x < 0.4) {
+			m += "二等奖：100亿"
+		} else if(x > 0.4 && x < 0.8) {
+			m += "三等奖：50亿"
+		} else if(x == 1.0) {
+			m += "特等奖：地球都是你的！"
+		} else {
+			m += "这都抽不中，手真臭"
+		}
+		Zi.innerText= m
+		}
+        }
+	</script>
+
+</html>

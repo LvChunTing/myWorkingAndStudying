@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html manifest="cache.manifest">
+	<head>
+		<meta charset="UTF-8">
+		
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<style type="text/css">
+			img{
+				max-width: 100%;
+			}
+			body{
+				margin: 0;
+				font-size: 12px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="">
+			<div class="">
+				离线的文件：
+			</div>
+			<img src="img/li04.jpg"/>
+		</div>
+		<div id="">
+			<div class="">
+				在线的文件：
+			</div>
+			<img src="img/li02.jpg"/>
+		</div>
+	</body>
+	<script type="text/javascript">
+//		applicationCache.addEventListener("updateready",function () {//更新缓存
+//		});
+//		applicationCache.swapCache();
+//		//window层面的直接写就行
+        setInterval(function () {
+        	applicationCache.update()
+        },1000)//不停的在查找是否更新
+        applicationCache.addEventListener("updateready",function () {//更新缓存
+           var flag = confirm("是否需要更新缓存")
+           if (flag) {
+           	applicationCache.swapCache()//缓存下载过来
+           	window.location.reload();//刷新页面
+           } 
+        })
+	</script>
+</html>

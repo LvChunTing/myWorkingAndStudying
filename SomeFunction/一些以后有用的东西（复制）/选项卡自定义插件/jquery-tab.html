@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.tab {
+				background-color: #EEEEEE;
+				width: 600px;
+				margin: 0 auto;
+				font-family: "微软雅黑";
+			}
+			
+			.tab-title,
+			.tab-content {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			
+			.tab-title {
+				height: 41px;
+			}
+			
+			.tab-title li {
+				float: left;
+				width: 200px;
+				text-align: center;
+				padding: 10px 0;
+				background-color: #FFFFFF;
+				cursor: pointer;
+			}
+			
+			.tab-title li:hover,
+			.tab-title li.active {
+				background-color: #E764A7;
+				color: #FFFFFF;
+			}
+			
+			.tab-content li {
+				width: 580px;
+				height: 300px;
+				background-color: #FF9900;
+				color: #FFFFFF;
+				padding: 10px;
+				display: none;
+			}
+			
+			.tab-content li:first-child {
+				display: block;
+			}
+		</style>
+	</head>
+
+	<body>
+		<pre>
+			原生js编写一套选项卡，当前页状态要突出显示
+		</pre>
+		<!--选项卡-->
+		<div class="tab" id="tab1">
+			<ul class="tab-title clear">
+				<li class="active">详情</li>
+				<li>评价</li>
+				<li>活动</li>
+			</ul>
+			<ul class="tab-content">
+				<li>第一个</li>
+				<li>第二个</li>
+				<li>第三个</li>
+			</ul>
+		</div>
+		<!--<div class="tab" id="tab2">
+			<ul class="tab-title clear">
+				<li class="active">详情</li>
+				<li>评价</li>
+				<li>活动</li>
+			</ul>
+			<ul class="tab-content">
+				<li>第一个</li>
+				<li>第二个</li>
+				<li>第三个</li>
+			</ul>
+		</div>
+		<div class="tab" id="tab3">
+			<ul class="tab-title clear">
+				<li class="active">详情</li>
+				<li>评价</li>
+				<li>活动</li>
+			</ul>
+			<ul class="tab-content">
+				<li>第一个</li>
+				<li>第二个</li>
+				<li>第三个</li>
+			</ul>
+		</div>-->
+		<script src="jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<!--z自定义插件-->
+		<script type="text/javascript">
+			$.fn.tab = function(option) {
+				defaultOpt = {
+					event: "click",
+					current: 1,
+					callback: function() {
+					}
+				};
+				var opt = $.extend({}, defaultOpt, option);
+				return $(this).each(function() {
+					var $Title = $(this).find(".tab-title li");
+					var $Content = $(this).find(".tab-content li");
+					if(opt.event == "hover") {
+						opt.event = "mouseenter"
+					}
+					$Title.on(opt.event, function() {
+						var shu = $(this).index()
+						$Title.removeClass();
+						$(this).addClass("active");
+						$Content.css({
+							display: "none"
+						})
+						$Content.eq(shu).css({
+							display: "block"
+						});
+						opt.callback();
+					})
+					$Title.eq(opt.current).trigger(opt.event)
+				})
+			}
+			$(".tab").tab({event:"hover"});
+			//			$("#tab2").tab({
+			//				event:"hover",
+			//				current:2,
+			//				callback:function () {
+			////					alert("sos")
+			//				}
+			//			})
+		</script>
+	</body>
+
+</html>

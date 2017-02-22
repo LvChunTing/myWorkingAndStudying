@@ -1,0 +1,114 @@
+@charset "utf-8";
+body {
+	margin: 0;
+	background-color: #f9f9f9;
+	font-family: "微软雅黑";
+}
+a{
+	color: #000;
+}
+.kuang .container {
+	width: 1180px;
+}
+
+.kuang .zuobian {}
+
+.kuang .youbian {
+	padding: 0 17px;
+	margin-left: -16px;
+	background-color: #fff;
+	border-left: 1px solid #cccccc;
+}
+
+/*.kuang .zuobian ul li a {
+	color: #000;
+}*/
+
+.kuang .tupian {
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.kuang .lianjie {
+	margin-left: 20px;
+}
+.nav>li>a{
+	border-left: 2px solid #f9f9f9;
+	/*border-top:1px solid #f9f9f9 ;
+	border-bottom:1px solid #f9f9f9 ;
+	border-right: 1px solid #cccccc;*/
+	position: relative;
+	z-index: 999;
+}
+.act{
+	/*border-right: #FFF;*/
+	text-decoration: none;
+	background-color: #FFF;
+	color: #34a9e3;
+	border-left: 2px solid #27a9e3!important;
+	
+}
+.nav>li>a:hover,
+.nav>li>a:focus {
+	border-right: #FFF;
+	text-decoration: none;
+	background-color: #FFF;
+	color: #34a9e3;
+	border-left: 2px solid #27a9e3;
+}
+.youbian .toubumianbao{
+
+}
+.youbian .toubumianbao ul{
+	background-color: #FFF;
+	border-bottom: 1px solid #f5f5f5;
+}
+#tishi{
+	font-size: 12px;
+	color: #999;
+}
+#spxx{
+	width: 410px;
+}
+#hongzi{
+	color: #ff0000;
+}
+.xing{
+	color: red;
+}
+.bianji{
+	background-color:#27a9e3 ;
+	width: 112px;
+	text-align: center;
+	color: #FFF;
+	padding: 10px;
+	font-size: 20px;
+	font-weight: bold;
+}
+#tijiao{
+	color: #FFF;
+	background-color: #5bb75b;
+	background-image: none;
+}
+/*上传图片相关*/
+#file{
+	opacity: 0;
+	max-width: 97px;
+	height: 31px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+}
+#scanniu{
+	position: relative;
+	cursor: pointer;
+}
+.shangpint{
+	/*height: 200px;*/
+}
+.shangpint img{
+	max-width: 161px;
+	height: 160px;
+}
+

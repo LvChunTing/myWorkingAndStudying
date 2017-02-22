@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="" id="form" method="post">
+			<div class="am-padding-sm">
+				<label for="">数量：</label>
+				<input type="text" name="number" id="" value="" pattern="^\d*$"/>
+			</div>
+			<div class="am-padding-sm">
+			    <label for="">图片：</label>
+			    <input type="file" name="file" id="file" value="" multiple="multiple"/>
+			</div>
+			<div class="am-padding-sm">
+				<input type="button" name="" id="btn" value="提交" />
+			</div>
+		</form>
+		<script type="text/javascript">
+		var ajax = new XMLHttpRequest()
+		var oForm = document.getElementById("form")
+		var Btn = document.getElementById("btn")
+		var oFile = document.getElementById("file");
+		if (window.FormData) {
+			Btn.onclick= function () {
+		var formData = new FormData();//如果不传参，就是个空的对象，只有自身的一些方法。          如果传参，只能传Form对象   如果想固定只传某一些值，这里就只能是个空值
+		var aImages = oFile.files
+		for (var i = 0; i < aImages.length; i++) {
+			formData.append("face",aImages[i])
+		}
+			ajax.open("POST","/data/post",true)
+			ajax.send(formData);
+			ajax.onreadystatechange = function () {
+				if (ajax.readyState ==4) {
+					var rsp = JSON.stringify(ajax.response)
+				}
+			}
+		}
+		} else{
+			alert("浏览器不支持啊亲")
+		}
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/lunbo.css" />
+		
+	</head>
+	<body>
+		<div class="kuang">
+			<ul class="tukuang">
+				<li><img src="img/131719576757(5).jpg" width="350px" height="432px" /></li><!--//0-->
+				<li><img src="img/041924142718(1).jpg" width="350px" height="432px" /></li><!--//-350-->
+				<li><img src="img/130929559058(2).jpg" width="350px" height="432px" /></li><!--//-700-->
+				<li><img src="img/130930499897(3).jpg" width="350px" height="432px" /></li><!--//-1050-->
+				<li><img src="img/131647315381(4).jpg" width="350px" height="432px" /></li><!--//-1400-->
+				<li><img src="img/131719576757(5).jpg" width="350px" height="432px" /></li><!--//-1750-->
+				<li><img src="img/041924142718(1).jpg" width="350px" height="432px" /></li><!--//-2100-->
+			</ul>
+			<div class="zuojiantou">
+				<img src="img/zuojiantou.png" width="18px" height="32px" />
+			</div>
+			<div class="youjiantou">
+				<img src="img/youjiantou.png" width="18px" height="32px" />
+			</div>
+			<div class="hengxian_box">
+				<div class="hengxian1">
+				</div>
+				<div class="hengxian1">
+				</div>
+				<div class="hengxian1">
+				</div>
+				<div class="hengxian1">
+				</div>
+				<div class="hengxian1">
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var $Kuang = $(".kuang");
+			var $Tukuang = $(".tukuang");
+			var $zuo = $(".zuojiantou");
+			var $you = $(".youjiantou");
+			var $hengxian = $(".hengxian_box")
+            $hengxian.find(".hengxian1").eq(0).css({backgroundColor:"red"})
+			//实现自动滚动事件
+			function zidong() {
+				var m=$Tukuang.position().left
+				setInterval(function () {
+				if(m<-1400) {
+					m=0
+					$Tukuang.animate({left:m + "px"}, 500)
+				}
+					m -= 350;
+					$Tukuang.stop(true, true).animate({left:m + "px"}, 500)
+			//图片滚动的同时下面横线换颜色事件
+			    var n = $Tukuang.position().left/350;
+                n=Math.abs(n);
+                console.log(n);
+                $hengxian.find(".hengxian1").eq(n).css({backgroundColor:"red"})
+                $hengxian.find(".hengxian1").eq(n).siblings(".hengxian1").css({backgroundColor:"#000"})
+			},2500)
+			}
+			zidong();
+			//左右箭头按下实现轮播图
+			$you.click(function() {
+				i=$Tukuang.position().left;
+				if(i<-1400) {
+					i=0
+					$Tukuang.animate({left:i + "px"}, 500)
+				}
+					i -= 350;
+					$Tukuang.stop(true, true).animate({left:i + "px"}, 500)
+			})
+			$zuo.click(function() {
+			var j =$Tukuang.position().left
+				if(j>-350) {
+					j=-1750
+					$Tukuang.animate({left:j + "px"}, 500)
+				}
+                    j += 350;
+					$Tukuang.stop(true, true).animate({left:j + "px"}, 500)
+				})
+
+			})
+		
+	</script>
+
+</html>
