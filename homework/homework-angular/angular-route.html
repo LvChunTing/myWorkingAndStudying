@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0;
+        }
+    </style>
+    <script src="js/angular.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/angular-ui-router.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/myRouter.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body ng-app="app" ng-controller="router">
+<div style="background-color: #E8E8E8;height: 50px;text-align: center;line-height: 50px;position: absolute; top: 0;left: 0;right: 0;">这里是头部</div>
+<div style="position: absolute;top: 50px;bottom: 50px; left: 0;right: 0;background-color: #ccc" ui-view>
+    <!--第一个视图-->
+    <div id="one" ng-if="one" style="background-color: red">这是第一个视图  跳转到视图<button ng-click="first()">1</button><button ng-click="second()">2</button><button ng-click="third()">3</button></div>
+    <!--第一个视图 end-->
+    <!--第二个视图-->
+    <div id="two" ng-if="two" style="background-color: blue">这是第二个视图 跳转到视图<button ng-click="first()">1</button><button ng-click="second()">2</button><button ng-click="third()">3</button></div>
+    <!--第二个视图 end-->
+    <!--第三个视图-->
+    <div id="three" ng-if="three" style="background-color: yellow">这是第三个视图 跳转到视图<button ng-click="first()">1</button><button ng-click="second()">2</button><button ng-click="third()">3</button></div>
+    <!--第三个视图 end-->
+</div>
+<div style="background-color: #E8E8E8;height: 50px;text-align: center;line-height: 50px;position: absolute; bottom:0;left: 0;right: 0;">这里是底部</div>
+</body>
+</html>

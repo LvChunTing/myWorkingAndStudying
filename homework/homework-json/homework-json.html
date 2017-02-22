@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="js/jquery-1.8.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		//获取到这个json
+			$.getJSON("1481882816867.json",function (result) {
+				//新建一个数数组用来存放处理之后的数据
+				var data=[];
+				//写一个方法来对这个json数组进行分类
+				function classify(obj) {
+					//循环需要分类的对象
+					$.each(obj,function (i,kidobj) {
+						//进来先判断是第几级
+						var Level = kidobj.level;
+						//如果是一级，那就存放进data中的一级,并且要在这个一级中新建一个数组用来存放他的二级；
+						if (Level==1) {
+							kidobj.children = []
+							data.push(kidobj);
+							//如果是第二级，要看他是属于哪个一级(parentId)
+						}else if (Level ==2) {
+							//在这里要把刚刚生成的data数组再遍历一遍 看谁的id跟二级的parentId一样，就把二级加入到谁的children中
+							$.each(data, function(j,kiddata) {
+								//Id表示的是刚刚生成的data数组中元素的id 所以是用kiddata.id
+								//Parentid表示的是原来json数组中元素的Parentid  所以是用kidobj.parentId;
+								var Id  = kiddata.id;
+								var Parentid = kidobj.parentId;
+								//如果他俩相等，代表找到了 就是插入到当前的这个kiddata下的cheldren中
+								if (Id==Parentid) {
+									kiddata.children.push(kidobj);
+								}
+							});
+						}
+					})
+				}
+				classify(result.data);
+				//之前的格式是这个样子的：
+				console.log(result.data)
+				//编辑完之后的格式是这个样子的：
+				console.log(data)
+				//这里的输出结果我给放到开发者工具中去了,结构比较清晰
+			})
+		</script>
+	</body>
+</html>

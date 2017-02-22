@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>homework-each</title>
+		<style type="text/css">
+			ul,
+			li {
+				margin: 0;
+				list-style: none;
+			}
+			
+			.result-demo>:first-child {
+				padding: 0!important;
+			}
+			
+			.result>:first-child {
+				padding: 0;
+			}
+			.chose{
+				background-color: red;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="result1">
+		</div>
+		<script src="js/jquery-1.8.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var Json = [{
+					id: "1",
+					name: "a", //第一级
+					child: [{
+							id: "1-1",
+							name: "a-1", //第二级
+							child: [{
+									id: "1-1-1",
+									name: "a-1-1",
+								    child:[{
+									    id:"1-1-1-1",
+										name:"a-1-1-1"
+									},{
+                                        id:"1-1-1-2",
+                                        name:"a-1-1-2"
+                                    }]
+								}, //第三级
+								{
+									id: "1-1-2",
+									name: "a-1-2"
+								} //第三级别
+							]
+						}, {
+							id: "1-2",
+							name: "a-2",
+							child:[{
+							    id:"1-2-1",
+								name:"a-2-1"
+							},{
+							    id:"1-2-2",
+								name:"a-2-2",
+								child:[{
+							        id:"1-2-2-1",
+									name:"a-2-2-1"
+								},{
+							        id:"1-2-2-2",
+									name:"a-2-2-2",
+								},{
+							        id:"1-2-2-3",
+									name:"a-2-2-3"
+								}]
+							}]
+						}] //第二级
+				}, {
+					id: "2",
+					name: "b",
+					child:[{
+					    id:"2-1",
+						name:"b-1"
+					},{
+					    id:"2-2",
+						name:"b-2"
+					}]
+				}, //第一级
+				{
+					id: "3",
+					name: "c"
+				} //第一级
+			];
+			leave(Json);
+			buju(Json)
+//		这个方法用来给需要parentID的加上parentId
+		function leave(obj,parentId){
+			    if(parentId){
+//				如果parentId传参了，表示不是一级
+                    $.each(obj,function (i,kidobj) {
+                         kidobj.parentId=parentId;
+                        if(kidobj.child!=undefined){
+                            leave(kidobj.child,kidobj.id)
+                        }
+                    })
+				}else{
+//				如果parentId不传参，表示是刚刚进来,而且必然是一级
+					$.each(obj,function (i,kidobj) {
+						if(kidobj.child!=undefined){
+                            leave(kidobj.child,kidobj.id)
+						}
+                    })
+				}
+		}
+//		这是个布局的方法
+        function buju(obj) {
+			    $.each(obj,function (i,kidobj) {
+			        if(kidobj.parentId==undefined){
+                    $(".result1").append('<ul class="my" id=' + kidobj.id + '><input type="checkbox" name="" id="" value="" />' + kidobj.name + '</ul>')
+                    }else{
+			            $("#"+kidobj.parentId).append('<ul  id=' + kidobj.id + '><input type="checkbox" name="" id="" value="" />' + kidobj.name + '</ul>')
+					}
+					if(kidobj.child!=undefined){
+                        buju(kidobj.child)
+					}
+                })
+        }
+//		当复选框状态发生改变时应该调用的方法
+		    $("input[type=checkbox]").change(function () {
+                check($(this))
+            })
+        function check(e,push) { //参数push是用来判断是点击事件触发了这次事件还是递归调用了这个事件
+		    var flag = e.prop("checked")
+//			push参数的存在是为了在子级选中的时候不会影响当前子级的父亲的兄弟级
+            if(!push) {
+//		    如果点击的是父级，所有子集都被选中，如果父级取消，他的子级也应该取消
+                e.parent().find("input[type=checkbox]").prop("checked", flag)
+            }
+//			如果点击的是子级，这个子级的父级以及父级的父级都要被选中，直到最大的父级。
+//			但是取消的时候，要子级全部取消，对应的父级才会被取消
+            if(flag){
+                e.parent().siblings("input[type=checkbox]").prop("checked",flag);//点击的是子级，自己最近的父级变成true
+//			如果父级还有父级，那么父级的父级也要变成true但是不能影响父级的兄弟级
+//			最高级别的复选框的父级是个DIV，到了级别最高的复选框时，应该停止递归调用
+                if(e.parent().parent()[0].tagName!="DIV"){
+                    check(e.parent().siblings("input[type=checkbox]"),true);
+                }
+            }else{
+                var Num= 0;
+//              如果没有被选中的复选框的个数与当前子级的复选框个数相同，表示全部复选框的状态都是取消
+//				此时，当前子级的父级复选框状态应该是取消
+                for(i=0;i<e.parent().parent().find("ul input[type=checkbox]").length;i++){
+                    if(e.parent().parent().find("ul input[type=checkbox]").eq(i).prop("checked")==false){
+                        Num++;
+                    }
+                }
+                if(Num==e.parent().parent().find("ul input[type=checkbox]").length){
+                    e.parent().siblings("input[type=checkbox]").prop("checked",false)
+                    if(e.parent().parent()[0].tagName!="DIV"){
+                        check(e.parent().siblings("input[type=checkbox]"),true);
+                    }
+                }
+            }
+        }
+//
+//			//布局
+//			function digui(obj) {
+//				$.each(obj, function(i, objchd) {
+//					//先判断是第几级
+//					var level = (objchd.name.split("-")).length;
+//					switch(level) {
+//						case 1:
+//							//第一级进来先看result的孩子有没有ul
+//							var flag = $(".result").children("ul").length;
+//							//如果没有ul 表示要插入一个ul
+//							if(flag == 0) {
+//								$(".result").append("<ul></ul>")
+//							}
+//							$(".result").children("ul").append('<li id=' + objchd.name + '><input type="checkbox" name="" id="" value="" />' + objchd.name + '</li>');
+//							break;
+//						case 2:
+//							//第二级进来先判断要插入到哪里
+//							var Name = objchd.name;
+//							var dts = Name[0];
+//							//判断要插入的位置里有没有UL
+//							var flag_2 = $("#" + dts).children("ul").length;
+//							if(flag_2 == 0) {
+//								$("#" + dts).append("<ul></ul>")
+//							}
+//							$("#" + dts).children("ul").append('<li id=' + objchd.name + '><input type="checkbox" name="" id="" value="" />' + objchd.name + '</li>');
+//							break;
+//						case 3:
+//							var Name_2 = objchd.name;
+//							var dts_2 = Name_2.slice(0, 3)
+//								//判断要插入的位置里有没有UL
+//							var flag_3 = $("#" + dts_2).children("ul").length;
+//							if(flag_3 == 0) {
+//								$("#" + dts_2).append("<ul></ul>")
+//							}
+//							$("#" + dts_2).children("ul").append('<li id=' + objchd.name + '><input type="checkbox" name="" id="" value="" />' + objchd.name + '</li>');
+//							break;
+//						default:
+//							break;
+//					}
+//					//判断是否有孩子
+//					if(objchd.child != undefined) {
+//						digui(objchd.child);
+//					}
+//				});
+//
+//			}
+//			digui(Json);
+//			//布局到此结束
+//			//点击事件
+//			function checked() {
+//				$("input").click(function() {
+//					var Flag = $(this).prop("checked")
+//					var Flag_bro = $(this).parent().siblings("li").children("input").prop("checked")
+//					var Flag_all = true;
+//					var $m = $("#a ul").find("input")
+//					$(this).siblings("ul").find("input").prop("checked", Flag)
+//					if(Flag) {
+//						$(this).parents("ul").siblings("input").prop("checked", true)
+//					} else if(Flag == false && Flag_bro == false) {
+//						$(this).parent().parent().siblings("input").prop("checked", false)
+//							//要判断所有子集都未被选中  最大的父级才能是false
+//						$m.each(function(i) {
+//							if($m.eq(i).prop("checked") != false) {
+//								return Flag_all = false;
+//							} else {
+//								return Flag_all = true;
+//							}
+//						})
+//						if(Flag_all) {
+//							$("#a").children("input").prop("checked", false)
+//						}
+//					}
+//
+//				})
+//			}
+//			checked()
+
+
+		</script>
+		</body>
+
+</html>

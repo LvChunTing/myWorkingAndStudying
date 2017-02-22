@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/ng-file-upload.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="js/myCtrl.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			input {
+				text-align: center;
+				width: 98px;
+				padding:5px;
+			}
+			input[type=text]{
+				border: none;
+				outline: none;
+				padding: 0;
+			}
+			td {
+				text-align: center;
+				width: 100px;
+				max-height: 120px;
+				max-width: 100px;
+			}
+		</style>
+	</head>
+
+	<body ng-app="app" >
+	<div ng-controller="genggai">
+		<table border="" cellspacing="" cellpadding="">
+			<tr>
+				<td>序号</td>
+				<td>姓名</td>
+				<td>年龄</td>
+				<td>性别</td>
+				<td>操作</td>
+			</tr>
+			<tr ng-repeat="people in JSON">
+				<td>{{$index+1}}</td>
+				<!--这是显示的时候-->
+				<td  ng-show="people.show"><span>{{people.name}}</span></td>
+				<td  ng-show="people.show"><span>{{people.age}}</span></td>
+				<td  ng-show="people.show"><span>{{people.sex}}</span></td>
+				<!--显示结束-->
+				<!--这是修改的时候-->
+				<td ng-hide="people.show"><input type="text" ng-model="people.name"></td>
+				<td ng-hide="people.show"><input type="text" ng-model="people.age"></td>
+				<td ng-hide="people.show"><input type="text" ng-model="people.sex"></td>
+				<td><input type="button" value="修改" ng-click="change($index,$event)"></td>
+				<!--修改结束-->
+			</tr>
+		</table>
+	</div>
+	<div ng-controller="dingshiqi">
+	{{count}}
+	</div>
+	<div ng-controller="kuang" >
+		<div id="kuang" style="background-color: red;" ng-click="add()"></div>
+		<span>{{w}}*{{h}}</span>
+		<input type="text" ng-model="w" style="border: 2px solid #000;">
+		*
+		<input type="text" ng-model="h" style="border: 2px solid #000;" >
+		<input type="button" value="还原" ng-click="reset()">
+	</div>
+	<!--angular各种方法练习-->
+	<div ng-controller="text">
+		<!--双击事件-->
+		<div style="background-color: red;font-size: 24px" ng-click="danji($event)"  ng-dblclick="shuangji($event)">{{add}}</div>
+		<!--双击事件 end-->
+		<!--失去、获得焦点事件-->
+		<input type="text" ng-focus="Focus()" ng-blur="Blur()" ng-model="jiaodian" style="border: 2px solid #000">
+		<!--失去、获得焦点事件 end-->
+		<!--输入框的值发生改变-->
+		<input type="text" style="border: 2px solid #000" ng-change="Change()" ng-model="sad">
+		<span>输入框的值改变了{{a}}次</span>
+		<!--输入框的值发生改变 end-->
+		<br>
+		<!--上传文件的控件-->
+		<form >
+			<input type="file" ng-model="File">
+			<button type="button" ng-click="submit()">提交</button>
+			{{fileInfo.name}}<br/>
+			{{fileInfo.size}}
+		</form>
+		<!--上传文件的控件 end-->
+		<!--鼠标移入移出事件-->
+		<div style="background-color:#007AFF;color: red;width: 100px;height: 100px; " ng-mouseover="Mouseover()" ng-mouseout="Mouseout()">{{shubiao}}</div>
+		<!--鼠标移入移出事件 end-->
+		<!--按键监听事件-->
+		<input ng-keydown="Keydown()" ng-keypress="KeyPress()" ng-keyup="Keyup()">{{key}}
+		<!--按键监听事件 end-->
+		<!--复制内容事件-->
+		<div type="text" ng-copy="Copy()" >复制内容，提示复制成功。</div>
+		<input type="text" ng-copy="Copy()" style="border: 1px solid #000;">
+		<!--复制内容事件 end-->
+	</div>
+
+	<!--不同controller之间传递数据-->
+	<div ng-controller="ParentCtrl">                <!--父级-->
+		<span>父级：{{dad}}</span>
+		<div ng-controller="SelfCtrl">              <!--自己-->
+			<span>自己：{{me}}</span>
+			<button ng-click="click()">点击</button>
+			<div ng-controller="ChildCtrl"><span>子级：{{kid}}</span></div>   <!--子级-->
+		</div>
+		<div ng-controller="BroCtrl"><span>平级：{{bro}}</span></div>         <!--平级-->
+	</div>
+	<!--不同controller之间传递数据 end-->
+
+
+	</body>
+
+</html>

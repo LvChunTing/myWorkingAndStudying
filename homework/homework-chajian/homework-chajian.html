@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.title {
+				display: inline-block;
+				width: 100px;
+				text-align: right;
+			}
+
+
+			.req {
+				color: red;
+				display: inline-block;
+				margin-left: 3px;
+				font-size: 12px;
+			}
+			.err{
+				color: red;
+				display: inline-block;
+				margin-left: 3px;
+				font-size: 12px;
+			}
+			.rit{
+				color: green;
+				display: inline-block;
+				margin-left: 3px;
+				font-size: 12px;
+			}
+			textarea{
+				min-width: 130px;
+				min-height: 130px;
+			}
+		</style>
+	
+	</head>
+	<body>
+		<h3>表单验证 (带*的是必填字段)</h3>
+		<div id="yanzheng">
+			<p><span class="title">用户名：</span><input type="text" name="" id="" value="" placeholder="请输入用户名" errMsg = "请输入8-12个字符，只能是字母或数字" LCT-requird LCT="name"/></p>
+			<p><span class="title">密码：</span><input type="password" name="" id="" value="" placeholder="请输入密码"  errMsg = "请输入最少6个字符，只能是字母或数字" LCT-requird LCT="password"/></p>
+			<p><span class="title">确认密码：</span><input type="password" name="" id="" value="" placeholder="请确认密码" errMsg = "两次密码输入必须一致！" LCT-requird  LCT="passwordQD"/></p>
+			<p><span class="title">手机号：</span><input type="text" name="" id="" value="" placeholder="请输入手机号" errMsg = "请输入正确的手机号！" LCT-requird LCT="phone"/></p>
+			<p><span class="title">E-mail：</span><input type="text" name="" id="" value="" placeholder="请输入邮箱" errMsg = "请输入正确的邮箱地址！" LCT-requird  LCT="email"/></p>
+			<p><span class="title">性别：</span><input type="text" name="" id="" value="" placeholder="请输入性别"errMsg="性别非男即女！"  LCT="sex"/></p>
+			<p><span class="title">年龄：</span><input type="text" name="" id="" value="" placeholder="请输入年龄" errMsg = "年龄应该是1-100之间的数字！" LCT="age" /></p>
+			<p><span class="title">个人说明：</span><textarea type="text" name="" id="" value="" placeholder="如果填写请填写15-50个字符..." errMsg = "请填写15-50个字符..."  LCT="about"/></textarea></p>
+
+			<input type="button" value="提交" id="btn">
+		</div>
+
+	</body>
+	<script src="js/jquery-1.8.3.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/chajians.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+            $(function() {
+                $("#yanzheng").LCTchajian({
+                	name: /^[a-zA-Z0-9]{8,12}$/
+                });
+            });
+		</script>
+
+</html>

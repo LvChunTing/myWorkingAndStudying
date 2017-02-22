@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>卷帘门效果</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<style type="text/css">
+			.fr {
+				float: right;
+			}
+			
+			.list {
+				margin: 10px;
+				display: inline-block;
+			}
+			
+			.list table tr {
+				width: 150px;
+				background-color: #E8E8E8;
+			}
+			
+			.list table tr td {
+				width: 200px;
+				height: 25px;
+				padding: 5px 10px;
+				font-family: "微软雅黑";
+				font-size: 16px;
+				font-weight: bold;
+				position: relative;
+			}
+			
+			.list .sub {
+				position: absolute;
+				top: -1px;
+				right: -222px;
+				display: none;
+			}
+			
+			.list .sub tr td {
+				font-size: 14px;
+				font-weight: normal;
+				position: relative;
+			}
+			
+			.sub .sub_last {
+				width: 360px;
+				position: absolute;
+				top: -1px;
+				right: -360px;
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="list">
+			<table border="1px" cellspacing="" cellpadding="">
+				
+				<!--Menu1-->
+				<tr>
+					<td>
+						<span>Menu1</span><span class="fr">></span>
+						<!--Menu 1 下级菜单-->
+						<div class="sub">
+							<table border="1" cellspacing="" cellpadding="">
+								<tr>
+									<td><span>Sub Menu 11</span></td>
+								</tr>
+								<tr>
+									<td><span>Sub Menu 12</span></td>
+								</tr>
+								<tr>
+									<td><span>Sub Menu 13</span></td>
+								</tr>
+								<tr>
+									<td><span>Sub Menu 14</span><span class="fr">></span>
+										<!--Sub Menu 14下级菜单-->
+										<div class="sub_last">
+											<table border="1" cellspacing="" cellpadding="">
+												<tr>
+													<td><span>Sub Menu 141</span></td>
+												</tr>
+												<tr>
+													<td><span>Sub Menu 142</span></td>
+												</tr>
+												<tr>
+													<td><span>Sub Menu 143</span></td>
+												</tr>
+											</table>
+										</div>
+										<!--Sub Menu 14下级菜单 结束-->
+									</td>
+								</tr>
+							</table>
+						</div>
+						<!--Menu 1 下级菜单 结束-->
+					</td>
+
+				</tr>
+				<!--Menu1 结束-->
+				<!--Menu2-->
+				<tr>
+					<td><span>Menu2</span><span class="fr">></span>
+						<!--Menu 2 下级菜单-->
+						<div class="sub">
+							<table border="1" cellspacing="" cellpadding="">
+								<tr>
+									<td><span>Sub Menu 21</span></td>
+								</tr>
+								<tr>
+									<td><span>Sub Menu 22</span></td>
+								</tr>
+								<tr>
+									<td><span>Sub Menu 23</span><span class="fr">></span>	
+										<!--Sub Menu 23下级菜单-->
+										<div class="sub_last">
+											<table border="1" cellspacing="" cellpadding="">
+												<tr>
+													<td><span>Sub Menu 231</span></td>
+												</tr>
+												<tr>
+													<td><span>Sub Menu 232</span></td>
+												</tr>
+												<tr>
+													<td><span>Sub Menu 233</span></td>
+												</tr>
+											</table>
+										</div>
+										<!--Sub Menu 23下级菜单 结束-->
+									</td>
+								</tr>
+								<tr>
+									<td><span>Sub Menu 24</span></td>
+								</tr>
+							</table>
+						</div>
+						<!--Menu 2 下级菜单 结束-->
+					</td>
+				</tr>
+				<!--Menu2 结束-->
+				<!--Menu3-->
+				<tr>
+					<td><span>Menu3</span><span class="fr">></span>
+						<!--Menu 3 下级菜单-->
+						<div class="sub">
+							<table border="1" cellspacing="" cellpadding="">
+								<tr>
+									<td><span>Sub Menu 31</span></td>
+								</tr>
+								<tr>
+									<td><span>Sub Menu 32</span><span class="fr">></span>
+										<!--Sub Menu 32下级菜单-->
+										<div class="sub_last">
+											<table border="1" cellspacing="" cellpadding="">
+												<tr>
+													<td><span>Sub Menu 321</span></td>
+												</tr>
+												<tr>
+													<td><span>Sub Menu 322</span></td>
+												</tr>
+												<tr>
+													<td><span>Sub Menu 323</span></td>
+												</tr>
+											</table>
+										</div>
+										<!--Sub Menu 32下级菜单 结束-->
+									</td>
+								</tr>
+								<tr>
+									<td><span>Sub Menu 33</span></td>
+								</tr>
+								<tr>
+									<td><span>Sub Menu 34</span></td>
+								</tr>
+							</table>
+						</div>
+						<!--Menu 3 下级菜单 结束-->
+					</td>
+				</tr>
+				<!--Menu3 结束-->
+				<!--Menu4-->
+				<tr>
+					<td><span>Menu4</span><span class="fr">></span>
+						<!--Menu4 下级菜单-->
+						<div class="sub">
+							<table border="1" cellspacing="" cellpadding="">
+								<tr>
+									<td><span>Sub Menu 41</span><span class="fr">></span>
+										<!--Sub Menu 41下级菜单-->
+										<div class="sub_last">
+											<table border="1" cellspacing="" cellpadding="">
+												<tr>
+													<td><span>Sub Menu 411</span></td>
+												</tr>
+												<tr>
+													<td><span>Sub Menu 412</span></td>
+												</tr>
+												<tr>
+													<td><span>Sub Menu 413</span></td>
+												</tr>
+											</table>
+										</div>
+										<!--Sub Menu 41下级菜单 结束-->
+									</td>
+								</tr>
+								<tr>
+									<td><span>Sub Menu 42</span></td>
+								</tr>
+								<tr>
+									<td><span>Sub Menu 43</span></td>
+								</tr>
+								<tr>
+									<td><span>Sub Menu 44</span></td>
+								</tr>
+							</table>
+						</div>
+						<!--Menu4 下级菜单 结束-->
+					</td>
+				</tr>
+				<!--Menu4结束-->
+				<!--Menu5-->
+				<tr>
+					<td><span>Menu5</span><span class="fr">></span>
+						<!--Menu 5 下级菜单-->
+						<div class="sub">
+							<table border="1" cellspacing="" cellpadding="">
+								<tr>
+									<td><span>Sub Menu 51</span></td>
+								</tr>
+								<tr>
+									<td><span>Sub Menu 52</span></td>
+								</tr>
+								<tr>
+									<td><span>Sub Menu 53</span></td>
+								</tr>
+								<tr>
+									<td><span>Sub Menu 54</span><span class="fr">></span>
+										<!--Sub Menu 54下级菜单-->
+										<div class="sub_last">
+											<table border="1" cellspacing="" cellpadding="">
+												<tr>
+													<td><span>Sub Menu 541</span></td>
+												</tr>
+												<tr>
+													<td><span>Sub Menu 542</span></td>
+												</tr>
+												<tr>
+													<td><span>Sub Menu 543</span></td>
+												</tr>
+											</table>
+										</div>
+										<!--Sub Menu 54下级菜单 结束-->
+									</td>
+								</tr>
+							</table>
+						</div>
+						<!--Menu 5 下级菜单 结束-->
+					</td>
+				</tr>
+				<!--Menu5结束-->
+			</table>
+			<ul class="js-star">
+				<li class="abc"><span class="aaa"></span></li>
+				<li class="abc"><span class="aaa"></span></li>
+				<li class="abc"><span class="aaa"></span></li>
+				<li class="abc"><span class="aaa"></span></li>
+				<li class="abc"><span class="bbb"></span></li>
+				<li class="abc"><span class="bbb"></span></li>
+
+			</ul>
+		</div>
+		<script src="js/jquery-1.8.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			console.log($(".js-star").find(".aaa"))
+			console.log($(".aaa_12"))
+            var Len2 =$(".js-star").find(".aaa").size()
+			var Len =$(".js-star").find(".aaa").length
+			var Len3 = $(".aaa_12").size()
+			console.log(Len)
+			console.log(Len2)
+			console.log(Len3)
+
+			$(document).ready(function() {
+				//第一级hover事件
+				$("tr").hover(function() {
+						$(this).css({
+							backgroundColor: "yellow"
+						});
+						$(this).find(".sub").slideDown(500);
+
+						//						$(this).find(".sub_last").delay(500).slideDown(500);
+					}, function() {
+						$(this).css({
+							backgroundColor: "#E8E8E8"
+						});
+						//						$(this).find(".sub_last").stop(true,true).slideUp(500);
+						$(this).find(".sub").stop(true, true).slideUp(500);
+					})
+					//第一级hover事件结束
+					//第二级hover事件
+				$(".sub tr").hover(function() {
+						$(this).css({
+							backgroundColor: "red"
+						});
+						$(this).find(".sub_last").slideDown(500);
+					}, function() {
+						$(this).css({
+							backgroundColor: "#E8E8E8"
+						});
+						$(this).find(".sub_last").stop(true, true).slideUp(500);
+					})
+					//第二级hover事件结束
+					//第三级hover事件
+				$(".sub_last tr").hover(function() {
+						$(this).css({
+							backgroundColor: "green"
+						});
+					}, function() {
+						$(this).css({
+							backgroundColor: "#E8E8E8"
+						});
+					})
+					//第三级hover事件结束
+			})
+		</script>
+	</body>
+
+</html>
