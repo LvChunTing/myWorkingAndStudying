@@ -15,6 +15,6 @@ function mergeRightValue(personPower) {
 
     }
     Power=Power.join("");
-    console.log(Power)
+    console.log("合并后的权限为："+Power)
 }
 mergeRightValue(personPower)
