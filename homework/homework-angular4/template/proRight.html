@@ -1,0 +1,14 @@
+<div class="proListR">
+    <h3 class="activeName" ng-transclude>
+    </h3>
+    <ul >
+        <li style="border: 1px solid red;" ng-repeat="item in rightItems">
+            <div>{{item.name}}</div>
+            <div><img src={{item.img}} width="150" height="150" alt=""></div>
+            <div>{{item.msg}}</div>
+            <div>单价：<span style="color: red;">{{item.price}}</span>元</div>
+            <div><input type="button" value="加入购物车" ng-click="inCar(item)"></div>
+        </li>
+        <div class="f-clear"></div>
+    </ul>
+</div>

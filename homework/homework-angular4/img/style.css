@@ -1,0 +1,102 @@
+.f-fl{
+    float: left;
+}
+.f-fr {
+    float: right;
+}
+.f-clear{
+    clear: both;
+}
+.g-head {
+    border-bottom: 2px solid #333;
+    position: relative;
+}
+.head-con {
+    margin: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.head-wel {
+    position: absolute;
+    top: 0px;
+    right:150px;
+}
+.g-left {
+    width: 10%;
+    min-height:580px;
+    float: left;
+    box-sizing: border-box;
+}
+.g-right{
+    /*display: inline-block;*/
+    border-left: 2px solid #333;
+    float: left;
+    width:90%;
+    box-sizing: border-box;
+
+}
+p span{
+    color: red;
+}
+ul{
+    margin:0;
+    padding:0;
+}
+table th{
+    padding:5px;
+}
+ul li {
+    list-style-type: none;
+    text-align: center;
+    font-size: 16px;
+    padding:10px 0;
+    cursor: pointer;
+}
+.firstPage{
+    background: url('headTwo.jpg') top center no-repeat;
+    height: 580px;
+}
+.listLeft{
+    padding: 10px;
+    border:1px dashed #0a6999;
+    margin-left: 20px;
+}
+.listRight{
+     padding: 10px;
+ }
+/*左侧的商品列表*/
+.listLeft {
+    width: 72%;
+    overflow: hidden;
+}
+.proListL ul{
+    width:100%;
+}
+.proListL li{
+    float: left;
+    width: 200px;
+        background-color: #eee;
+    margin:5px ;
+}
+/*右侧的商品列表*/
+.listRight{
+    width: 22%;
+    overflow: hidden;
+    border:1px dashed darkblue;
+    padding:5px;
+}
+.proListR {
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin:5px 0;
+}
+.proListR h3{
+    color: blue;
+}
+.proListR ul{
+    width:100%;
+}
+.proListR li{
+    background-color: #eee;
+    margin:5px 0;
+}

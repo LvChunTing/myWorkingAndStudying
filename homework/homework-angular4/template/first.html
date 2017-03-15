@@ -1,0 +1,36 @@
+<p style="text-align: center">这是<span>{{partName}}</span>页面</p>
+<div style="text-align: center">
+    <table border="2px solid #000" style="display: inline-block">
+        <tr>
+            <th>商品图片</th>
+            <th>商品名称</th>
+            <th>商品数量</th>
+            <th>商品单价</th>
+            <th>商品总价</th>
+            <th>操作</th>
+        </tr>
+        <tr ng-repeat="carList in carLists">
+            <td><img src={{carList.img}} width="50" height="50" alt=""></td>
+            <td ng-bind="carList.name"></td>
+            <td ng-bind="carList.num"></td>
+            <td ng-bind="carList.price"></td>
+            <td ng-bind="carList.allPrice"></td>
+            <td>
+                <button ng-click="add($index)">增加1</button>
+                <button ng-click="conut($index)">减少1</button>
+                <button ng-click="del($index,$event)">删除</button>
+            </td>
+        </tr>
+        <tr ng-if="flag">
+            <td style="font-weight: bold;color:red;"></td>
+            <td style="font-weight: bold;color:red;">汇总</td>
+            <td style="font-weight: bold;color:red;" ng-bind="all.AllNum"></td>
+            <td style="font-weight: bold;color:red;border: none;"></td>
+            <td style="font-weight: bold;color:red;" ng-bind="all.AllPrice"></td>
+            <td style="font-weight: bold;color:red;" ><button ng-click="delAll()">清空购物车</button></td>
+        </tr>
+        <tr>
+
+        </tr>
+    </table>
+</div>

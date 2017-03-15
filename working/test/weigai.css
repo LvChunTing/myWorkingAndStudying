@@ -73,10 +73,8 @@ img{
 .monopoly{
     position: absolute;
     top: -62px;
-    left: 0;
     z-index: 5;
     text-align: center;
-    left: 0px;
 }
 .navigation {
     width: 100%;
@@ -86,14 +84,8 @@ img{
 /*专区（可重复）*/
 .air,.air_active,.ice,.ice_active,.wash,.wash_active,.hot,.hot_active,.tv,.tv_active,.more,.more_active{
     background: url("sprite.png")  no-repeat;
-    display: inline-block;
-    width: 122px;
-    height:111px;
     margin-top: 17px;
-    position: relative;
-    box-sizing: border-box;
 }
-
 .m-plate{
     background-color:#006f2e;
 }
@@ -104,48 +96,24 @@ img{
 }
 .plate_link a{
     display: inline-block;
-    padding-right: 40px;
-    position: relative;
-    top:-22px;
-}
-.aAir {
     width: 75px;
     height:66px;
-}
-
-.aIce,aWash,aHot,aTv{
-    width: 122px;
-    height:132px;
-}
-.aTv{
-    padding-right: 0!important;
-}
-.plate_link a span{
-    width: 122px;
-    height:111px;
 }
 .air_active {
     background-position:3px  -83px;
     margin-left: 47px;
-}
-.pr40{
     margin-right: 108px;
 }
 .air {
-    padding-right: 0!important;
-}
-.air_active {
     background-position:3px  -9px;
     margin-left: 47px;
     margin-right: 108px;
-    background-color: #e98a07;
 }
 .ice{
     background-position:-68px  -9px;
     margin-right: 102px;
 
 }
-
 .ice_active{
     background-position:-68px  -83px;
     margin-right: 102px;
@@ -155,31 +123,23 @@ img{
     background-position:-148px  -9px;
     margin-right: 88px;
 }
-
 .wash_active{
     background-position:-148px  -83px;
     margin-right: 88px;
-    background-color: #e98a07;
-
 }
 .hot{
     background-position:-250px  -9px;
     margin-right: 92px;
 }
-
 .hot_active{
     background-position:-250px  -83px;
     margin-right: 92px;
-    background-color: #e98a07;
 }
 .tv{
     background-position:-353px  -9px;
 }
-
 .tv_active{
     background-position:-353px  -83px;
-    background-color: #e98a07;
-
 }
 .more{
     margin-right: 7px!important;

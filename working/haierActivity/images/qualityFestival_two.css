@@ -1,0 +1,181 @@
+body {
+    background-color: #006e2d;
+    margin: 0;
+    font-family: 微软雅黑;
+    color: #000;
+    font-size: 14px;
+}
+html{
+    position: relative;
+}
+a {
+    color: #000;
+    text-decoration: none;
+    border-style: none;
+    border-width: 0;
+}
+img{
+    border:0;
+}
+.f-center{
+    text-align: center;
+}
+.f-container {
+    width: 988px;;
+    margin:0 auto;
+}
+.f-fl{
+    float: left;
+}
+.f-fr{
+    float: right;
+}
+.f-clear{
+    clear: both;
+}
+.f-overflow {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/*头部*/
+.g-head{
+    background: url("head.jpg") top center no-repeat;
+    width:100%;
+    height: 900px;
+    /*position: absolute;*/
+    /*top:0;*/
+    /*z-index: 99;*/
+}
+/*头部 end*/
+/*导航*/
+.g-navigation{
+    background: url("navigation_bgi.jpg") top center no-repeat;
+    height: 870px;
+    position: relative;
+}
+.BTS{
+    position: absolute;
+    top:312px;
+    right:64px;
+}
+.m-navigationDate {
+    position: absolute;
+    top: -55px;
+    left: 50%;
+    margin:0 -453px;
+    width: 906px;
+    height: 132px;
+}
+.m-navigationLink{
+    position: absolute;
+    bottom:0px;
+    left: 50%;
+    margin:0 -387px;
+    width: 774px;
+    height: 660px;
+}
+.m-navigationLink a{
+    position: absolute;
+}
+.m-navigationLink .Harer_link{
+    top:-112px;
+    left:50%;
+    margin: 0 -112.5px;
+}
+.m-navigationLink .TM_link{
+    right:-113px;
+    top:156px;
+}
+.m-navigationLink .JD_link{
+    left:-113px;
+    top:156px;
+}
+.m-navigationLink .GM_link{
+    bottom:-112px;
+    right:32px;
+}
+.m-navigationLink .SN_link{
+    bottom:-112px;
+    left:32px;
+}
+.m-tm {
+    background: url("tm_bg.jpg") top center no-repeat;
+    height: 1304px;
+    padding-top: 140px;
+    padding-bottom: 18px;
+    box-sizing: border-box;
+}
+.pro_big {
+    width: 240px;
+    height: 350px;
+    overflow: hidden;
+    margin-right: 4px;
+    background-color: #FFF;
+    position: relative;
+}
+
+.pro_sm {
+    width: 247px;
+    height:173px;
+    background-color: #f7fdf7;
+    margin-right: 4px;
+    margin-bottom: 4px;
+}
+.tm-product {
+    width: 990px;
+    overflow: hidden;
+}
+.product{
+    width: 990px;
+    overflow: hidden;
+    margin-top: 20px;
+
+}
+.tm-product .pro_sm{
+    position: relative;
+    margin-bottom: 3px;
+}
+.m-JD {
+    background: url("JD_bg.jpg") top center no-repeat;
+    height:1371px;
+    position: relative;
+}
+.BTB{
+    position: absolute;
+    top: 20px;
+    left:49px;
+}
+.m-GM {
+    background: url("GM_bg.jpg") top center no-repeat;
+    height:1080px;
+}
+.m-SN {
+    background: url("SN_bg.jpg") top center no-repeat;
+    height:862px;
+}
+.m-HE {
+    background: url("HE_bg.jpg") top center no-repeat;
+    height:1255px;
+}
+.point_r {
+    position: absolute;
+    right: 0;
+    top: 800px;
+    bottom:0;
+    width: 200px;
+    z-index: 1;
+    opacity: 0.8;
+    background: url("point_r.png") top center repeat-y;
+}
+.point_l {
+    position: absolute;
+    left: -100px;
+    top: 1000px;
+    bottom:0;
+    width: 200px;
+    z-index: 1;
+    opacity: 0.8;
+    background: url("point_r.png") left center repeat-y;
+}
+

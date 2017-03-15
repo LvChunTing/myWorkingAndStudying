@@ -1,5 +1,5 @@
 body {
-    background-color: #006e2d;
+    background-color: #80c269;
     margin: 0;
     font-family: 微软雅黑;
     color: #000;
@@ -21,7 +21,7 @@ img{
     text-align: center;
 }
 .f-container {
-    width: 988px;;
+    width: 988px;
     margin:0 auto;
 }
 .f-fl{
@@ -40,19 +40,16 @@ img{
 }
 /*头部*/
 .g-head{
-    background: url("head.jpg") top center no-repeat;
+    background: url("head.png") top center no-repeat;
     width:100%;
     height: 900px;
-    /*position: absolute;*/
-    /*top:0;*/
-    /*z-index: 99;*/
 }
 /*头部 end*/
 /*专柜*/
-.m-monopoly{
-    background-color: #057534;
-    height: 314px;
-    background: url("monopoly_bg.jpg") top center no-repeat ;
+.m-monopoly {
+    /*background-color: #057534;*/
+    height: 266px;
+    /*background: url("monopoly_bg.jpg") top center no-repeat ;*/
     text-align: center;
     position: relative;
 }
@@ -63,20 +60,19 @@ img{
 /*专柜 end*/
 /*导航*/
 .m-navigation {
-    background: url("navigation_bg.jpg") top center no-repeat;
+    background: url("navigation_bg.png") top center no-repeat;
     width:100%;
-    height:987px;
+    height:932px;
     position: relative;
     padding-top: 154px;
     box-sizing: border-box;
 }
 .monopoly{
     position: absolute;
-    top: -62px;
+    top: -130px;
     left: 0;
     z-index: 5;
     text-align: center;
-    left: 0px;
 }
 .navigation {
     width: 100%;
@@ -85,7 +81,7 @@ img{
 /*导航 end*/
 /*专区（可重复）*/
 .air,.air_active,.ice,.ice_active,.wash,.wash_active,.hot,.hot_active,.tv,.tv_active,.more,.more_active{
-    background: url("sprite.png")  no-repeat;
+    background: url("sprit.png")  no-repeat;
     display: inline-block;
     width: 122px;
     height:111px;
@@ -95,7 +91,7 @@ img{
 }
 
 .m-plate{
-    background-color:#006f2e;
+    background-color:#80c269;
 }
 .plate_link {
     background-color: #044c27;
@@ -109,8 +105,8 @@ img{
     top:-22px;
 }
 .aAir {
-    width: 75px;
-    height:66px;
+    width: 169px;
+    height:132px;
 }
 
 .aIce,aWash,aHot,aTv{
@@ -124,67 +120,66 @@ img{
     width: 122px;
     height:111px;
 }
-.air_active {
-    background-position:3px  -83px;
+.air {
+    background-position:8px  -57px;
     margin-left: 47px;
 }
 .pr40{
-    margin-right: 108px;
+    padding-right: 40px;
 }
-.air {
+.more{
     padding-right: 0!important;
 }
 .air_active {
-    background-position:3px  -9px;
+    background-position:7px  -208px;
     margin-left: 47px;
-    margin-right: 108px;
+    padding-right: 54px;
     background-color: #e98a07;
 }
 .ice{
-    background-position:-68px  -9px;
-    margin-right: 102px;
-
+    background-position:-145px  -57px;
+    padding-right: 34px;
 }
 
 .ice_active{
-    background-position:-68px  -83px;
-    margin-right: 102px;
-
+    background-position:-145px  -208px;
+    padding-right: 34px;
+    background-color: #e98a07;
 }
 .wash{
-    background-position:-148px  -9px;
-    margin-right: 88px;
+    background-position:-281px  -57px;
+    padding-right: 44px;
 }
 
 .wash_active{
-    background-position:-148px  -83px;
-    margin-right: 88px;
+    background-position:-276px  -208px;
+    padding-right: 44px;
     background-color: #e98a07;
 
 }
 .hot{
-    background-position:-250px  -9px;
-    margin-right: 92px;
+    background-position:-443px  -57px;
+    padding-right: 36px;
 }
 
 .hot_active{
-    background-position:-250px  -83px;
-    margin-right: 92px;
+    background-position:-443px  -208px;
+    padding-right: 36px;
     background-color: #e98a07;
 }
 .tv{
-    background-position:-353px  -9px;
+    background-position:-604px  -57px;
 }
 
 .tv_active{
-    background-position:-353px  -83px;
+    background-position:-604px  -208px;
     background-color: #e98a07;
 
 }
 .more{
     margin-right: 7px!important;
     margin-left: 0!important;
-    background-position:-424px  -9px;
+    background-position:-761px  -57px;
 }
 .plate_con{
     padding:7px 0;
@@ -269,7 +264,7 @@ img{
     text-align: center;
     background-color: #f03838;
     padding:6px 0px;
-    border-radius: 5px;
+    border-radius: 5px;;
     color:#fdebeb;
     display: inline-block;
     font-size: 14px;
@@ -384,7 +379,7 @@ img{
 .m-ice .con_rtKid .pro_buy{
     margin-top: 6px;
 }
-/*冰箱专区维护 end*/
+    /*冰箱专区维护 end*/
 /*洗衣机专区维护*/
 .m-wash .con_lf{
     width:370px;
@@ -576,8 +571,8 @@ img{
 /*底部留空*/
 .g-foot {
     width: 100%;
-    height:18px;
-    background-color:#006f2e;
+    height:50px;
+    background-color:#80c269;
 }
 .f-container{
     position: relative;
@@ -599,7 +594,7 @@ img{
     top: 2580px;
     bottom:0;
     width: 200px;
-    z-index: 0;
+    z-index: 1;
     opacity: 0.6;
     background: url("point_r.png") left center repeat-y;
 }
