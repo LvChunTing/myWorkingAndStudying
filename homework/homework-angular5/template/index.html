@@ -1,0 +1,68 @@
+<div class="table">
+    <h2 ng-switch="admin">欢迎你，<span ng-bind="userName">用户名</span>。<span ng-switch-when="1">你可以对商品进行增删改查</span><span ng-switch-when="0">你只能查看商品</span></h2>
+    <h5>角色：<span class="errorMsg" ng-switch="admin"><span ng-switch-when="1">管理员</span><span ng-switch-when="0">游客</span></span></h5>
+    <div><input type="button" ng-click="back()" value="退出登录"></div>
+
+    <table border="" cellspacing="" cellpadding="">
+        <tr>
+            <td>序号</td>
+            <td>商品名</td>
+            <td>颜色</td>
+            <td>单价</td>
+            <td ng-if="admin==1">操作</td>
+        </tr>
+        <tr ng-repeat="product in products">
+            <td>{{$index+1}}</td>
+            <!--这是显示的时候-->
+            <td  ng-show="product.show"><span>{{product.name}}</span></td>
+            <td  ng-show="product.show"><span>{{product.color}}</span></td>
+            <td  ng-show="product.show"><span>{{product.price}}</span></td>
+            <!--显示结束-->
+            <!--这是修改的时候-->
+            <td ng-hide="product.show"><input type="text" ng-model="product.name"></td>
+            <td ng-hide="product.show"><input type="text" ng-model="product.color"></td>
+            <td ng-hide="product.show"><input type="number" ng-model="product.price"></td>
+            <td ng-if="admin==1"><input type="button" value="修改" ng-click="change($index,$event)">
+                <input type="button" value="删除" ng-click="del($index,$event)">
+            </td>
+            <!--修改结束-->
+        </tr>
+    </table>
+    <div ng-if="admin==1" class="add"><input type="button" value="添加商品" ng-click="add()"></div>
+</div>
+<div ng-show="addForm" class="addProduct">
+    <form name="registerForm" >
+        <div class="register">
+            <div class="title"><h1>商品添加</h1></div>
+            <!--商品名字-->
+            <div class="form-group"><span>商品名：</span><input type="text" ng-model="Pro.name" name="name" placeholder="请输入商品名字" required ><span class="errorMsg"> * </span>
+                <div ng-show="registerForm.name.$dirty && registerForm.name.$invalid">
+                <span ng-show="registerForm.name.$error.required" class="errorMsg">
+                    * 商品名字不允许为空
+                 </span>
+                </div>
+            </div>
+            <!--商品名字 end-->
+            <!--颜色-->
+            <div class="form-group"><span>颜色：</span><input type="text" ng-model="Pro.color" name="color" placeholder="请输入颜色" required ><span class="errorMsg"> * </span>
+                <div ng-show="registerForm.color.$dirty && registerForm.color.$invalid">
+                <span ng-show="registerForm.color.$error.required" class="errorMsg">
+                    * 颜色不允许为空
+                 </span>
+                </div>
+            </div>
+            <!--颜色 end-->
+            <!--价格-->
+            <div class="form-group"><span>价格：</span><input type="number" ng-model="Pro.price" name="price" placeholder="请输入价格"  required ><span class="errorMsg"> * </span>
+                <div ng-show="registerForm.price.$dirty && registerForm.price.$invalid">
+                <span ng-show="registerForm.price.$error.required" class="errorMsg">
+                    * 价格不允许为空
+                 </span>
+                </div>
+            </div>
+            <!--价格 end-->
+            <input type="button" value="确认添加" class="btn" ng-disabled="registerForm.$invalid" ng-click="addPro(Pro)" >
+            <input type="button" value="取消添加" class="btn" ng-click="addProFalse()">
+        </div>
+    </form>
+</div>

@@ -1,0 +1,154 @@
+<!DOCTYPE html >
+<html lang="en"  >
+<head >
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-ui-router.min.js"></script>
+    <script src="js/login.ctrl.js"></script>
+    <script src="js/index.ctrl.js"></script>
+    <script src="js/login.router.js"></script>
+    <style>
+        body{
+            font-family: 微软雅黑;
+            background-color: #c9e7c9;
+        }
+        .login,.register {
+            width: 500px;
+            height: 500px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -250px -250px;
+            background-color: #000;
+            color: #fff;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .title{
+            text-align: center;
+        }
+        .form-group {
+            text-align: right;
+            width: 250px;
+            margin:20px auto;
+            font-size: 16px;
+            line-height: 32px;
+            min-height: 60px;
+        }
+        .btn {
+            font-size: 16px;
+            padding: 10px 20px;
+            background-color: yellow;
+            border:0;
+            margin:10px;
+        }
+        .errorMsg {
+            color: red;
+            font-size: 12px;
+        }
+        .errorMsg1{
+            color: #000;
+        }
+        .admin{
+            margin-top: -20px;
+        }
+        .table{
+            text-align: center;
+        }
+        table {
+            text-align: center;
+            width: 600px;
+            margin: 0 auto;
+        }
+        input {
+            text-align: center;
+            max-width: 100%;
+        }
+        td {
+            text-align: center;
+            width: 100px;
+            max-height: 120px;
+            max-width: 100px;
+        }
+        table input[type=text] , table input[type=number] {
+            width: 98px;
+            padding:5px;
+            border: none;
+            outline: none;
+            background-color: #E8E8E8;
+        }
+        .add{
+            text-align: center;
+        }
+    </style>
+</head>
+<body  ng-app="app" ng-controller="parentCtrl" >
+<div ui-view  ng-controller="myCtrl">
+<form ng-submit="loginSave(loginUser)"  name="loginForm" ng-show="login">
+    <div class="login">
+        <div class="title"><h1>欢迎登录掏宝商城</h1></div>
+        <div class="form-group"><span>用户名：</span><input type="text" ng-model="loginUser.username" name="username" placeholder="请输入用户名" required></div>
+        <div class="form-group"><span>密码：</span><input type="password" ng-model="loginUser.password" name="password" placeholder="请输入密码" required></div>
+        <input type="submit" value="登录" class="btn" >
+        <input type="button" value="注册" class="btn" ng-click="register()">
+    </div>
+</form>
+<form name="registerForm" ng-show="!login">
+    <div class="register">
+        <div class="title"><h1>账号注册</h1></div>
+        <!--手机号-->
+        <div class="form-group"><span>手机号：</span><input type="text" ng-model="user.phone" name="phone" placeholder="请输入手机号" required ng-pattern="/^1[34578]\d{9}$/"><span class="errorMsg"> * </span>
+            <div ng-show="registerForm.phone.$dirty && registerForm.phone.$invalid">
+                <span ng-show="registerForm.phone.$error.required" class="errorMsg">
+                    * 手机号不允许为空
+                 </span>
+                <span ng-show="registerForm.phone.$error.pattern" class="errorMsg">
+                    * 请输入正确的手机号
+                 </span>
+            </div>
+        </div>
+        <!--手机号 end-->
+        <!--用户名-->
+        <div class="form-group"><span>用户名：</span><input type="text" ng-model="user.username" name="username" placeholder="请输入用户名" required ng-minlength="3" ng-maxlength="10"><span class="errorMsg"> * </span>
+            <div ng-show="registerForm.username.$dirty && registerForm.username.$invalid">
+                <span ng-show="registerForm.username.$error.required" class="errorMsg">
+                    * 用户名不允许为空
+                 </span>
+                <span ng-show="registerForm.username.$error.minlength || registerForm.username.$error.maxlength" class="errorMsg">
+                    * 用户名长度为3-10字符
+                 </span>
+            </div>
+        </div>
+        <!--用户名 end-->
+        <!--密码-->
+        <div class="form-group"><span>密码：</span><input type="password" ng-model="user.password" name="password" placeholder="请输入密码" required ng-minlength="6" ng-maxlength="8"><span class="errorMsg"> * </span>
+            <div ng-show="registerForm.password.$dirty && registerForm.password.$invalid">
+                <span ng-show="registerForm.password.$error.required" class="errorMsg">
+                    * 登录密码不允许为空
+                 </span>
+                <span ng-show="registerForm.password.$error.minlength || registerForm.password.$error.maxlength" class="errorMsg">
+                    * 登录密码长度为6-8位
+                 </span>
+            </div>
+        </div>
+        <!--密码 end-->
+        <!--邮箱-->
+        <div class="form-group"><span>Email：</span><input type="email" ng-model="user.email" name="email" placeholder="请输入email" ng-pattern="/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/"><span class="errorMsg1"> * </span>
+            <div ng-show="registerForm.email.$dirty && registerForm.email.$invalid" class="errorMsg">
+                <span ng-show="registerForm.email.$invalid">
+                    * 用户email格式不正确
+                 </span>
+            </div>
+        </div>
+        <!--邮箱 end-->
+        <!--是否管理员-->
+        <div class="admin"><span>注册为管理员账号？</span><input type="radio" name="admin" ng-model="user.admin" value="1">是<input type="radio" name="admin" ng-model="user.admin" value="0">否</div>
+        <!--是否管理员 end-->
+        <input type="button" value="确认注册" class="btn" ng-disabled="registerForm.$invalid" ng-click="registerSave(user)" >
+        <input type="button" value="取消注册" class="btn" ng-click="register()">
+    </div>
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+@charset "UTF-8";
+@import "common-variable.scss";
+
+h1{}
+h2{font-size:22px;}
+h3{font-size: 20px;}
+h4{font-size: 18px;}
+h5{font-size: 16px;}
+h6{font-size: 14px;}
+
+p{font-size:12px;}
+  
+a{cursor: pointer;}
+
+.o_body{max-width:1200px;margin: auto;}
+
+.o_u{display: inline-block;text-rendering: auto;font-size: 12px; vertical-align: top;  font-size:12px}
+
+.c-spacing{
+    margin:0 5px;
+}
+
+.c-vertical-distance{
+   margin-top:5px;
+   margin-bottom: 5px;
+}
+
+
+
+

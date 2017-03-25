@@ -1,0 +1,96 @@
+@charset "UTF-8";
+.index-product-menu ul li:nth-child(odd) {
+  background: #ac8c4f; }
+
+.index-product-menu ul li:nth-child(even) {
+  background: #bca06b; }
+
+.index-product-menu ul li:hover {
+  background: #fff; }
+
+.index-product-menu ul li a {
+  line-height: 20px;
+  color: #fff; }
+
+.index-product-menu ul li:hover a {
+  color: #ac8c4f; }
+
+.index-product-menu ul li {
+  padding: 17px 14px; }
+
+.index-product-menu ul li:first-child {
+  padding: 0;
+  text-align: center; }
+
+.index-product-menu ul li:first-child h6 {
+  padding: 0;
+  line-height: 30px; }
+
+.index-product-menu ul li h6 {
+  margin: 0;
+  padding: 0 0 6px; }
+
+.banner {
+  width: 100%; }
+
+.banner img {
+  width: 100%; }
+
+.banner .btn_prev, .banner .btn_next {
+  width: 20px; }
+
+/*需要左右箭头自定义css*/
+.banner .pager {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center; }
+
+/*需要分页自定义css*/
+.banner .pager li {
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  margin: 6px;
+  background: white;
+  vertical-align: top; }
+
+.banner .pager li.cur {
+  background: yellow;
+  width: 12px;
+  height: 12px;
+  margin: 4px; }
+
+.index-activity-ad .o_u img {
+  width: 100%;
+  margin: 10px 0 15px; }
+
+.index-right-type {
+  height: 30px;
+  line-height: 30px; }
+
+.index-right-type .o_df_6-12 a {
+  padding: 0 11px;
+  display: inline-block;
+  color: #696969; }
+
+.index-right-type .o_df_6-12 a.active {
+  background: #80429f;
+  color: #fff; }
+
+.index-activity img {
+  width: 100%; }
+
+.index-activity-layout-up-down .c-spacing {
+  height: 50%;
+  position: relative; }
+
+.index-activity .index-activity-layout-up-down .o_g {
+  border: 1px solid #e5e5e5; }
+
+.index-activity-layout-up-down .c-spacing:last-child .o_g {
+  position: absolute;
+  bottom: 0; }
+
+.index-banner img {
+  width: 100%; }

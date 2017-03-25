@@ -1,0 +1,33 @@
+@charset "UTF-8";
+@import "common-variable.scss";
+
+.c-header{
+    height:62px;
+    line-height:62px;
+    border-bottom: 1px solid $c-border-color;
+}
+
+.c-header .header-logo{
+    margin-top: 20px;
+}
+
+.c-footer .o_g,
+.c-header .o_g{
+    max-width:1200px;
+    margin:auto;
+}
+
+.c-footer{
+    height:50px;
+    line-height: 50px;
+    border-top: 1px solid $c-border-color;
+}
+
+.c-footer *{
+    color:#9b9b9b;
+}
+
+.c-footer .footer-link a{
+    margin-right: 30px;
+}
+
