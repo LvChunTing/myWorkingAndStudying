@@ -32,7 +32,8 @@
 		<input type="number" name="age" id="age" placeholder="请输入年龄" />
 		<input type="button" name="stop" id="stop" value="停止计时" />
 		<input type="button" name="start" id="start" value="继续计时" />
-		<!--<input type="" name="" id="" value="" oninput="myFunction()"/>可以直接这么简写-->
+		<input type="" name="" id="" value="" oninput="myFunction()"/>
+		<!--可以直接这么简写-->
 		<div class="demo">
 			<span>名字：</span><span class="re re_name">未写入..</span>
 			<span>性别：</span><span class="re re_sex">未写入..</span>
@@ -117,7 +118,10 @@
 					Start.removeAttribute("disabled");
 				}
 			}
-			flag()
+            flag();
+			function myFunction() {
+                alert("触发！");
+            }
 		</script>
 	</body>
 

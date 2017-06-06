@@ -34,8 +34,11 @@
 		<script type="text/javascript">
 			//			1、编写一个函数，去除重复的数字，输出去重之后的数组
 			//			2、将输出的数组按照从小到大的顺序排序
-			var arr = [1, 2, 65, 34, 12, 2, 53, 1, 34, 52, 65, 23,1,1,1];
-			function quchong() {
+			var List = [1, 2, 65, 34, 12, 2, 53, 1, 34, 52, 65, 23,1,1,1];
+			console.log(List)
+            quchong(List);
+
+            function quchong(arr) {
 				for(i = 0; i < arr.length; i++) {
 					for(j = i + 1; j < arr.length; j++) {
 						if(arr[i] == arr[j]) {
@@ -44,17 +47,17 @@
 						}
 					}
 				}
+                return arr;
 			};
 		
-			quchong(arr);
-			console.log(arr);
-			arr.sort(function(a,b){
+			console.log(List);
+            List.sort(function(a,b){
 				if(a>b){
 					return true;
 				}
 				return false;
 			});
-			console.log(arr);
+			console.log(List);
 		</script>
 	</body>
 
