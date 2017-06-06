@@ -9,7 +9,7 @@
 				margin-top: 50px;
 				height: 30px;
 			}
-			
+
 			.demo span {
 				font-size: 14px;
 				display: inline-block;
@@ -27,6 +27,7 @@
 	</head>
 
 	<body>
+	<!--输入区域-->
 		test:<input type="text" name="name" id="name" placeholder="请输入名字" />
 		password:<input type="password" name="sex" id="sex" placeholder="请输入性别" />
 		number:<input type="number" name="age" id="age" placeholder="请输入年龄" />
@@ -37,16 +38,18 @@
 		<input type="button" name="stop" id="stop" value="停止计时" />
 		<input type="button" name="start" id="start" value="继续计时" />
 		<!--可以直接这么简写-->
+	<!--输入区域 END-->
+	<!--展示区域-->
 		<div class="demo">
 			<span>名字：</span><span class="re re_name">未写入..</span>
 			<span>性别：</span><span class="re re_sex">未写入..</span>
 			<span>年龄：</span><span class="re re_age">未写入..</span>
-
 			<span>现在时间：</span><span class="re re_time"></span>
 		</div>
 		<button class="showPic">兼容性</button>
 		<br>
 		<img src="pic1.png" alt="" class="img" style="display: none;">
+	<!--展示区域 end-->
 
 	</body>
 	<script  src="jquery-1.8.3.js"></script>
