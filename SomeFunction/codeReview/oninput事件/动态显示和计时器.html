@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.demo {
+				margin-top: 50px;
+				height: 30px;
+			}
+			
+			.demo span {
+				font-size: 14px;
+				display: inline-block;
+				width: 87px;
+				height: 20px;
+				line-height: 20px;
+				text-align: center;
+			}
+			
+			.re {
+				background-color: green;
+				color: #fff;
+			}
+		</style>
+	</head>
+
+	<body>
+		<input type="text" name="name" id="name" placeholder="请输入名字" />
+		<input type="password" name="sex" id="sex" placeholder="请输入性别" />
+		<input type="number" name="age" id="age" placeholder="请输入年龄" />
+		<input type="button" name="stop" id="stop" value="停止计时" />
+		<input type="button" name="start" id="start" value="继续计时" />
+		<input type="text" name="" id="one" value="" oninput="myFunction()"/>
+		<br>
+		<textarea style="margin-top: 5px" type="" name="" id="two" value="" oninput="myFunction()"></textarea>
+		<input type="search" id="jquerydemo" oninput="myFunction()"/>
+		<!--可以直接这么简写-->
+		<div class="demo">
+			<span>名字：</span><span class="re re_name">未写入..</span>
+			<span>性别：</span><span class="re re_sex">未写入..</span>
+			<span>年龄：</span><span class="re re_age">未写入..</span>
+			<span>现在时间：</span><span class="re re_time"></span>
+		</div>
+		<button class="showPic">兼容性</button>
+		<br>
+		<img src="pic1.png" alt="" class="img" style="display: none;">
+		<script  src="jquery-1.8.3.js"></script>
+		<script  type="text/javascript">
+			var Name = document.getElementById("name");
+			var Rname = document.getElementsByClassName("re_name")[0];
+			var Sex = document.getElementById("sex");
+			var Rsex = document.getElementsByClassName("re_sex")[0];
+			var Age = document.getElementById("age");
+			var Rage = document.getElementsByClassName("re_age")[0];
+			var Timer = document.getElementsByClassName("re_time")[0];
+			var Stop = document.getElementById("stop");
+			var Start = document.getElementById("start");
+			var S = 0;
+			var M = 0;
+			var H = 0;
+			var Boolean = false;
+			//底下三个span标签的内容动态修改  必须是JS 才能出发
+            $("#name")[0].oninput = function () {
+                if (this.value) {
+                    Rname.innerText = Name.value;
+                } else {
+                    Rname.innerText = "未写入..";
+                }
+            };
+            Sex.oninput = function () {
+                if (this.value) {
+                    Rsex.innerText = Sex.value;
+                } else {
+                    Rsex.innerText = "未写入..";
+                }
+            };
+            Age.oninput = function () {
+                if (this.value) {
+                    Rage.innerText = Age.value;
+                } else {
+                    Rage.innerText = "未写入..";
+                }
+
+            };
+            function myFunction() {
+                alert("触发！");
+            }
+
+				//生成时间
+			function Ntime() {
+				S++;
+				if(S == 60) {
+					M++;
+					S = 0;
+				}
+				if(M == 60) {
+					H++;
+					M = 0;
+				}
+				Timer.innerText = H + ":" + M + ":" + S;
+			}
+			Ntime();
+			//计时事件
+			var autoTime = setInterval(function() {
+				Ntime();
+			}, 1000)
+			Stop.onclick = function() {
+				clearInterval(autoTime);
+				Boolean = true;
+				flag();
+			}
+			Start.onclick = function() {
+					autoTime = setInterval(function() {
+						Ntime();
+					}, 1000)
+					Boolean = false;
+					flag();
+				}
+				//继续计时不能一直可点击
+			function flag() {
+				if(!Boolean) {
+					Start.setAttribute("disabled", "disabled");
+				} else {
+					Start.removeAttribute("disabled");
+				}
+			}
+            flag();
+			$(".showPic").toggle(function () {
+                $(".img").show();
+            },function () {
+                $(".img").hide();
+            })
+		</script>
+	</body>
+
+</html>
