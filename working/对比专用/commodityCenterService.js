@@ -17,14 +17,8 @@ jQuery.ajaxSetup({
                  * ids未登录错误转为用户未登录
                  */
                 if (this.url.indexOf('showSku') < 0 && this.url.indexOf('getSeckillSuccess') < 0 && this.url.indexOf('payOrder') < 0) {
-                    // data.resultMsg = data.resultMsg.replace("ids", "用户");
-                    // alert(data.resultMsg); //增加各个服务统一的提示
-                    if (data.resultMsg.indexOf('登录')>=0) {
-                        alert('测试环境，无登录权限；或登录超时，请重新登录后再操作。');
-                        window.location.href="https://testuser.haier.com/ids/cn/haier_login.jsp";
-                    }else{
-                        alert(data.resultMsg);
-                    }
+                    data.resultMsg = data.resultMsg.replace("ids", "用户");
+                    alert(data.resultMsg); //增加各个服务统一的提示
                 }
 
                 /**
@@ -34,12 +28,6 @@ jQuery.ajaxSetup({
                     if (this.success_cb) {
                         this.success_cb(data);
                     }
-                }
-            }
-        } else {
-            if (data === true) {
-                if (this.success_cb) {
-                    this.success_cb(data);
                 }
             }
         }
@@ -308,7 +296,6 @@ var sku = {
                  */
                 if (data.data.skuStockMgr == 2 || data.data.skuStockMgr == 4) {
                     $(".js_s_isShowSend").show();
-                    $('.js_s_isShowStock').remove();
                 } else {
                     $(".js_s_isShowSend").hide();
                 }
@@ -513,7 +500,8 @@ var sku = {
                     /**
                      * 选择某一规格 校验包涵该规格的所有sku是否有库存
                      */
-                    if (data.data.skuStockMgr == 2 || data.data.skuStockMgr == 4) {} else {
+                    if (data.data.skuStockMgr == 2 || data.data.skuStockMgr == 4) {
+                    } else {
                         for (var i = 0; i < skuInfo.length; i++) {
                             if (skuInfo[i].value.indexOf(selectedSkuValue) >= 0) {
                                 if (skuInfo[i].stock == 0) {
@@ -559,23 +547,19 @@ var sku = {
                                 } else {
                                     $('#js-pcScorePrice').html(skuInfo[i].pcScorePrice); //无活动价格
 
-                                    if ($('#js-preSaveOrder').attr('payType')!=3) {
-                                        if (saveSku.strategy == 1) {
-                                            $('.js_changeBox').addClass('x-none').eq(0).removeClass('x-none');
-                                        } else {
-                                            $('.js_changeBox').addClass('x-none').eq(2).removeClass('x-none');
+                                    if (saveSku.strategy == 1) {
+                                        $('.js_changeBox').addClass('x-none').eq(0).removeClass('x-none');
+                                    } else {
+                                        $('.js_changeBox').addClass('x-none').eq(2).removeClass('x-none');
 
-                                            $('.js_s_cash').html(saveSku.pcSalePrice);
-                                            $('.js_s_haiBei').html(saveSku.pcScorePrice);
-                                        }
+                                        $('.js_s_cash').html(saveSku.pcSalePrice);
+                                        $('.js_s_haiBei').html(saveSku.pcScorePrice);
                                     }
                                 }
                             }
                         }
 
-                        if ($('#js-preSaveOrder').attr('payType')!=3) {
-                            $(".js_s_payType").attr("payType", saveSku.strategy); //支付方式
-                        }
+                        $(".js_s_payType").attr("payType", saveSku.strategy); //支付方式
 
                         /**
                          * 秒杀活动查看活动库存、其他查询普通库存
@@ -698,19 +682,19 @@ var sku = {
                              * 判断买家是否已选择商品规格，若未选择，弹框提示
                              */
 
-                            if ($("#js-propertys .x-proDelparaLi").length != $("#js-propertys .x-paralistlive").length) {
-                                alert('请选择商品规格');
-                            } else {
-                                if ($(".js_s_beginSecKill").text() == "开始秒杀") {
-                                    $(".js_s_checkCode input").val("");
-                                    $(".js_s_checkCode").show();
-                                }
+                        if ($("#js-propertys .x-proDelparaLi").length != $("#js-propertys .x-paralistlive").length) {
+                            alert('请选择商品规格');
+                        } else {
+                            if ($(".js_s_beginSecKill").text() == "开始秒杀") {
+                                $(".js_s_checkCode input").val("");
+                                $(".js_s_checkCode").show();
                             }
+                        }
 
-                            if ($('.js_s_areaStore').html()=='无库存') {
-                                alert("库存不足");
-                                return false;
-                            }
+                        if ($('.js_s_areaStore').html()=='无库存') {
+                            alert("库存不足");
+                            return false;
+                        }
 
                             if ($("#js-preSaveOrder").attr('skuId')) {
                                 if (!istrsidssdssotoken()) {

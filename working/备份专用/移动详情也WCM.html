@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi,width=750,user-scalable=0">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <title><TRS_VIEWDATA FIELD="productName"/>|<TRS_CHANNEL ID="OWNER" AUTOLINK="false"/>|海尔海贝商城</title>
+    <link href="reset.css" type="text/css" rel="stylesheet" OLDSRC="reset.css" OLDID="431" RELATED="1">
+    <link href="obox.css" type="text/css" rel="stylesheet" OLDSRC="obox.css" OLDID="300" RELATED="1">
+    <link href="swiper.min.css" type="text/css" rel="stylesheet" OLDSRC="swiper.min.css" OLDID="432" RELATED="1">
+    <link href="discount.css" type="text/css" rel="stylesheet" OLDSRC="discount.css" OLDID="505" RELATED="1">
+    <script src="jquery-1.8.3.min.js" type="text/javascript" OLDSRC="jquery-1.8.3.min.js" OLDID="298" RELATED="1"></script>
+    <!--<script type="text/javascript" src="obox.js" OLDSRC="obox.js" OLDID="301" RELATED="1"></script>-->
+    <script type="text/javascript" src="swiper.min.js" OLDSRC="swiper.min.js" OLDID="433" RELATED="1"></script>
+    <script type="text/javascript" src="s_mobile.js" OLDSRC="s_mobile.js" OLDID="501" RELATED="1"></script>
+    <script src="jfcollection.js" OLDSRC="jfcollection.js" OLDID="596" RELATED="1"></script>
+    <style type="text/css">
+        /*轮播图*/
+        .swiper-pagination-switch {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 12px;
+            background: #00a2ff;
+            /*box-shadow: 0px 1px 2px #555 inset;*/
+            margin-right: 23px;
+            cursor: pointer;
+        }
+
+        .swiper-active-switch {
+            background: #cecece;
+        }
+
+        .swiper-pagination {
+            position: absolute;
+            bottom: 10px;
+            left: 220px;
+        }
+
+        /*轮播图 end*/
+    </style>
+</head>
+<body>
+<!-- <TRS_ViewData Field="VersionNum"/> -->
+<div class="o_g s_proDet">
+    <!--顶部小导航-->
+    <div class="o_g s_headerBox">
+        <a href="javascript:history.back()"><img class="s_back" src="discount_01.png" OLDSRC="discount_01.png" OLDID="443" RELATED="1" /></a>
+        <h1 class="s_header">商品详情</h1>
+        <a href="javascript:;"  style='display:none;'><img class="s_next" src="discount_02.png" OLDSRC="discount_02.png" OLDID="444" RELATED="1" /></a>
+    </div>
+    <!--顶部小导航 end-->
+    <div class="s_proDetCon">
+        <!--轮播图-->
+        <div class="s_carouselBox ">
+            <div class="o_g s_carousel swiper-container">
+                <div class="o_g  swiper-wrapper " style="index:1;">
+                    <TRS_VIEWDATAAPPENDIXS FIELD="picAppendixes" >
+                        <div class="swiper-slide"><img src="<TRS_VIEWDATAAPPENDIX FIELD='_RECURL' UrlIsAbs='TRUE' InWidth="500"/>"height="500px" width="500px" /></div>
+                    </TRS_VIEWDATAAPPENDIXS>
+                </div>
+                <!-- 在图片下方增加小点 -->
+                <div class="swiper-pagination"></div>
+            </div>
+            <h1 class="s_title">商品名称：</h1>
+            <h2 class="s_introduce">
+                <span><TRS_VIEWDATA FIELD="productName"/></span></h2>
+
+            <input id="<TRS_VIEWDATA FIELD='MetaDataId' />" type="hidden" />
+            <input class="js_s_guid" value="<TRS_VIEWDATA FIELD='GUID' />" type="hidden" />
+            <input class="js_s_isHomeEle" value="<TRS_VIEWDATA FIELD='skuStockMgr' />" type="hidden" />
+
+        </div>
+        <!--轮播图 end-->
+        <!--海贝数、库存量、兑换数量等-->
+        <div class="s_exchange">
+
+            <!--兑换方式 海贝支付-->
+            <div class="s_none">
+                <h1 class="s_excMet">兑换方式：<span>海贝支付</span></h1>
+            </div>
+            <!--兑换方式 海贝支付 end-->
+
+            <!--配送至-->
+            <div class="s_sentToBox js_s_isShowSend">
+                <p class="s_sentTo"><span>配送至：</span></p>
+                <div class="pro-address js_cityLinkage">
+                    <select id="province" class="address js_getProvince">
+
+                    </select>
+                    <span>省</span>
+                    <select id="city" class="address js_getCity">
+
+                    </select>
+                    <span>市</span>
+                    <select id="area" class="address js_getCityArea js_s_getAreaCode">
+
+                    </select>
+                    <span>区</span>
+                </div>
+            </div>
+            <!--配送至 end-->
+            <!--兑换数量-->
+            <!--<div>-->
+            <!--<div class="s_limitBuy">-->
+            <!--&lt;!&ndash;每单和用户都限购时&ndash;&gt;-->
+            <!--&lt;!&ndash;<h1>本商品限购：</h1>-->
+            <!--<h2>每单限购<span>1</span>件<br>用户限购<span>1</span>件</h2>&ndash;&gt;-->
+            <!--&lt;!&ndash;每单和用户都限购时 end&ndash;&gt;-->
+            <!--&lt;!&ndash;只有用户限购时&ndash;&gt;-->
+            <!--<h3>本商品限购：</h3>-->
+            <!--<h4>用户限购<span>1</span>件</h4>-->
+            <!--&lt;!&ndash;只有用户限购时 end&ndash;&gt;-->
+            <!--</div>-->
+            <!--<p class="s_excNum w-excNum">兑换数量：-->
+            <!--<span class="pro-exchange-number"-->
+            <!--style="border: 1px solid #bbb; height:40px;border-radius: 6px; color: #5a5a5a;">-->
+            <!--<button style="float:left;" class="btn-2 btn-6 js_s_changeNumDel"> - </button>-->
+            <!--<span class="exchange-number-sm" id="js-buyNum">1</span>-->
+            <!--<button class="btn-2 btn-6 js_s_changeNumAdd"  style="vertical-align: top"> + </button>-->
+            <!--</span>-->
+            <!--</p>-->
+            <!--</div>-->
+            <!--兑换数量-->
+            <!--请选择颜色分类-->
+            <div>
+                <a href="javascript:;" class="s_selCol js_s_selCol">请选择商品规格：<img src="s_proDet_03.png" OLDSRC="s_proDet_03.png" OLDID="461" RELATED="1" /></a>
+            </div>
+            <!--请选择颜色分类 end-->
+            <!--收藏、联系客服-->
+            <div class="o_g" style="position: relative">
+                <!--您已经收藏 弹框-->
+                <div class="s_colBox js_s_colBox">
+                    <div class="s_conTit">您已经收藏！</div>
+                    <a href="javascript:;" class="s_btnCon">确定</a>
+                    <a href="javascript:;" class="s_colClo"></a>
+                </div>
+                <!--您已经收藏 弹框 end-->
+                <!--收藏、联系客服 未登录-->
+                <div class="js_s_unlogin">
+                    <a href="javascript:addCollection(<TRS_VIEWDATA FIELD='MetaDataId'/>,'<TRS_VIEWDATA FIELD='picAppendixes'/>')" class="o_u o_df_1-2 s_collect js_s_collect">
+                        <span class="s_unLogCol"></span>收藏
+                    </a>
+                    <a href="javascript:;" class="o_u o_df_1-2 s_contact js_s_contant lxkf">
+                        <span class="s_unLogCon"></span>联系客服
+                    </a>
+                </div>
+                <!--收藏、联系客服 未登录 end-->
+                <!--收藏、联系客服 已登录-->
+                <div class="js_s_login s_none">
+                    <a href="javascript:addCollection(<TRS_VIEWDATA FIELD='MetaDataId'/>,'<TRS_VIEWDATA FIELD='picAppendixes'/>')" class="o_u o_df_1-2 s_collect js_s_collect">
+                        <span class="s_unCol"></span>收藏
+                    </a>
+                    <a href="javascript:;" class="o_u o_df_1-2 s_contact js_s_contant lxkf">
+                        <span class="s_logCon"></span>联系客服
+                    </a>
+                </div>
+                <!--收藏、联系客服 已登录 end-->
+            </div>
+            <!--收藏、联系客服 end-->
+            <!--图文详情-->
+            <div>
+                <p class="s_imgText js_s_imgText">图文详情：<span>建议在WiFi下浏览详情</span><span class="s_down"></span></p>
+
+                <div class="s_proImgBox js_s_proImgBox"></div>
+            </div>
+            <!--图文详情 end-->
+        </div>
+        <!--海贝数、库存量、兑换数量等 end-->
+        <!--灰色间隔-->
+        <div class="s_noCon"></div>
+        <!--灰色间隔 end-->
+        <!--猜您喜欢-->
+        <div class="s_gueLik">
+            <h1>猜您喜欢：</h1>
+            <div>
+                <!--商品盒子-->
+                <TRS_RelNews ID="relatedProduct" NUM='3'>
+                    <a href="<TRS_VIEWDATA FIELD='_RECURL'> <TRS_MIRRORURL  URL="${@_RECURL}" /> </TRS_VIEWDATA>" class="s_proBox">
+                    <div><img class="s_gueLikImg" src="<TRS_VIEWDATA FIELD='picAppendixes'/>" />" /></div>
+                    <h2><span>WMF</span><TRS_VIEWDATA FIELD="productName" /></h2>
+                    <p>
+                        <span><TRS_VIEWDATA FIELD="skuMbScorePrice"/></span>海贝
+                        <TRS_VIEWDATA FIELD='skuMbSalePrice'>
+                            <TRS_CONDITION REFERENCE='0' CONDITION='@skuMbSalePrice' OPERATOR='>'>
+                                &nbsp+&nbsp <span><TRS_VIEWDATA FIELD="skuMbSalePrice"/></span>元</TRS_CONDITION>
+                            <TRS_CONDITION REFERENCE='0' CONDITION='@skuMbSalePrice' OPERATOR='>' NOT='TRUE'>
+
+                            </TRS_CONDITION>
+                        </TRS_VIEWDATA>
+                    </p>
+                    </a>
+                    <!--商品盒子 end-->
+                </TRS_RelNews>
+            </div>
+        </div>
+        <!--猜您喜欢 end-->
+    </div>
+    <!--登录才能收藏呦 弹框-->
+    <div class="s_logInAlert js_s_logInCol">
+        <div class="s_confirmCol">
+            <div class="s_confirmTitle">登录才能收藏呦！</div>
+            <div class="s_confirmCon">
+                <a href="" class="s_logIn js_s_logIn">登录</a>
+                <a href="javascript:;" class="s_close js_s_close">取消</a>
+            </div>
+        </div>
+    </div>
+    <!--登录才能收藏呦 弹框 end-->
+
+    <!--立即兑换 弹框-->
+    <div class="s_excNow">
+        <div class="s_excCho">
+            <img src="s_proDet_01.png" OLDSRC="s_proDet_01.png" OLDID="459" RELATED="1" />
+            <span class="s_excClo js_s_excClo"></span>
+            <div class="s_excText">
+                <div class="s_price js_s_price1 box1"><i>海贝：</i><span><TRS_VIEWDATA FIELD="skuMbScorePrice"/></span>海贝</div>
+                <div class="s_price js_s_price1 box2 s_none"><i>海贝+现金：</i><span
+                        class="js_s_mbHaiBei">89300</span>海贝+<span class="js_s_mbCash">89300</span>元
+                </div>
+                <div class="s_price js_s_price1 box3 s_none"><i>卡兑换</i></div>
+
+                <p>库存量：<span><TRS_VIEWDATA FIELD="skuTotalStock"/></span>件</p>
+            </div>
+        </div>
+        <div style="padding: 0 20px">
+            <div>兑换数量
+                <span>
+                    <button class="btn-2 btn-5 js_s_changeNumDel">-</button>
+                    <span class="exchange-number" id="number1">1</span>
+                    <button class="btn-2 btn-5 js_s_changeNumAdd">+</button>
+                </span>
+            </div>
+        </div>
+        <div class="s_conExc">
+            <a href="javascript:;" class="s_conBtn js_s_conBtn">确认</a>
+        </div>
+    </div>
+    <!--立即兑换 弹框 end-->
+    <!--登录才能兑换呦 弹框-->
+    <div class="s_logInAlert js_s_logInExc">
+        <div class="s_confirmCol">
+            <div class="s_confirmTitle">登录才能兑换呦！</div>
+            <div class="s_confirmCon">
+                <a href="http://user.haier.com/ids/mobile/login.jsp?regFrom=haierhaibeiWeb&returnUrl="+window.location.href class="s_logIn js_s_logInExc">登录</a>
+                <a href="javascript:;" class="s_close js_s_close">取消</a>
+            </div>
+        </div>
+    </div>
+    <!--登录才能兑换呦 弹框-->
+    <!--请选择颜色分类 弹框-->
+    <div class="s_conSel js_s_conSel">
+        <div class="s_choice">
+            <div class="s_imgBox">
+                <img src="<TRS_VIEWDATA FIELD='picAppendixes'/>" />
+            </div>
+            <span class="s_close js_s_close"></span>
+            <div class="s_choText">
+                <p>海贝：<span class="s_selNum" id="js-pcScorePrice"><TRS_VIEWDATA FIELD="skuMbScorePrice"/></span></p>
+                <p id="js-p-mbCash" class="s_none">现金：<span class="s_selNum" id="js-mbSalePrice"><TRS_VIEWDATA FIELD="skuMbSalePrice"/></span>元</p>
+                <p class="js_s_isShowStock">库存量：<span id="js-stock">138</span>件</p>
+                <p class="js_s_isShowSend">库存量：<span class="js_s_areaStore">请选择配送区域</span></p>
+                <!--<p id="color-alert">请选择&nbsp;颜色分类&nbsp;尺寸</p>-->
+            </div>
+        </div>
+        <div class="s_color" id="color-type">
+            <div id="js-propertys"></div>
+            <!--兑换数量-->
+            <div>
+                <!--<div class="s_limitBuy">-->
+                <!--&lt;!&ndash;每单和用户都限购时&ndash;&gt;-->
+                <!--&lt;!&ndash;<h1>本商品限购：</h1>&ndash;&gt;-->
+                <!--&lt;!&ndash;<h2>每单限购<span>1</span>件<br>用户限购<span>1</span>件</h2>&ndash;&gt;-->
+                <!--&lt;!&ndash;每单和用户都限购时 end&ndash;&gt;-->
+                <!--&lt;!&ndash;只有用户限购时&ndash;&gt;-->
+                <!--<h3>本商品限购：</h3>-->
+                <!--<h4>用户限购<span>1</span>件</h4>-->
+                <!--&lt;!&ndash;只有用户限购时 end&ndash;&gt;-->
+                <!--</div>-->
+                <p class="s_excNum w-excNum">兑换数量：
+                    <span class="pro-exchange-number" style="border: 1px solid #bbb; height:40px;border-radius: 6px; color: #5a5a5a;">
+					<button style="float:left;" class="btn-2 btn-6 js_s_changeNumDel"> -</button>
+					<span class="exchange-number-sm" id="js-buyNum">1</span>
+					<button class="btn-2 btn-6 js_s_changeNumAdd" style="vertical-align: top"> +</button>
+					</span>
+                    <!--<a href="javascript:;" class="js_s_excNow js_s_payType" payType="1"><img src="s_proDet_02.png" OLDSRC="s_proDet_02.png" OLDID="460" RELATED="1" /><i>立即兑换</i></a>-->
+                </p>
+            </div>
+            <!--兑换数量-->
+        </div>
+        <a href="javascript:;" class="x_botBtn js_s_conSelBtn js_s_beginSecKill" id="js-preSaveOrder" payType="1">立即兑换</a>
+    </div>
+    <!--请选择颜色分类 弹框 end-->
+</div>
+<!--验证码弹层-->
+<div class="s_mask1 s_none js_s_checkCode">
+    <div class="s_conDel1">
+        <div class="s_conDelTit1"><span class="s_close2 js_s_close">x</span></div>
+        <div class="s_conDelCon">
+            <input type="text" id="js-captcha" placeholder="验证码" class="s_checkCode1" />
+            <a href="javascript:;" class="s_conCheck1 js_s_confirm" id="js-seckill">确定</a>
+        </div>
+    </div>
+</div>
+<!--验证码弹层 end-->
+<!--公用提示弹层-->
+<div class="s_tipPop js_s_tipPop">
+    <div class="s_mask"></div>
+    <div class="s_tipBox">
+        <p class="s_closeTipTit"><span class="s_tipTit">我是标题</span><span class="s_closeTip">x</span></p>
+        <p class="s_tipContent">看得到我吗？</p>
+        <div class="s_button">
+            <a href="javascript:;" class="s_confirm">确定</a>
+            <a href="javascript:;" class="s_cancel">取消</a>
+        </div>
+    </div>
+</div>
+<!--公用提示弹层 end-->
+<!--跳转倒计时-->
+<div class="s_countTimeBox js_s_countTimeBox">
+    <p class="s_countContent js_s_countContent">
+        <span class="s_countTime js_s_time">5s</span><span class="js_s_operate">后跳转至登录页面。</span><a href="" class="s_jumpNow js_s_jump">立即跳转</a>
+    </p>
+</div>
+<!--跳转倒计时 end-->
+<div class="tc2">
+    <div class="kf_top">
+        <p style="font-size: 34px; color: #4c4c4c; height: 60px; padding-left: 48px; line-height: 40px; overflow: hidden;">工作时间</p>
+        <p class="tc_cg">早8:30 - 晚24:00</p>
+    </div>
+    <div class="tc_button">
+        <ul>
+            <li><span onclick="javascript:NTKF.im_openInPageChat();" title="在线客服"><a href="javascript:void(0)">在线客服</a></span></li>
+            <li><a href="javascript:void(0)" class="lxkf_close">取消</a></li>
+        </ul>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    // var devUrl = "http://eshop.haier.com", //基础url-测试
+    var devUrl = "http://jf.haier.com"; //基础url-生产
+    // formSureUrl = "http://eshop.haier.com/jfm/personal_profile/index.shtml";//确认订单-测试
+    formSureUrl = "http://jf.haier.com/m/personal_profile/index.shtml"; //确认订单-生产
+    //formSureUrl = "./page/formSure.shtml"; //确认订单-本地测试
+
+    var productId = "<TRS_VIEWDATA FIELD='MetaDataId' />";//商品id
+    //var productId = 1852; //商品id-测试用
+
+    $(".js_s_isShowSend").hide();
+</script>
+<script type="text/javascript" src="happyMailBase.js" OLDSRC="happyMailBase.js" OLDID="496" RELATED="1"></script>
+<script type="text/javascript" src="commodityCenterService.js" OLDSRC="commodityCenterService.js" OLDID="494" RELATED="1"></script>
+<script type="text/javascript" src="orderCenterService.js" OLDSRC="orderCenterService.js" OLDID="500" RELATED="1"></script>
+<script type="text/javascript" src="bmadress.js" OLDSRC="bmadress.js" OLDID="595" RELATED="1"></script>
+<script type="text/javascript" src="productDetail.js" OLDSRC="productDetail.js" OLDID="600" RELATED="1"></script>
+
+
+<style type="text/css">
+    .tc_zz {
+        width: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 999;
+    }
+
+    .tc,
+    .tc2 {
+        width: 94%;
+        background-color: #f7f7f7;
+        position: absolute;
+        z-index: 9999;
+        left: 50%;
+        margin-left: -47%;
+        margin-top: -70px;
+        display: none;
+    }
+
+    .kf_top {
+        text-align: left;
+        padding: 40px 0;
+        line-height: 20px;
+        width: 65%;
+        margin: 0 auto;
+    }
+
+    .tc_button {
+        border-top: 1px #cacaca solid;
+        height: 60px;
+        background-color: #ebebeb;
+    }
+
+    .tc_button ul {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        width: 100%;
+    }
+
+    .tc_button ul li {
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        flex: 1;
+        text-align: center;
+        border-right: 1px solid #cacaca;
+    }
+
+    .tc_button ul li a {
+        text-align: center;
+        height: 60px;
+        line-height: 60px;
+        color: #4c4c4c;
+        font-size: 26px;
+        display: block;
+        text-align: center;
+    }
+
+    .kf_top p.tc_cg {
+        color: #acacac;
+        font-size: 30px;
+        padding-left: 45px;
+    }
+</style>
+<script type="text/javascript">
+    var memberid_kf = "";
+    var memberName_kf = "";
+    if ($.cookie('jfmember') != null) {
+        var data = eval('(' + $.cookie('jfmember').toString() + ')');
+        memberid_kf = data.memberid;
+        memberName_kf = $.cookie('haieruser').toString();
+    }
+    //ntalk
+    NTKF_PARAM = {
+        siteid: "kf_1002", //企业ID，必填，取值参见文档开始表
+        settingid: "kf_1002_1455779363125", //缺省客服配置ID，必填，取值参见文档开始表
+        uid: memberid_kf, //用户ID,未登录可以为空
+        uname: memberName_kf, //用户名，未登录可以为空
+        isvip: "0|1", //是否为vip用户
+        userlevel: "钻石会员" //网站自定义会员级别
+    };
+
+    //联系客服打开
+    $(".lxkf").click(function() {
+        console.log($('#load_mask').length);
+        if ($('#load_mask').length) {} else {
+            console.log('sss')
+            var h = $(document.body).height() + "px";
+            $("<div id='load_mask' class='tc_zz' style='height:" + h + "' />").appendTo("body");
+        }
+        $("#load_mask").show();
+        var t = $(window).scrollTop(),
+            h = $(window).height(),
+            iTop = 0;
+        iTop = ((h - $(".tc2").height()) / 2 + t) + "px";
+        $(".tc2").css("top", iTop).show();
+
+    });
+    //联系客服关闭
+    $(".lxkf_close").click(function() {
+        $(".tc2").hide();
+        $("#load_mask").hide();
+    });
+</script>
+<script type="text/javascript" src="http://download.ntalker.haier.net/js/xn6/ntkfstat.js?siteid=kf_9949" charset="utf-8"></script>
+<script type="text/javascript">
+    var devUrl = "http://jf.haier.com";
+    if (!istrsidssdssotoken()) {
+        $(".js_s_unlogin").show();
+        $(".js_s_login").hide();
+// window.location.href="http://user.haier.com/ids/mobile/login.jsp?regFrom=haierhaibeiWeb&returnUrl="+window.location.href;
+    }else {
+        $(".js_s_login").show();
+        $(".js_s_unlogin").hide();
+    }
+
+
+    //未登录时，点击立即兑换，倒计时跳转到登录界面
+    /* $('#js-preSaveOrder').on('click', function (){
+     if (!istrsidssdssotoken()) {
+     showJumpCount.creatJumpCount().setCount(5).setUrl("http://user.haier.com/ids/mobile/login.jsp?regFrom=haierhaibeiWeb&returnUrl=" + thisUrl).setOperate("后跳转到登录页面。").show();
+     }
+     });*/
+
+
+
+    /**
+     * 加载当前sku信息（买家）
+     * 传入productId
+     */
+    sku.show(productId);
+    //判断商品是否支持卡兑换
+    sku.isExchange(productId);
+
+
+
+    /**
+     * 延迟加载图文详情
+     */
+    $('.js_s_imgText').click(function () {
+        $('.s_down').toggleClass('s_up');
+        if ($(".js_s_proImgBox").html() == ""){
+
+            var proHTML = '<TRS_VIEWDATA FIELD="newProductContent" AUTOFORMAT="true" AUTOFORMATTYPE="JAVASCRIPT" />';
+            $(".js_s_proImgBox").html(proHTML);
+
+        }else{
+            $(".js_s_proImgBox").toggleClass('s_proImgBox_none');
+        }
+
+    });
+
+
+    //    修改立即兑换和收藏弹框的登录链接
+    var thisUrl = window.location.href;
+    $(".js_s_logIn").attr("href", "http://user.haier.com/ids/mobile/login.jsp?regFrom=haierhaibeiWeb&returnUrl=" + thisUrl);
+    $(".js_s_logInExc").attr("href", "http://user.haier.com/ids/mobile/login.jsp?regFrom=haierhaibeiWeb&returnUrl=" + thisUrl);
+    $('.js_s_conSel .js_s_conSelBtn').click(function() {
+        if (!istrsidssdssotoken()) {
+            showJumpCount.creatJumpCount().setCount(5).setUrl("http://user.haier.com/ids/mobile/login.jsp?regFrom=haierhaibeiWeb&returnUrl=" + thisUrl).setOperate("后跳转到登录页面。").show();
+        } else if ($("#js-propertys .x-proDelparaLi").length != $("#js-propertys .color-selected").length) {
+            alert("请确认是否选择商品规格");
+        }
+    });
+
+    //点击收藏 弹出 登录才能收藏呦或者收藏成功
+    $(".js_s_collect").click(function () {
+        if (!istrsidssdssotoken()) {
+            $('.js_s_logInCol').show();
+            $(".js_s_colBox").hide();
+        }else {
+            $('.js_s_logInCol').hide();
+            $(".js_s_colBox").show();
+            $(".js_s_collect span").removeClass("s_unCol");
+            $(".js_s_collect span").addClass("s_col");
+        }
+
+
+    });
+</script>
+
+<!--#include file="/m/public/Mpublic_footer/public_footer.shtml"-->
+<TRS_PAGEGENERATE TempName="M商品详情快照" Ext="v${@DocVersion}" OnlyPublish ="true"/>
+
+</html>

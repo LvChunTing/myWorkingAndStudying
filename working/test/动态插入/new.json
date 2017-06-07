@@ -1,0 +1,16 @@
+{
+  "data": [
+    {
+      "crTime": 1467169841000,
+      "crUserId": 1,
+      "id": 1,
+      "level": 1,
+      "name": "新加",
+      "sort": 100,
+      "upTime": 1467169841000,
+      "upUserId": 1
+    }
+  ],
+  "isSuccess": true,
+  "msg": "执行成功！"
+}

@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>海尔海贝商城</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+
+    <!--#include file="${ROOT_PATH}public/public_header/homepage_css.shtml"-->
+
+</head>
+<body>
+<div class="s_w1262">
+    <div class="w1240">
+        <!--happyHeader-->
+        <!--#include file="${ROOT_PATH}public/public_header/happyHeader.shtml"-->
+        <!--happyHeader END-->
+        <!--happyMain   borderTop2-->
+        <div class="happyMainBody clearFix">
+            <div class="w1240 happyadd ">
+                <!--happyMainTab-->
+                <!--#include file="${ROOT_PATH}public/public_header/happyTopNav.shtml"-->
+                <!--happyMainTab END-->
+                <!--首頁 con1-->
+                <div class="happyMainCon1">
+                    <!--banner-->
+                    <div class="mainCon1 clearFix">
+                        <div class="w740 happyLeft">
+                            <!-- 轮播 -->
+                            <div class="activityHomeSwiper">
+                                <div class="activitySwiperBox">
+                                    <a class="arrow-left js_contentSwipeLeft" href="#"></a>
+                                    <a class="arrow-right js_contentSwipeRight" href="#"></a>
+                                    <div class="swiper-container mainSwiper js_contentSwipe">
+                                        <div class="swiper-wrapper">
+                                            <TRS_VIEWDATAS ID="首页" CHILDINDEX="0" STARTPOS="0" NUM="5">
+                                                <div class="swiper-slide"><a href="<TRS_VIEWDATA FIELD='pic_link' />" target='_blank'><img src="<TRS_VIEWDATA FIELD='pic_attachment' />" /></a>
+                                                </div>
+                                            </TRS_VIEWDATAS>
+                                        </div>
+                                    </div>
+                                    <div class="pagination mainSwiper"></div>
+                                </div>
+                            </div>
+                            <!-- 轮播 end -->
+                            <div class="happyQyk">
+                                <div class="s_homePic_Box">
+                                    <TRS_VIEWDATAS ID="首页" CHILDINDEX="1" STARTPOS="0">
+                                        <a href="<TRS_VIEWDATA FIELD='pic_link' />" class="s_noUnderLine" target='_blank'>
+                                            <img class="s_homePic" src="<TRS_VIEWDATA FIELD='pic_attachment' />" alt="<TRS_VIEWDATA FIELD='pic_name'/>" />
+                                        </a>
+                                    </TRS_VIEWDATAS>
+                                </div>
+                                <p class="happyHaiBei s_happyHaiBei js_haierb_range w_happyHaiBei " >按海贝范围：<a href="javascript:;" value="1-4999">1-4999</a>
+                                    <a href="javascript:;" value="5000-9999">5000-9999</a>
+                                    <a href="javascript:;" value="10000-29999">10000-29999</a>
+                                    <a href="javascript:;" value="30000-49999">30000-49999</a>
+                                    <a href="javascript:;" value="50000-">50000以上</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mainCon1R  happyRight">
+                            <!--已经登录-->
+                            <div class="top login_over" style="display:none">
+                                <div class="haier_brothers">
+                                    <img src="happyTouXiang.jpg" width="60" height="60" OLDSRC="happyTouXiang.jpg" OLDID="181" RELATED="1" />
+                                    <div class="happyRight userInfo">
+                                        <p><span class="js_top_numname"></span><a href="http://tuser.haier.com/ids/cn/haier_logout.jsp" class="happyRight">[退出]</a></p>
+                                        <p>可用海贝：<i id="allTotal">0</i></p>
+                                    </div>
+                                    <div class="userInfo2">
+                                        <span><a href="/jfmall/personal_profile/buy_score.shtml">我的海贝</a></span>
+                                        <span><a href="/jfmall/personal_profile/myOrder.shtml">订单明细</a></span>
+                                    </div>
+                                </div>
+                                <div class="userInfo3">
+                                    <ul>
+                                        <a href="/jfmall/personal_profile/membersCenter.shtml">
+                                            <li class="userInfo3Logo1"><p>个人中心</p></li>
+                                        </a>
+                                        <a href="/jfmall/personal_profile/myCollect.shtml">
+                                            <li class="userInfo3Logo2"><p>我的收藏</p></li>
+                                        </a>
+                                        <a href="/jfmall/personal_profile/buy_address_management.shtml">
+                                            <li class="userInfo3Logo3"><p>收货地址</p></li>
+                                        </a>
+                                        <a href="/jfmall/personal_profile/activePointCard.shtml">
+                                            <li class="userInfo3Logo4"><p>权益卡</p></li>
+                                        </a>
+                                    </ul>
+
+                                </div>
+                            </div>
+                            <!--已经登录 END-->
+                            <!--没登录-->
+                            <div class="top login_no" style="height:100px">
+                                <div class="userNoLogin">
+                                    <!--<h3>会员登录</h3>
+                                    <label>
+                                        帐号：
+                                        <input type="text" placeholder="请输入您的会员帐号..." />
+                                    </label>
+                                    <label>
+                                        密码：
+                                        <input type="password" placeholder="请输入密码..." />
+                                    </label>
+                                    <label class="js_yzm" style="display:none">验证码：<img src="" style="width: 60px;height: 32px;float: right;margin-left: 5px;" />
+                                        <input type="text" placeholder="请输入验证码" style="width: 100px;" />
+                                    </label>-->
+                                    <a href="http://tuser.haier.com/ids/cn/haier_regUser.jsp" class="userLoginBtn mt10">免费注册</a>
+                                    <p class="userForgetPas"><!--<a href="http://tuser.haier.com/ids/cn/haier_regUser.jsp">新用户注册</a>--><a href="http://tuser.haier.com/ids/cn/haier_login.jsp"
+                                                                                                                                          class="happyRight">已有账号，立即登录</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <!--没登录 END-->
+                            <!--积分商城公告-->
+                            <div class="top w-newgt hih_auto" style="height:310px">
+                                <div class="happyShop">
+                                    <h5>积分商城公告 <a href="###" class="happyRight happyArrowMore" style="display:none;"><span>更多</span></a></h5>
+                                    <ul>
+                                        <TRS_DOCUMENTS ID="商城公告" STARTPOS="0" >
+                                            <a href="<TRS_DOCUMENT FIELD='_RECURL' UrlIsAbs='true'/>">
+                                                <li class="happyShopBlue happyArrow">
+                                                <span><TRS_DOCUMENT FIELD="DOCTITLE"
+                                                                    AUTOLINK="FALSE"></TRS_DOCUMENT></span>
+                                                </li>
+                                            </a>
+                                        </TRS_DOCUMENTS>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--积分商城公告 END-->
+                        </div>
+                    </div>
+                    <!--banner END-->
+                    <!--海贝活动-->
+                    <div class="haiBeiHuoDong clearFix">
+                        <h3 class="h40Title">海贝活动</h3>
+                        <div class="happyLeft">
+                            <TRS_VIEWDATAS ID="首页" CHILDINDEX="2" STARTPOS="2" >
+                                <a href="<TRS_VIEWDATA FIELD='pic_link' />" target='_blank'>
+                                    <img src="<TRS_VIEWDATA FIELD='pic_attachment' />" alt="<TRS_VIEWDATA FIELD='pic_name'/>" />
+                                </a>
+
+                            </TRS_VIEWDATAS>
+                        </div>
+                        <div class="happyRight">
+                            <TRS_VIEWDATAS ID="首页" CHILDINDEX="2" STARTPOS="0" NUM="2">
+                                <a href="<TRS_VIEWDATA FIELD='pic_link' />">
+                                    <img src="<TRS_VIEWDATA FIELD='pic_attachment' />" alt="<TRS_VIEWDATA FIELD='pic_name'/>" />
+                                </a>
+                            </TRS_VIEWDATAS>
+                        </div>
+                    </div>
+                    <!--海贝活动 END-->
+                    <!--新品推荐-->
+                    <div class="happyNewPro clearFix js_s_happyNewPro js_s_newProduct">
+                        <div class="happyW972 happyLeft ">
+                            <h3 class="h40Title">新品推荐 <a href="###" class="happyRight" style='display:none;'>更多>></a></h3>
+                            <dl class="dl02">
+                                <TRS_DOCUMENTS ID="新品推荐" NUM="2" STARTPOS="0" >
+                                    <dd>
+                                        <a href="<TRS_VIEWDATA  FIELD='link' />" ><img src="<TRS_VIEWDATA FIELD='picAppendixes'/>" alt="" /></a>
+                                        <p class="dd01"><a href="<TRS_VIEWDATA  FIELD='link' />" class='newhover'>
+                                            <TRS_VIEWDATA FIELD="productName"/>
+
+                                        </a></p>
+                                        <p class="dd02">
+                                            <i><TRS_VIEWDATA FIELD="skuPCScorePrice"/></i>&nbsp;海贝<!--<TRS_VIEWDATA FIELD="skuPCSalerPrice"></TRS_VIEWDATA>-->
+                                            <TRS_VIEWDATA FIELD="skuPCSalerPrice">
+                                                <TRS_CONDITION REFERENCE="null" CONDITION="@skuPCSalerPrice" OPERATOR="contain" NOT="true">
+                                                    <TRS_CONDITION REFERENCE="0" CONDITION="@skuPCSalerPrice" OPERATOR="contain" NOT="true">
+                                                        &nbsp;+&nbsp;<i><TRS_VIEWDATA FIELD="skuPCSalerPrice"/></i>&nbsp;元
+                                                    </TRS_CONDITION>
+                                                </TRS_CONDITION>
+                                            </TRS_VIEWDATA>
+
+                                        </p>
+                                    </dd>
+                                </TRS_DOCUMENTS>
+                            </dl>
+                            <dl class="dl02">
+                                <TRS_DOCUMENTS ID="新品推荐" NUM="2" STARTPOS="2" >
+                                    <dd>
+                                        <a href="<TRS_VIEWDATA  FIELD='link' />" ><img src="<TRS_VIEWDATA FIELD='picAppendixes'/>" alt="" /></a>
+                                        <p class="dd01"><a href="<TRS_VIEWDATA  FIELD='link' />" class='newhover'>
+                                            <TRS_VIEWDATA FIELD="productName"/>
+
+                                        </a></p>
+                                        <p class="dd02">
+                                            <i><TRS_VIEWDATA FIELD="skuPCScorePrice"/></i>&nbsp;海贝<!--<TRS_VIEWDATA FIELD="skuPCSalerPrice"></TRS_VIEWDATA>-->
+                                            <TRS_VIEWDATA FIELD="skuPCSalerPrice">
+                                                <TRS_CONDITION REFERENCE="null" CONDITION="@skuPCSalerPrice" OPERATOR="contain" NOT="true">
+                                                    <TRS_CONDITION REFERENCE="0" CONDITION="@skuPCSalerPrice" OPERATOR="contain" NOT="true">
+                                                        &nbsp;+&nbsp;<i><TRS_VIEWDATA FIELD="skuPCSalerPrice"/></i>&nbsp;元
+                                                    </TRS_CONDITION>
+                                                </TRS_CONDITION>
+                                            </TRS_VIEWDATA>
+                                        </p>
+                                    </dd>
+                                </TRS_DOCUMENTS>
+                            </dl>
+                            <dl class="dl02">
+                                <TRS_DOCUMENTS ID="新品推荐" NUM="2" STARTPOS="4" >
+                                    <dd>
+                                        <a href="<TRS_VIEWDATA  FIELD='link' />"><img src="<TRS_VIEWDATA FIELD='picAppendixes'/>" alt="" /></a>
+                                        <p class="dd01"><a href="<TRS_VIEWDATA  FIELD='link' />" class='newhover'>
+                                            <TRS_VIEWDATA FIELD="productName"/>
+
+                                        </a></p>
+                                        <p class="dd02">
+                                            <i><TRS_VIEWDATA FIELD="skuPCScorePrice"/></i>&nbsp;海贝
+                                            <TRS_VIEWDATA FIELD="skuPCSalerPrice">
+                                                <TRS_CONDITION REFERENCE="null" CONDITION="@skuPCSalerPrice" OPERATOR="contain" NOT="true">
+                                                    <TRS_CONDITION REFERENCE="0" CONDITION="@skuPCSalerPrice" OPERATOR="contain" NOT="true">
+                                                        &nbsp;+&nbsp;<i><TRS_VIEWDATA FIELD="skuPCSalerPrice"/></i>&nbsp;元
+                                                    </TRS_CONDITION>
+                                                </TRS_CONDITION>
+                                            </TRS_VIEWDATA>
+                                        </p>
+                                    </dd>
+                                </TRS_DOCUMENTS>
+                            </dl>
+                            <dl class="dl02">
+                                <TRS_DOCUMENTS ID="新品推荐" NUM="2" STARTPOS="6" >
+                                    <dd>
+                                        <a href="<TRS_VIEWDATA  FIELD='link' />" ><img src="<TRS_VIEWDATA FIELD='picAppendixes'/>" alt="" /></a>
+                                        <p class="dd01"><a href="<TRS_VIEWDATA  FIELD='link' />" class='newhover'>
+                                            <TRS_VIEWDATA FIELD="productName"/>
+
+                                        </a></p>
+                                        <p class="dd02">
+                                            <i><TRS_VIEWDATA FIELD="skuPCScorePrice"/></i>&nbsp;海贝
+                                            <TRS_VIEWDATA FIELD="skuPCSalerPrice">
+                                                <TRS_CONDITION REFERENCE="null" CONDITION="@skuPCSalerPrice" OPERATOR="contain" NOT="true">
+                                                    <TRS_CONDITION REFERENCE="0" CONDITION="@skuPCSalerPrice" OPERATOR="contain" NOT="true">
+                                                        &nbsp;+&nbsp;<i><TRS_VIEWDATA FIELD="skuPCSalerPrice"/></i>&nbsp;元
+                                                    </TRS_CONDITION>
+                                                </TRS_CONDITION>
+                                            </TRS_VIEWDATA>
+                                        </p>
+                                    </dd>
+                                </TRS_DOCUMENTS>
+                            </dl>
+                        </div>
+                        <!--兑换排行-->
+                        <div class="happyW260 happyRight">
+                            <div class="exchangeBox">
+                                <p class="exchangeList js_DeskTabChange"><a href="###" class="cur" data-tab="js_duiHuan1"  style="display:none">兑换排行</a><a href="###" data-tab="js_duiHuan2">猜您喜欢</a></p>
+                                <ul class="js_deskHide js_duiHuan1" style="display:none">
+                                    <a href="<TRS_RANK FIELD='DOCPUBURL' TARGET='_blank'/>">
+                                        <li><span>NO.1</span>
+                                            <img src="20166215448833.jpg" alt="" OLDSRC="20166215448833.jpg" OLDID="165" RELATED="1" />
+                                            <p><TRS_RANK FIELD='ProductName'/></p>
+                                            <p><i>22222</i>海贝</p>
+                                        </li>
+                                    </a>
+                                    <a href="<TRS_RANK FIELD='DOCPUBURL' TARGET='_blank'/>">
+                                        <li><span>NO.2</span>
+                                            <img src="20166215448833.jpg" alt="" OLDSRC="20166215448833.jpg" OLDID="165" RELATED="1" />
+                                            <p><TRS_RANK FIELD='ProductName'/></p>
+                                            <p><i>22222</i>海贝</p>
+                                        </li>
+                                    </a>
+                                    <a href="<TRS_RANK FIELD='DOCPUBURL' TARGET='_blank'/>">
+                                        <li><span>NO.3</span>
+                                            <img src="20166215448833.jpg" alt="" OLDSRC="20166215448833.jpg" OLDID="165" RELATED="1" />
+                                            <p><TRS_RANK FIELD='ProductName'/></p>
+                                            <p><i>22222</i>海贝</p>
+                                        </li>
+                                    </a>
+                                    <a href="<TRS_RANK FIELD='DOCPUBURL' TARGET='_blank'/>">
+                                        <li><span>NO.4</span>
+                                            <img src="20166215448833.jpg" alt="" OLDSRC="20166215448833.jpg" OLDID="165" RELATED="1" />
+                                            <p><TRS_RANK FIELD='ProductName'/></p>
+                                            <p><i>22222</i>海贝</p>
+                                        </li>
+                                    </a>
+                                    <a href="<TRS_RANK FIELD='DOCPUBURL' TARGET='_blank'/>">
+                                        <li><span>NO.5</span>
+                                            <img src="20166215448833.jpg" alt="" OLDSRC="20166215448833.jpg" OLDID="165" RELATED="1" />
+                                            <p><TRS_RANK FIELD='ProductName'/></p>
+                                            <p><i>22222</i>海贝</p>
+                                        </li>
+                                    </a>
+                                    <a href="<TRS_RANK FIELD='DOCPUBURL' TARGET='_blank'/>">
+                                        <li><span>NO.6</span>
+                                            <img src="20166215448833.jpg" alt="" OLDSRC="20166215448833.jpg" OLDID="165" RELATED="1" />
+                                            <p><TRS_RANK FIELD='ProductName'/></p>
+                                            <p><i>22222</i>海贝</p>
+                                        </li>
+                                    </a>
+                                    <a href="<TRS_RANK FIELD='DOCPUBURL' TARGET='_blank'/>">
+                                        <li><span>NO.7</span>
+                                            <img src="20166215448833.jpg" alt="" OLDSRC="20166215448833.jpg" OLDID="165" RELATED="1" />
+                                            <p><TRS_RANK FIELD='ProductName'/></p>
+                                            <p><i>22222</i>海贝</p>
+                                        </li>
+                                    </a>
+                                </ul>
+                                <ul class="js_deskHide js_duiHuan2">
+                                    <TRS_VIEWDATAS ID="猜您喜欢" STARTPOS='0' NUM='7'>
+                                        <a href="<TRS_VIEWDATA FIELD='link' UrlIsAbs='true' />" target='_blank'>
+                                            <li><span>NO.<TRS_ROWNO></TRS_ROWNO></span>
+                                                <img src="<TRS_VIEWDATA FIELD='productPic'/>" alt="" />
+                                                <p><TRS_VIEWDATA FIELD='productName'/></p>
+                                                <p><i><TRS_VIEWDATA FIELD='productScorePrice'/></i>海贝</p>
+                                            </li>
+                                        </a>
+
+                                    </TRS_VIEWDATAS>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--兑换排行 END-->
+                    </div>
+                    <!--新品推荐 END-->
+                    <!--精品优选-->
+                    <div class="happyNewPro clearFix js_s_happyNewPro js_s_goodSelect">
+                        <div class="happyW972 happyLeft ">
+                            <h3 class="h40Title">精品优选 <a href="###" class="happyRight" style='display:none;'>更多>></a></h3>
+                            <dl class="dl02">
+                                <TRS_DOCUMENTS ID="商品分类" NUM="2" STARTPOS="0" SELECT="DocKind" where="WCMDocument.DOCRELWORDS='1'">
+                                    <dd>
+                                        <a href="<TRS_VIEWDATA ID='OWNER' FIELD='_RECURL' UrlIsAbs='true'/>" ><img src="<TRS_VIEWDATA FIELD='picAppendixes'/>" alt="" /></a>
+                                        <p class="dd01"><a href="<TRS_VIEWDATA ID='OWNER' FIELD='_RECURL' UrlIsAbs='true'/>" class='newhover'>
+                                            <TRS_VIEWDATA FIELD="productName"/>
+
+                                        </a></p>
+                                        <p class="dd02">
+                                            <i><TRS_VIEWDATA FIELD="skuPCScorePrice"/></i>&nbsp;海贝<!--<TRS_VIEWDATA FIELD="skuPCSalerPrice"></TRS_VIEWDATA>-->
+                                            <TRS_VIEWDATA FIELD="skuPCSalerPrice">
+                                                <TRS_CONDITION REFERENCE="null" CONDITION="@skuPCSalerPrice" OPERATOR="contain" NOT="true">
+                                                    <TRS_CONDITION REFERENCE="0" CONDITION="@skuPCSalerPrice" OPERATOR="contain" NOT="true">
+                                                        &nbsp;+&nbsp;<i><TRS_VIEWDATA FIELD="skuPCSalerPrice"/></i>&nbsp;元
+                                                    </TRS_CONDITION>
+                                                </TRS_CONDITION>
+                                            </TRS_VIEWDATA>
+                                        </p>
+                                    </dd>
+                                </TRS_DOCUMENTS>
+                            </dl>
+                            <dl class="dl02">
+                                <TRS_DOCUMENTS ID="商品分类" NUM="2" STARTPOS="2" SELECT="DocKind" where="WCMDocument.DOCRELWORDS='1'">
+                                    <dd>
+                                        <a href="<TRS_VIEWDATA ID='OWNER' FIELD='_RECURL' UrlIsAbs='true'/>" ><img src="<TRS_VIEWDATA FIELD='picAppendixes'/>" alt="" /></a>
+                                        <p class="dd01"><a href="<TRS_VIEWDATA ID='OWNER' FIELD='_RECURL' UrlIsAbs='true'/>" class='newhover'>
+                                            <TRS_VIEWDATA FIELD="productName"/>
+
+                                        </a></p>
+                                        <p class="dd02">
+                                            <i><TRS_VIEWDATA FIELD="skuPCScorePrice"/></i>&nbsp;海贝<!--<TRS_VIEWDATA FIELD="skuPCSalerPrice"></TRS_VIEWDATA>-->
+                                            <TRS_VIEWDATA FIELD="skuPCSalerPrice">
+                                                <TRS_CONDITION REFERENCE="null" CONDITION="@skuPCSalerPrice" OPERATOR="contain" NOT="true">
+                                                    <TRS_CONDITION REFERENCE="0" CONDITION="@skuPCSalerPrice" OPERATOR="contain" NOT="true">
+                                                        &nbsp;+&nbsp;<i><TRS_VIEWDATA FIELD="skuPCSalerPrice"/></i>&nbsp;元
+                                                    </TRS_CONDITION>
+                                                </TRS_CONDITION>
+                                            </TRS_VIEWDATA>
+                                        </p>
+                                    </dd>
+                                </TRS_DOCUMENTS>
+                            </dl>
+                            <dl class="dl02">
+                                <TRS_DOCUMENTS ID="商品分类" NUM="2" STARTPOS="4" SELECT="DocKind" where="WCMDocument.DOCRELWORDS='1'">
+                                    <dd>
+                                        <a href="<TRS_VIEWDATA ID='OWNER' FIELD='_RECURL' UrlIsAbs='true'/>" ><img src="<TRS_VIEWDATA FIELD='picAppendixes'/>" alt="" /></a>
+                                        <p class="dd01"><a href="<TRS_VIEWDATA ID='OWNER' FIELD='_RECURL' UrlIsAbs='true'/>" class='newhover'>
+                                            <TRS_VIEWDATA FIELD="productName"/>
+
+                                        </a></p>
+                                        <p class="dd02">
+                                            <i><TRS_VIEWDATA FIELD="skuPCScorePrice"/></i>&nbsp;海贝
+                                            <TRS_VIEWDATA FIELD="skuPCSalerPrice">
+                                                <TRS_CONDITION REFERENCE="null" CONDITION="@skuPCSalerPrice" OPERATOR="contain" NOT="true">
+                                                    <TRS_CONDITION REFERENCE="0" CONDITION="@skuPCSalerPrice" OPERATOR="contain" NOT="true">
+                                                        &nbsp;+&nbsp;<i><TRS_VIEWDATA FIELD="skuPCSalerPrice"/></i>&nbsp;元
+                                                    </TRS_CONDITION>
+                                                </TRS_CONDITION>
+                                            </TRS_VIEWDATA>
+                                        </p>
+                                    </dd>
+                                </TRS_DOCUMENTS>
+                            </dl>
+                            <dl class="dl02">
+                                <TRS_DOCUMENTS ID="商品分类" NUM="2" STARTPOS="6" SELECT="DocKind" where="WCMDocument.DOCRELWORDS='1'">
+                                    <dd>
+                                        <a href="<TRS_VIEWDATA ID='OWNER' FIELD='_RECURL' UrlIsAbs='true'/>" ><img src="<TRS_VIEWDATA FIELD='picAppendixes'/>" alt="" /></a>
+                                        <p class="dd01"><a href="<TRS_VIEWDATA ID='OWNER' FIELD='_RECURL' UrlIsAbs='true'/>" class='newhover'>
+                                            <TRS_VIEWDATA FIELD="productName"/>
+
+                                        </a></p>
+                                        <p class="dd02">
+                                            <i><TRS_VIEWDATA FIELD="skuPCScorePrice"/></i>&nbsp;海贝
+                                            <TRS_VIEWDATA FIELD="skuPCSalerPrice">
+                                                <TRS_CONDITION REFERENCE="null" CONDITION="@skuPCSalerPrice" OPERATOR="contain" NOT="true">
+                                                    <TRS_CONDITION REFERENCE="0" CONDITION="@skuPCSalerPrice" OPERATOR="contain" NOT="true">
+                                                        &nbsp;+&nbsp;<i><TRS_VIEWDATA FIELD="skuPCSalerPrice"/></i>&nbsp;元
+                                                    </TRS_CONDITION>
+                                                </TRS_CONDITION>
+                                            </TRS_VIEWDATA>
+                                        </p>
+                                    </dd>
+                                </TRS_DOCUMENTS>
+                            </dl>
+                        </div>
+                        <!--品牌推荐-->
+                        <div class="BrandW260 happyRight">
+                            <h3 class="h40Title">品牌推荐</h3>
+                            <ul class="recommendationBrand">
+                                <li>
+                                    <TRS_VIEWDATAS ID="品牌推荐" STARTPOS="0" NUM="2">
+                                        <a href="<TRS_VIEWDATA FIELD='pic_link'/>" target='_blank'><img src="<TRS_VIEWDATA FIELD='pic_attachment' />" alt="" /></a>
+                                    </TRS_VIEWDATAS>
+                                </li>
+
+                                <li>
+                                    <TRS_VIEWDATAS ID="品牌推荐" STARTPOS="2" NUM="2">
+                                        <a href="<TRS_VIEWDATA FIELD='pic_link'/>" target='_blank'><img src="<TRS_VIEWDATA FIELD='pic_attachment' />" alt="" /></a>
+                                    </TRS_VIEWDATAS>
+                                </li>
+
+
+                                <li>
+                                    <TRS_VIEWDATAS ID="品牌推荐" STARTPOS="4" NUM="2">
+                                        <a href="<TRS_VIEWDATA FIELD='pic_link'/>" target='_blank'><img src="<TRS_VIEWDATA FIELD='pic_attachment' />" alt="" /></a>
+                                    </TRS_VIEWDATAS>
+                                </li>
+
+
+                                <li>
+                                    <TRS_VIEWDATAS ID="品牌推荐" STARTPOS="6" NUM="2">
+                                        <a href="<TRS_VIEWDATA FIELD='pic_link'/>" target='_blank'><img src="<TRS_VIEWDATA FIELD='pic_attachment' />" alt="" /></a>
+                                    </TRS_VIEWDATAS>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <!--品牌推荐 END-->
+                    </div>
+                    <!--精品优选 END-->
+                    <!--会员权益-->
+                    <div class="clearFix">
+                        <div class="wp_7" id="j_tab_bottom">
+                            <div class="myjf">
+                                <h3 class="h40Title">会员权益</h3>
+
+                                <!--myjf--></div>
+                            <div class="bt_show">
+                                <div class="serve">
+                                    <ul style="display:block;">
+                                        <li class="ad_1">
+                                            <!-- -------------本地保障左图开始------------ -->
+                                            <TRS_VIEWDATAS ID="会员权益" STARTPOS="0" NUM='1'>
+                                                <a href="<TRS_VIEWDATA FIELD='pic_link'/>"
+                                                   target="_blank"><img class="scrollLoading" src="<TRS_VIEWDATA FIELD='pic_attachment'/>" /></a>
+                                            </TRS_VIEWDATAS>
+                                            <!-- -------------本地保障 左图结束------------ -->
+                                        </li>
+                                        <li class="ad_2">
+                                            <!-- -------------本地保障 上图开始------------ -->
+                                            <TRS_VIEWDATAS ID="会员权益" STARTPOS="1" NUM='1'>
+                                                <a href="<TRS_VIEWDATA FIELD='pic_link'/>"
+                                                   target="_blank"><img class="scrollLoading" src="<TRS_VIEWDATA FIELD='pic_attachment'/>" /></a>
+                                            </TRS_VIEWDATAS>
+                                            <!-- -------------本地保障 上图结束------------ -->
+                                        <li class="ad_3">
+                                            <TRS_VIEWDATAS ID="会员权益" STARTPOS="2" NUM='1'>
+                                                <!-- -------------本地保障 右图开始------------ -->
+
+                                                <a href="<TRS_VIEWDATA FIELD='pic_link'/>"
+                                                   target="_blank"><img class="scrollLoading" src="<TRS_VIEWDATA FIELD='pic_attachment'/>" /></a>
+
+                                                <!-- -------------本地保障 右图结束------------ -->
+                                            </TRS_VIEWDATAS>
+                                        <li class="ad_4">
+                                            <TRS_VIEWDATAS ID="会员权益" STARTPOS="3" NUM='1'>
+                                                <!-- -------------本地保障 左下图开始------------ -->
+
+                                                <a href="<TRS_VIEWDATA FIELD='pic_link'/>"
+                                                   target="_blank"><img class="scrollLoading" src="<TRS_VIEWDATA FIELD='pic_attachment'/>" /></a>
+
+                                                <!-- -------------本地保障 左下图结束------------ -->
+                                            </TRS_VIEWDATAS>
+                                        <li class="ad_7">
+                                            <TRS_VIEWDATAS ID="会员权益" STARTPOS="4" NUM='1'>
+                                                <!-- -------------本地保障 下图开始------------ -->
+
+                                                <a href="<TRS_VIEWDATA FIELD='pic_link'/>"
+                                                   target="_blank"><img class="scrollLoading" src="<TRS_VIEWDATA FIELD='pic_attachment'/>" /></a>
+
+                                                <!-- -------------本地保障 下图结束------------ -->
+                                            </TRS_VIEWDATAS>
+                                    </ul>
+                                    <ul style="display:none;">
+                                        <li class="ad_1">
+                                            <TRS_VIEWDATAS ID="会员权益" STARTPOS="5" NUM='1'>
+                                                <!-- -------------终生保障左图开始------------ -->
+
+                                                <a href="<TRS_VIEWDATA FIELD='pic_link'/>"
+                                                   target="_blank"><img class="scrollLoading" src="<TRS_VIEWDATA FIELD='pic_attachment'/>" /></a>
+
+                                                <!-- -------------终生保障 左图结束------------ -->
+                                            </TRS_VIEWDATAS>
+                                        </li>
+                                        <li class="ad_2">
+                                            <TRS_VIEWDATAS ID="会员权益" STARTPOS="6" NUM='1'>
+                                                <!-- -------------终生保障 上图开始------------ -->
+
+                                                <a href="<TRS_VIEWDATA FIELD='pic_link'/>"
+                                                   target="_blank"><img class="scrollLoading" src="<TRS_VIEWDATA FIELD='pic_attachment'/>" /></a>
+
+                                                <!-- -------------终生保障 上图结束------------ -->
+                                            </TRS_VIEWDATAS>
+
+                                        <li class="ad_3">
+                                            <TRS_VIEWDATAS ID="会员权益" STARTPOS="7" NUM='1'>
+                                                <!-- -------------终生保障 右图开始------------ -->
+
+                                                <a href="<TRS_VIEWDATA FIELD='pic_link'/>"
+                                                   target="_blank"><img class="scrollLoading" src="<TRS_VIEWDATA FIELD='pic_attachment'/>" /></a>
+
+                                                <!-- -------------终生保障 右图结束------------ -->
+                                            </TRS_VIEWDATAS>
+                                        <li class="ad_4">
+                                            <TRS_VIEWDATAS ID="会员权益" STARTPOS="8" NUM='1'>
+                                                <!-- -------------终生保障 左下图开始------------ -->
+
+                                                <a href="<TRS_VIEWDATA FIELD='pic_link'/>"
+                                                   target="_blank"><img class="scrollLoading" src="<TRS_VIEWDATA FIELD='pic_attachment'/>" /></a>
+
+                                                <!-- -------------终生保障 左下图结束------------ -->
+                                            </TRS_VIEWDATAS>
+                                        <li class="ad_7">
+                                            <TRS_VIEWDATAS ID="会员权益" STARTPOS="9" NUM='1'>
+                                                <!-- -------------终生保障 下图开始------------ -->
+
+                                                <a href="<TRS_VIEWDATA FIELD='pic_link'/>"
+                                                   target="_blank"><img class="scrollLoading" src="<TRS_VIEWDATA FIELD='pic_attachment'/>" /></a>
+
+                                                <!-- -------------终生保障 下图结束------------ -->
+                                            </TRS_VIEWDATAS>
+                                    </ul>
+                                </div>
+                                <ol class="newbott">
+                                    <li class="over_1">
+                                        <a class="cur"></a>
+                                        <!-- 暂时去掉链接
+                                        <a href="javascrpt:void();"></a>
+                                         -->
+                                    </li>
+                                    <li class="over_2">
+                                        <a ></a>
+                                        <!-- 暂时去掉链接
+                                        <a href="javascrpt:void();"></a>
+                                         -->
+                                    </li>
+                                </ol>
+
+                                <!--bt_show--></div>
+                            <div class="member ">
+                                <p class="mem_top js_member ">
+                                    <span class="top_l cur" data-tab="js_zHaiBei">赚海贝攻略</span>
+                                    <span class="top_r" data-tab="js_hHaiBei">花海贝攻略</span>
+                                </p>
+                                <p class="mem_img js_deskHide js_zHaiBei ">
+                                    <img src="jfscimg1.jpg" OLDSRC="jfscimg1.jpg" OLDID="184" RELATED="1" /></p>
+                                <p class="mem_img js_deskHide js_hHaiBei" style="display:none">
+                                    <img src="jfscimg2.jpg" OLDSRC="jfscimg2.jpg" OLDID="185" RELATED="1" /></p>
+                                <p class="mem_zc">
+                                    <a href="http://tuser.haier.com/ids/cn/haier_regUser.jsp" target='_blank'>我要注册海尔会员</a>
+
+                                </p>
+                                <!--mem_top--></div>
+                            <!--member--></div>
+                    </div>
+
+                    <!--会员权益 END-->
+                </div>
+                <!--首頁 con1 END-->
+
+            </div>
+        </div>
+
+        <!--happyMain END-->
+        <!--happyFooter-->
+        <!--#include file="${ROOT_PATH}public/public_footer/happyFooter.shtml"-->
+        <!--happyFooter END-->
+    </div>
+</div>
+
+<!--#include file="${ROOT_PATH}public/public_footer/jf.shtml"-->
+<script>
+    $(function(){
+        $(".newbott li").hover(function(){
+            $(this).find("a").addClass("cur")
+            $(this).siblings().find("a").removeClass("cur")
+        })
+    })
+</script>
+</body>
+
+</html>

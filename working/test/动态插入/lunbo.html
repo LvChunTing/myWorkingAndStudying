@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="swiper.min.css">
+    <script src="jquery-1.8.3.js"></script>
+    <script src="swiper.min.js"></script>
+    <style>
+        .swiper-slide{
+            background-color: #eee;
+            height:100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <!--<div class="swiper-slide slider1">slider1</div>-->
+        <!--<div class="swiper-slide slider2">slider2</div>-->
+        <!--<div class="swiper-slide slider3">slider3</div>-->
+    </div>
+</div>
+</body>
+<script>
+    var New = ""
+    $.getJSON("new.json", function (data) {
+        console.log(data.data[0].name)
+        New = data.data[0].name;
+    })
+    $.getJSON("1481882816867.json", function (data) {
+        var html = "";
+        for(var i=0;i<data.data.length;i++){
+            html+='<div class="swiper-slide slider1">'+data.data[i].name +'</div>'
+        }
+        $(".swiper-wrapper").html(html);
+        var mySwiper = new Swiper('.swiper-container',{
+            autoplay : 1000,//可选选项，自动滑动
+            loop : true,//可选选项，开启循环
+        })
+        var newSlide = mySwiper.createSlide(New, "swiper-slide slider1", "div");
+        newSlide.append();
+    });
+
+
+
+
+
+</script>
+<!--首先在头部引入js-->
+<script src="http://test.haier.com/marketing/source/images/jtrsad-0.0.1.js" id="axdt-s-i_297"></script>
+<!--然后请求到应该的json-->
+<script type="text/javascript">
+    TRSAD.queryDate(
+        "TADI_nYoPO4Sd",
+        function (otd) {
+            var source = otd.source;//ࢶ图片的url
+            var url = otd.url;//链接url
+            var isSuccess = otd.isSuccess;//是否返回成功  true成功  false失败ᨳ
+            var msg = otd.resultMsg;//返回失败信息说明ก
+            if(isSuccess){//឴获取成功
+                document.getElementById("ad_link_url").setAttribute("href",url);
+                document.getElementById("ad_pic_url").setAttribute("src",source);
+            }else{//឴获取失败
+                document.getElementById("ad_container").style.display='none';
+                console.log(msg);//如果错误 打印错误信息
+            }
+        },
+        function (error) {
+//឴获取错误隐藏广告位
+            document.getElementById("ad_container").style.display='none';
+        }
+    );
+</script>
+<!--再然后插入一个banner图和链接地址-->
+<script>
+    <!--这里应该是写成在wcm里面的样子  链接和图片-->
+    var newSlide = mainSwiper.createSlide('<a href="#" id="ad_link_url" target="blank"><img src="#" id="ad_pic_url"></a>', "swiper-slide", "div");
+    newSlide.append();
+</script>
+
+</html>

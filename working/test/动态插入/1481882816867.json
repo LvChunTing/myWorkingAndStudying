@@ -1,0 +1,27 @@
+{
+    "data": [
+        {
+            "crTime": 1467169841000,
+            "crUserId": 1,
+            "id": 1,
+            "level": 1,
+            "name": "系统管理",
+            "sort": 100,
+            "upTime": 1467169841000,
+            "upUserId": 1
+        },
+        {
+            "crTime": 1467170161000,
+            "crUserId": 1,
+            "id": 2,
+            "level": 2,
+            "name": "菜单管理",
+            "parentId": 1,
+            "sort": 100,
+            "upTime": 1467170161000,
+            "upUserId": 1
+        }
+    ],
+    "isSuccess": true,
+    "msg": "执行成功！"
+}

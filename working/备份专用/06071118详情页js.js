@@ -17,14 +17,8 @@ jQuery.ajaxSetup({
                  * ids未登录错误转为用户未登录
                  */
                 if (this.url.indexOf('showSku') < 0 && this.url.indexOf('getSeckillSuccess') < 0 && this.url.indexOf('payOrder') < 0) {
-                    // data.resultMsg = data.resultMsg.replace("ids", "用户");
-                    // alert(data.resultMsg); //增加各个服务统一的提示
-                    if (data.resultMsg.indexOf('登录')>=0) {
-                        alert('测试环境，无登录权限；或登录超时，请重新登录后再操作。');
-                        window.location.href="https://testuser.haier.com/ids/cn/haier_login.jsp";
-                    }else{
-                        alert(data.resultMsg);
-                    }
+                    data.resultMsg = data.resultMsg.replace("ids", "用户");
+                    alert(data.resultMsg); //增加各个服务统一的提示
                 }
 
                 /**
@@ -34,12 +28,6 @@ jQuery.ajaxSetup({
                     if (this.success_cb) {
                         this.success_cb(data);
                     }
-                }
-            }
-        } else {
-            if (data === true) {
-                if (this.success_cb) {
-                    this.success_cb(data);
                 }
             }
         }
@@ -198,44 +186,19 @@ var activity = {
                      * 跳转下订单页面
                      */
                     $('#js-preSaveOrder').off().on('click', function() {
-                        var flag = $("#limitWarn").val();
-                        if(flag!=""){
-                            $(".js-proDialog").show();
-                            $(".js-dialog-message").text($("#limitWarn").val());
-                        }else{
-                            $(".js-proDialog").hide();
-                            /**
-                             * 判断买家是否已选择商品规格，若未选择，弹框提示
-                             */
-                            if ($("#js-propertys .x-proDelparaLi").length != $("#js-propertys .x-paralistlive").length) {
-                                alert('请选择商品规格');
-                            } else {
-                                if ($(".js_s_beginSecKill").text() == "开始秒杀") {
-                                    $(".js_s_checkCode input").val("");
-                                    $(".js_s_checkCode").show();
-                                }
+
+
+                        /**
+                         * 判断买家是否已选择商品规格，若未选择，弹框提示
+                         */
+                        if ($("#js-propertys .x-proDelparaLi").length != $("#js-propertys .x-paralistlive").length) {
+                            alert('请选择商品规格');
+                        } else {
+                            if ($(".js_s_beginSecKill").text() == "开始秒杀") {
+                                $(".js_s_checkCode input").val("");
+                                $(".js_s_checkCode").show();
                             }
                         }
-
-                        $(".js_giveUp").click(function () {
-                            //window.close();
-                            location.href = "../";
-                        });
-                        $(".js_goOn").click(function () {
-                            $(".js-proDialog").hide();
-                            /**
-                             * 判断买家是否已选择商品规格，若未选择，弹框提示
-                             */
-                            if ($("#js-propertys .x-proDelparaLi").length != $("#js-propertys .x-paralistlive").length) {
-                                alert('请选择商品规格');
-                            } else {
-                                if ($(".js_s_beginSecKill").text() == "开始秒杀") {
-                                    $(".js_s_checkCode input").val("");
-                                    $(".js_s_checkCode").show();
-                                }
-                            }
-                        })
-
                     });
                 } else {
                     $('#js-preSaveOrder').addClass('disable').off(); //无库存则解绑事件
@@ -308,7 +271,6 @@ var sku = {
                  */
                 if (data.data.skuStockMgr == 2 || data.data.skuStockMgr == 4) {
                     $(".js_s_isShowSend").show();
-                    $('.js_s_isShowStock').remove();
                 } else {
                     $(".js_s_isShowSend").hide();
                 }
@@ -513,7 +475,8 @@ var sku = {
                     /**
                      * 选择某一规格 校验包涵该规格的所有sku是否有库存
                      */
-                    if (data.data.skuStockMgr == 2 || data.data.skuStockMgr == 4) {} else {
+                    if (data.data.skuStockMgr == 2 || data.data.skuStockMgr == 4) {
+                    } else {
                         for (var i = 0; i < skuInfo.length; i++) {
                             if (skuInfo[i].value.indexOf(selectedSkuValue) >= 0) {
                                 if (skuInfo[i].stock == 0) {
@@ -559,23 +522,19 @@ var sku = {
                                 } else {
                                     $('#js-pcScorePrice').html(skuInfo[i].pcScorePrice); //无活动价格
 
-                                    if ($('#js-preSaveOrder').attr('payType')!=3) {
-                                        if (saveSku.strategy == 1) {
-                                            $('.js_changeBox').addClass('x-none').eq(0).removeClass('x-none');
-                                        } else {
-                                            $('.js_changeBox').addClass('x-none').eq(2).removeClass('x-none');
+                                    if (saveSku.strategy == 1) {
+                                        $('.js_changeBox').addClass('x-none').eq(0).removeClass('x-none');
+                                    } else {
+                                        $('.js_changeBox').addClass('x-none').eq(2).removeClass('x-none');
 
-                                            $('.js_s_cash').html(saveSku.pcSalePrice);
-                                            $('.js_s_haiBei').html(saveSku.pcScorePrice);
-                                        }
+                                        $('.js_s_cash').html(saveSku.pcSalePrice);
+                                        $('.js_s_haiBei').html(saveSku.pcScorePrice);
                                     }
                                 }
                             }
                         }
 
-                        if ($('#js-preSaveOrder').attr('payType')!=3) {
-                            $(".js_s_payType").attr("payType", saveSku.strategy); //支付方式
-                        }
+                        $(".js_s_payType").attr("payType", saveSku.strategy); //支付方式
 
                         /**
                          * 秒杀活动查看活动库存、其他查询普通库存
@@ -680,87 +639,39 @@ var sku = {
                      * 跳转下订单页面
                      */
                     $('#js-preSaveOrder').off().on('click', function() {
-                        var flag = $("#limitWarn").val();
-                        if(flag!=""){
-                            $(".js-proDialog").show();
-                            $(".js-dialog-message").text($("#limitWarn").val());
-                        }else{
-                            $(".js-proDialog").hide();
-                            /**
-                             * 判断是否选择正确的配送区域
-                             */
-                            if(!($(".js_getProvince").val()!=" "&&$(".js_getCity").val()!=" "&&$(".js_getCityArea ").val()!=" ")){
-                                alert("请选择您所在的地区后进行兑换")
-                                return;
-                            }
-                            // console.log("通过！")
-                            /**
-                             * 判断买家是否已选择商品规格，若未选择，弹框提示
-                             */
+                        /**
+                         * 判断是否选择正确的配送区域
+                         */
+                        if(!($(".js_getProvince").val()!=" "&&$(".js_getCity").val()!=" "&&$(".js_getCityArea ").val()!=" ")){
+                            alert("请选择您所在的地区后进行兑换")
+                            return;
+                        }
+                        // console.log("通过！")
+                        /**
+                         * 判断买家是否已选择商品规格，若未选择，弹框提示
+                         */
 
-                            if ($("#js-propertys .x-proDelparaLi").length != $("#js-propertys .x-paralistlive").length) {
-                                alert('请选择商品规格');
-                            } else {
-                                if ($(".js_s_beginSecKill").text() == "开始秒杀") {
-                                    $(".js_s_checkCode input").val("");
-                                    $(".js_s_checkCode").show();
-                                }
-                            }
-
-                            if ($('.js_s_areaStore').html()=='无库存') {
-                                alert("库存不足");
-                                return false;
-                            }
-
-                            if ($("#js-preSaveOrder").attr('skuId')) {
-                                if (!istrsidssdssotoken()) {
-                                    showJumpCount.creatJumpCount().setCount(5).setUrl("http://user.haier.com/ids/cn/haier_login.jsp?regFrom=haierhaibeiWeb&returnUrl=" + window.location.href).setOperate("后跳转到登录页面。").show();
-                                } else {
-                                    window.location.href = formSureUrl + "?productId=" + productId + "&skuId=" + $("#js-preSaveOrder").attr('skuId') + "&buyNum=" + $('#js-buyNum').val() + "&activityGoodsId=" + $("#js-preSaveOrder").attr('activityGoodsId') + "&activitySkuId=" + $("#js-preSaveOrder").attr('activitySkuId') + "&activityType=" + $("#js-preSaveOrder").attr('activityType') + "&payType=" + $('#js-preSaveOrder').attr('payType') + "&skuStockMgr=" + skuStockMgr + "&area=" + $('.js_getProvince').find("option:selected").html() + " " + $('.js_getCity').find("option:selected").html() + " " + $('.js_getCityArea').find("option:selected").html();
-                                }
+                        if ($("#js-propertys .x-proDelparaLi").length != $("#js-propertys .x-paralistlive").length) {
+                            alert('请选择商品规格');
+                        } else {
+                            if ($(".js_s_beginSecKill").text() == "开始秒杀") {
+                                $(".js_s_checkCode input").val("");
+                                $(".js_s_checkCode").show();
                             }
                         }
 
-                        $(".js_giveUp").click(function () {
-                            //window.close();
-                            location.href = "../";
-                        });
-                        $(".js_goOn").click(function () {
-                            $(".js-proDialog").hide();
-                            /**
-                             * 判断是否选择正确的配送区域
-                             */
-                            if(!($(".js_getProvince").val()!=" "&&$(".js_getCity").val()!=" "&&$(".js_getCityArea ").val()!=" ")){
-                                alert("请选择您所在的地区后进行兑换")
-                                return;
-                            }
-                            // console.log("通过！")
-                            /**
-                             * 判断买家是否已选择商品规格，若未选择，弹框提示
-                             */
+                        if ($('.js_s_areaStore').html()=='无库存') {
+                            alert("库存不足");
+                            return false;
+                        }
 
-                            if ($("#js-propertys .x-proDelparaLi").length != $("#js-propertys .x-paralistlive").length) {
-                                alert('请选择商品规格');
+                        if ($(this).attr('skuId')) {
+                            if (!istrsidssdssotoken()) {
+                                showJumpCount.creatJumpCount().setCount(5).setUrl("http://user.haier.com/ids/cn/haier_login.jsp?regFrom=haierhaibeiWeb&returnUrl=" + window.location.href).setOperate("后跳转到登录页面。").show();
                             } else {
-                                if ($(".js_s_beginSecKill").text() == "开始秒杀") {
-                                    $(".js_s_checkCode input").val("");
-                                    $(".js_s_checkCode").show();
-                                }
+                                window.location.href = formSureUrl + "?productId=" + productId + "&skuId=" + $(this).attr('skuId') + "&buyNum=" + $('#js-buyNum').val() + "&activityGoodsId=" + $(this).attr('activityGoodsId') + "&activitySkuId=" + $(this).attr('activitySkuId') + "&activityType=" + $(this).attr('activityType') + "&payType=" + $('#js-preSaveOrder').attr('payType') + "&skuStockMgr=" + skuStockMgr + "&area=" + $('.js_getProvince').find("option:selected").html() + " " + $('.js_getCity').find("option:selected").html() + " " + $('.js_getCityArea').find("option:selected").html();
                             }
-
-                            if ($('.js_s_areaStore').html()=='无库存') {
-                                alert("库存不足");
-                                return false;
-                            }
-
-                            if ($("#js-preSaveOrder").attr('skuId')) {
-                                if (!istrsidssdssotoken()) {
-                                    showJumpCount.creatJumpCount().setCount(5).setUrl("http://user.haier.com/ids/cn/haier_login.jsp?regFrom=haierhaibeiWeb&returnUrl=" + window.location.href).setOperate("后跳转到登录页面。").show();
-                                } else {
-                                    window.location.href = formSureUrl + "?productId=" + productId + "&skuId=" + $("#js-preSaveOrder").attr('skuId') + "&buyNum=" + $('#js-buyNum').val() + "&activityGoodsId=" + $("#js-preSaveOrder").attr('activityGoodsId') + "&activitySkuId=" + $("#js-preSaveOrder").attr('activitySkuId') + "&activityType=" + $("#js-preSaveOrder").attr('activityType') + "&payType=" + $('#js-preSaveOrder').attr('payType') + "&skuStockMgr=" + skuStockMgr + "&area=" + $('.js_getProvince').find("option:selected").html() + " " + $('.js_getCity').find("option:selected").html() + " " + $('.js_getCityArea').find("option:selected").html();
-                                }
-                            }
-                        });
+                        }
                     });
                 } else {
 
@@ -774,87 +685,33 @@ var sku = {
                      * 跳转下订单页面
                      */
                     $('#js-preSaveOrder').off().on('click', function() {
-                        var flag = $("#limitWarn").val();
-                        if(flag!=""){
-                            $(".js-proDialog").show();
-                            $(".js-dialog-message").text($("#limitWarn").val());
-                        }else{
-                            $(".js-proDialog").hide();
-                            /**
-                             * 判断买家是否已选择商品规格，若未选择，弹框提示
-                             */
-                            if ($("#js-propertys .x-proDelparaLi").length != $("#js-propertys .x-paralistlive").length) {
-                                alert('请选择商品规格');
-                            } else {
-                                if ($(".js_s_beginSecKill").text() == "开始秒杀") {
-                                    $(".js_s_checkCode input").val("");
-                                    $(".js_s_checkCode").show();
-                                }
-                            }
-                            if (data.data.sku[0].stock <= 0) {
-                                alert("库存不足");
-                                return false;
-                            }
 
-                            if ($("#js-preSaveOrder").attr('skuId')) {
-                                if (!istrsidssdssotoken()) {
-                                    showJumpCount.creatJumpCount().setCount(5).setUrl("http://user.haier.com/ids/cn/haier_login.jsp?regFrom=haierhaibeiWeb&returnUrl=" + window.location.href).setOperate("后跳转到登录页面。").show();
-                                } else {
-                                    window.location.href = formSureUrl + "?productId=" + productId + "&skuId=" + $("#js-preSaveOrder").attr('skuId') + "&buyNum=" + $('#js-buyNum').val() + "&activityGoodsId=" + $("#js-preSaveOrder").attr('activityGoodsId') + "&activitySkuId=" + $("#js-preSaveOrder").attr('activitySkuId') + "&activityType=" + $("#js-preSaveOrder").attr('activityType') + "&payType=" + $('#js-preSaveOrder').attr('payType') + "&skuStockMgr=" + skuStockMgr;
-                                }
+                        /**
+                         * 判断买家是否已选择商品规格，若未选择，弹框提示
+                         */
+                        if ($("#js-propertys .x-proDelparaLi").length != $("#js-propertys .x-paralistlive").length) {
+                            alert('请选择商品规格');
+                        } else {
+                            if ($(".js_s_beginSecKill").text() == "开始秒杀") {
+                                $(".js_s_checkCode input").val("");
+                                $(".js_s_checkCode").show();
                             }
                         }
+                        if (data.data.sku[0].stock <= 0) {
+                            alert("库存不足");
+                            return false;
+                        }
 
-                        $(".js_giveUp").click(function () {
-                            //window.close();
-                            location.href = "../";
-                        });
-                        $(".js_goOn").click(function () {
-                            $(".js-proDialog").hide();
-                            /**
-                             * 判断买家是否已选择商品规格，若未选择，弹框提示
-                             */
-                            if ($("#js-propertys .x-proDelparaLi").length != $("#js-propertys .x-paralistlive").length) {
-                                alert('请选择商品规格');
+                        if ($(this).attr('skuId')) {
+                            if (!istrsidssdssotoken()) {
+                                showJumpCount.creatJumpCount().setCount(5).setUrl("http://user.haier.com/ids/cn/haier_login.jsp?regFrom=haierhaibeiWeb&returnUrl=" + window.location.href).setOperate("后跳转到登录页面。").show();
                             } else {
-                                if ($(".js_s_beginSecKill").text() == "开始秒杀") {
-                                    $(".js_s_checkCode input").val("");
-                                    $(".js_s_checkCode").show();
-                                }
+                                window.location.href = formSureUrl + "?productId=" + productId + "&skuId=" + $(this).attr('skuId') + "&buyNum=" + $('#js-buyNum').val() + "&activityGoodsId=" + $(this).attr('activityGoodsId') + "&activitySkuId=" + $(this).attr('activitySkuId') + "&activityType=" + $(this).attr('activityType') + "&payType=" + $('#js-preSaveOrder').attr('payType') + "&skuStockMgr=" + skuStockMgr;
                             }
-                            if (data.data.sku[0].stock <= 0) {
-                                alert("库存不足");
-                                return false;
-                            }
-
-                            if ($("#js-preSaveOrder").attr('skuId')) {
-                                if (!istrsidssdssotoken()) {
-                                    showJumpCount.creatJumpCount().setCount(5).setUrl("http://user.haier.com/ids/cn/haier_login.jsp?regFrom=haierhaibeiWeb&returnUrl=" + window.location.href).setOperate("后跳转到登录页面。").show();
-                                } else {
-                                    window.location.href = formSureUrl + "?productId=" + productId + "&skuId=" + $("#js-preSaveOrder").attr('skuId') + "&buyNum=" + $('#js-buyNum').val() + "&activityGoodsId=" + $("#js-preSaveOrder").attr('activityGoodsId') + "&activitySkuId=" + $("#js-preSaveOrder").attr('activitySkuId') + "&activityType=" + $("#js-preSaveOrder").attr('activityType') + "&payType=" + $('#js-preSaveOrder').attr('payType') + "&skuStockMgr=" + skuStockMgr;
-                                }
-                            }
-                        });
+                        }
                     });
                 }
             }
         });
     },
 };
-function showDialog() {
-    var flag = $("#limitWarn").val();
-    if(flag!=""){
-        $(".js-proDialog").show();
-        $(".js-dialog-message").text($("#limitWarn").val());
-    }else{
-        $(".js-proDialog").hide();
-    }
-
-    $(".js_giveUp").click(function () {
-        //window.close();
-        location.href = "../";
-    });
-    $(".js_goOn").click(function () {
-        $(".js-proDialog").hide();
-    })
-}
