@@ -1,0 +1,7 @@
+gitignore 在使用的时候要注意的是，如果要忽略的东西之前已经被add commit 过了  那么gitignore会失效
+
+
+失效的解决办法就是  把缓存清空
+
+$ git rm -r --cached .
+然后再进行其他的操作  就正常了

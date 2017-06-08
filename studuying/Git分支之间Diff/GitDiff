@@ -1,0 +1,10 @@
+git diff  我的想法是要用来合并两个分支之间修改的内容的
+          他跟git mergr的区别就是 diff可以针对某一个文件 可以把不需要合并的文件忽略 只去合并需要合并的文件
+          git merge的缺点是无法指定某一个或某一类，所有的都去合并了  很惨
+
+操作步骤：
+git difftool 另一个分支
+git difftool master  git会提示修改过的内容提示你是否要合并
+git difftool master后面也可以直接跟需要合并的文件路径，直接对某一个文件进行合并
+会调用对比工具来进行合并比较
+然后还是add  commit push 那一套
