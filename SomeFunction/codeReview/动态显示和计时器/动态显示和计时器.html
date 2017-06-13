@@ -91,6 +91,7 @@
 
         };
         function myFunction() {
+            $("body").css({"background-color": "red"});
             alert("触发！");
         }
 
@@ -135,8 +136,9 @@
         flag();
         $(".showPic").toggle(function () {
             $(".img").show();
-        },function () {
+        }, function () {
             $(".img").hide();
-        })
+        });
+//            background: url(about:blank);
 	</script>
 </html>
