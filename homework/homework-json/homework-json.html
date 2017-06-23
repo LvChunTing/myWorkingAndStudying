@@ -7,43 +7,74 @@
 	<body>
 		<script src="js/jquery-1.8.3.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-		//获取到这个json
-			$.getJSON("1481882816867.json",function (result) {
-				//新建一个数数组用来存放处理之后的数据
-				var data=[];
-				//写一个方法来对这个json数组进行分类
-				function classify(obj) {
-					//循环需要分类的对象
-					$.each(obj,function (i,kidobj) {
-						//进来先判断是第几级
-						var Level = kidobj.level;
-						//如果是一级，那就存放进data中的一级,并且要在这个一级中新建一个数组用来存放他的二级；
-						if (Level==1) {
-							kidobj.children = []
-							data.push(kidobj);
-							//如果是第二级，要看他是属于哪个一级(parentId)
-						}else if (Level ==2) {
-							//在这里要把刚刚生成的data数组再遍历一遍 看谁的id跟二级的parentId一样，就把二级加入到谁的children中
-							$.each(data, function(j,kiddata) {
-								//Id表示的是刚刚生成的data数组中元素的id 所以是用kiddata.id
-								//Parentid表示的是原来json数组中元素的Parentid  所以是用kidobj.parentId;
-								var Id  = kiddata.id;
-								var Parentid = kidobj.parentId;
-								//如果他俩相等，代表找到了 就是插入到当前的这个kiddata下的cheldren中
-								if (Id==Parentid) {
-									kiddata.children.push(kidobj);
-								}
-							});
-						}
-					})
-				}
-				classify(result.data);
-				//之前的格式是这个样子的：
-				console.log(result.data)
-				//编辑完之后的格式是这个样子的：
-				console.log(data)
-				//这里的输出结果我给放到开发者工具中去了,结构比较清晰
-			})
+
+            //这个方法的思路是，用不同的数组存着不同的级别的数据，同一个数组中存同一个级别的obj，这样儿子跟儿子在一个数组里，父亲跟父亲在一个数组里
+            //然后去存着父亲的那个数组里找儿子对应的父亲，将儿子插入对应的父亲的children中
+            //最后插入成功之后再把相应的数组按照sort字段排序
+            $.getJSON("1481882816867.json",function  (result)  {
+                var  Data=[];
+                //这是儿子找父亲的方法
+                function  classify(obj)  {
+                    //先判断最大的级别是哪一级    就要生成多少个数组
+                    var  maxlevel  =  1;
+                    $.each(obj,function  (i,kidobj)  {
+                        if  (maxlevel<kidobj.level){
+                            maxlevel=kidobj.level
+                        }
+                    });
+                    //                  生成maxlevel个数组用来存放不同级别数据
+                    var  level  =  [];
+                    for(i=0;i<maxlevel;i++){
+                        level[i]=[];
+                        $.each(obj,function  (j,kidobj)  {
+                            if  (kidobj.level==i+1){
+                                level[i].push(kidobj)
+                            }
+                        })
+                    }
+                    //                  现在level[0]下存的就是所有的一级    level[1]下存的是所有的二级  如果有了三级那么会生成一个level[2]存着所有的三级
+                    //                  然后就是要在所有的level[0]下找level[1]的父亲
+                    $.each(obj,function  (j,  kidobj)  {
+                        var  Level  =  kidobj.level;
+                        var  parent  =  kidobj.parentId;
+                        if  (Level>1){
+                            //这里要用Level-1-1是为了进入存着他父亲的那个数组里    存Level1的那个数组是level[0]  存Level2的那个数组是level[1]
+                            //                                  所以为了找到存着当前级别的父亲的那个数组    就要-1-1
+                            $.each(level[Level-1-1],function  (n,  kidlevel)  {
+                                if  (kidlevel.id==parent){
+                                    if  (kidlevel.children==undefined){
+                                        kidlevel.children=[]
+                                        kidlevel.children.push(kidobj)
+                                    }else{
+                                        kidlevel.children.push(kidobj)
+                                    }
+                                }
+                            })
+                            Data  =  level[0];
+                        }
+                    })
+                    resize(Data)
+                }
+                //这是给数组排序的方法
+                function  resize(arr)  {
+                    //                  如果只有一个  没有必要排序
+                    if  (arr.length>1)  {
+                        arr.sort(function  (a,  b)  {
+                            return  a.sort  -  b.sort;
+                        })
+                    }
+                    //                  如果有孩子，再调用这个方法
+                    $.each(arr,function  (i,  kidarr)  {
+                        if  (kidarr.children!==undefined){
+                            resize(kidarr.children)
+                        }
+                    })
+                }
+                classify(result.data)
+                resize(Data)
+                console.log(Data)
+
+            })
 		</script>
 	</body>
 </html>
