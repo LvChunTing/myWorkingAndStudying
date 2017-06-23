@@ -5,18 +5,20 @@
     <title>数组处理</title>
 </head>
 <body>
-
+<div class="old"></div>
+<div class="new"></div>
 </body>
 <script src="jquery-1.8.3.js"></script>
 <script>
     var numArr = [1, 2, 4, 3, 5, 1, 32, 3, 5, 44, 1, 6, 7, 8, 9, 101, 2, 4, 3, 5, 1, 32, 3, 5, 44, 1, 6, 7, 8, 9, 10];//纯数字数组
-    var strArr = ["吕春亭","张三","李四","王二麻子","李华","王尼玛","张三","王二麻子","吕春亭","张三","李四"]//纯字符串数组
-    var objArr = [{name:"Bob",id:"1"},{name:"Tom",id:"3"},{name:"James",id:"2"},{name:"Jack",id:"4"},{name:"Tom",id:"1"},{name:"Tom",id:"8"}]
+    var strArr = ["吕春亭","张三","李四","王二麻子","李华","王尼玛","张三","王二麻子","吕春亭","张三","李四"];//纯字符串数组
+    var objArr = [{name:"Bob",id:"1"},{name:"Tom",id:"3"},{name:"James",id:"2"},{name:"Jack",id:"4"},{name:"Tom",id:"1"},{name:"Tom",id:"8"}];
     var newArr = [];
     /**
      * 数组去重
      * @param arr
      * @returns {Array|*}
+     * 原理：对象类型键值唯一12
      */
     function delRepeat(arr,by) {                                //参数by  的意思是如果传进来的是一个obj组成的数组，唯一标识的依据
         var newObj = {};
@@ -36,15 +38,20 @@
         }
         return newArr;
     }
-    console.log(numArr);
-    console.log(strArr);
-    console.log(objArr);
+
     var quchongNumArr = delRepeat(numArr);
     var quchongStrArr = delRepeat(strArr);
     var quchongObjArr = delRepeat(objArr,"id");
+    var quchongObjArr1 = delRepeat(objArr,"name");
+    console.log(numArr);
     console.log(quchongNumArr);
+
+    console.log(strArr);
     console.log(quchongStrArr);
+
+    console.log(objArr);
     console.log(quchongObjArr);
+    console.log(quchongObjArr1);
     /**
      * 数组排序
      * @type {Array.<number>}
@@ -58,3 +65,9 @@
 
 </script>
 </html>
+
+
+
+
+
+
