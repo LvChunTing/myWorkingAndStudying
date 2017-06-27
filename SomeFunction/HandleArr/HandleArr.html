@@ -12,24 +12,26 @@
 <script>
     var numArr = [1, 2, 4, 3, 5, 1, 32, 3, 5, 44, 1, 6, 7, 8, 9, 101, 2, 4, 3, 5, 1, 32, 3, 5, 44, 1, 6, 7, 8, 9, 10];//纯数字数组
     var strArr = ["吕春亭","张三","李四","王二麻子","李华","王尼玛","张三","王二麻子","吕春亭","张三","李四"];//纯字符串数组
-    var objArr = [{name:"Bob",id:"1"},{name:"Tom",id:"3"},{name:"James",id:"2"},{name:"Jack",id:"4"},{name:"Tom",id:"1"},{name:"Tom",id:"8"}];
+    var objArr = [{name:"Bob",id:""},{name:"Tom",id:""},{name:"James",id:""},{name:"Jack",id:"3"},{name:"Tom",id:"2"},{name:"Tom",id:"1"}];
     var newArr = [];
     /**
      * 数组去重
      * @param arr
      * @returns {Array|*}
-     * 原理：对象类型键值唯一12
+     * 原理：对象类型键值唯一
      */
     function delRepeat(arr,by) {                                //参数by  的意思是如果传进来的是一个obj组成的数组，唯一标识的依据
         var newObj = {};
         var newArr = [];
         for(var i=0;i<arr.length;i++){
-            if(by){
-                var value =eval('arr[i].'+by);                  //eval()  计算后面字符串的结果
+            if(by){  //如果为空  或者为0  obj数组 id为0或者为空
+                var value = eval('arr[i].'+by);                  //eval()  计算后面字符串的结果
+                console.log(value)
             }else{
                 var value = arr[i];
             }
-                if(newObj[value]){
+
+            if(newObj[value]){
                     continue;
                 }else{
                     newObj[value] = 1;
@@ -39,15 +41,15 @@
         return newArr;
     }
 
-    var quchongNumArr = delRepeat(numArr);
-    var quchongStrArr = delRepeat(strArr);
+//    var quchongNumArr = delRepeat(numArr);
+//    var quchongStrArr = delRepeat(strArr);
     var quchongObjArr = delRepeat(objArr,"id");
     var quchongObjArr1 = delRepeat(objArr,"name");
-    console.log(numArr);
-    console.log(quchongNumArr);
-
-    console.log(strArr);
-    console.log(quchongStrArr);
+//    console.log(numArr);
+//    console.log(quchongNumArr);
+//
+//    console.log(strArr);
+//    console.log(quchongStrArr);
 
     console.log(objArr);
     console.log(quchongObjArr);
@@ -59,9 +61,9 @@
     var paixuNumArr = numArr.sort(function(a,b){return a-b});
     var paixuStrArr = strArr.sort();
     var paixuObjArr = objArr.sort(function(a,b){return a.id-b.id});
-    console.log(paixuNumArr);
-    console.log(paixuStrArr);
-    console.log(paixuObjArr);
+//    console.log(paixuNumArr);
+//    console.log(paixuStrArr);
+//    console.log(paixuObjArr);
 
 </script>
 </html>

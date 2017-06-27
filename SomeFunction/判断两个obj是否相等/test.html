@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script src="js/jquery-1.8.3.js"></script>
+<script>
+    cmp = function( x, y ) {
+// If both x and y are null or undefined and exactly the same
+// 如果x和y是null或未定义的，且完全相同。
+        if ( x === y ) {
+            return true;
+        }
+
+// If they are not strictly equal, they both need to be Objects
+// 如果它们不是严格相等的，它们都需要成为对象。
+        if ( ! ( x instanceof Object ) || ! ( y instanceof Object ) ) {
+            return false;
+        }
+
+//They must have the exact same prototype chain,the closest we can do is test the constructor.
+//它们必须有完全相同的原型链，我们能做的最接近的是测试构造函数。
+
+        if ( x.constructor !== y.constructor ) {
+            return false;
+        }
+
+        for ( var p in x ) {
+            //Inherited properties were tested using x.constructor === y.constructor
+            //继承的属性进行了测试使用x.constructor = = = y.constructor
+            if ( x.hasOwnProperty( p ) ) {
+                // Allows comparing x[ p ] and y[ p ] when set to undefined
+                //允许在设置为未定义时比较x p和y p
+                if ( ! y.hasOwnProperty( p ) ) {
+                    return false;
+                }
+
+                // If they have the same strict value or identity then they are equal
+                // 如果它们具有相同的严格值或同一性，那么它们是相等的。
+                if ( x[ p ] === y[ p ] ) {
+                    continue;
+                }
+
+                // Numbers, Strings, Functions, Booleans must be strictly equal
+                // 数字、字符串、布尔值的函数，必须严格相等
+                if ( typeof( x[ p ] ) !== "object" ) {
+                    return false;
+                }
+
+                // Objects and Arrays must be tested recursively
+                // 对象和数组必须递归地进行测试
+                if ( ! Object.equals( x[ p ], y[ p ] ) ) {
+                    return false;
+                }
+            }
+        }
+
+        for ( p in y ) {
+            // allows x[ p ] to be set to undefined
+            // 允许将x设置为未定义
+            if ( y.hasOwnProperty( p ) && ! x.hasOwnProperty( p ) ) {
+                return false;
+            }
+        }
+        return true;
+    };
+
+</script>
+<script>
+    var arr1 =  [{name:"aaa",id:1},{name:"bbb",id:2},{name:"ccc",id:3},{name:"ddd",id:4},{name:"eee",id:5},{name:"fff",id:6}];
+    var arr2 = [{name: "aaa", id: 1}];
+    var arr3 = [{name: "ccc", id: 3}];
+    var newArr = [];
+    $.each(arr1, function (i, kidarr) {
+        if (!cmp(kidarr, arr2[0])) {
+            newArr.push(kidarr)
+        }
+    });
+    console.log(newArr)
+</script>
+</html>
