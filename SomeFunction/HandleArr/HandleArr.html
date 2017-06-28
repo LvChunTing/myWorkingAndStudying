@@ -12,7 +12,7 @@
 <script>
     var numArr = [1, 2, 4, 3, 5, 1, 32, 3, 5, 44, 1, 6, 7, 8, 9, 101, 2, 4, 3, 5, 1, 32, 3, 5, 44, 1, 6, 7, 8, 9, 10];//纯数字数组
     var strArr = ["吕春亭","张三","李四","王二麻子","李华","王尼玛","张三","王二麻子","吕春亭","张三","李四"];//纯字符串数组
-    var objArr = [{name:"Bob",id:""},{name:"Tom",id:""},{name:"James",id:""},{name:"Jack",id:"3"},{name:"Tom",id:"2"},{name:"Tom",id:"1"}];
+    var objArr = [{name:"Bob"},{name:"Bob1"},{name:"James",id:"2"},{name:"Jack",id:"2"},{name:"Tom",id:"2"},{name:"Tom",id:"1"}];
     var newArr = [];
     /**
      * 数组去重
@@ -24,13 +24,12 @@
         var newObj = {};
         var newArr = [];
         for(var i=0;i<arr.length;i++){
-            if(by){  //如果为空  或者为0  obj数组 id为0或者为空
-                var value = eval('arr[i].'+by);                  //eval()  计算后面字符串的结果
-                console.log(value)
+            if(by){                                              //如果为空  或者为0  obj数组 id为0或者为空
+//                var value = eval('arr[i].'+by);                  //eval()  计算后面字符串的结果
+                var value = arr[i][by];                  //eval()  计算后面字符串的结果
             }else{
                 var value = arr[i];
             }
-
             if(newObj[value]){
                     continue;
                 }else{
@@ -44,7 +43,7 @@
 //    var quchongNumArr = delRepeat(numArr);
 //    var quchongStrArr = delRepeat(strArr);
     var quchongObjArr = delRepeat(objArr,"id");
-    var quchongObjArr1 = delRepeat(objArr,"name");
+//    var quchongObjArr1 = delRepeat(objArr,"name");
 //    console.log(numArr);
 //    console.log(quchongNumArr);
 //
@@ -53,7 +52,7 @@
 
     console.log(objArr);
     console.log(quchongObjArr);
-    console.log(quchongObjArr1);
+//    console.log(quchongObjArr1);
     /**
      * 数组排序
      * @type {Array.<number>}
