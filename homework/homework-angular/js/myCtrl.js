@@ -20,13 +20,17 @@ app.controller("genggai", ["$scope","$element",
 //定时器
 app.controller("dingshiqi", ["$scope",
     function ($scope) {
-        $scope.count = 1;
+        $scope.count = 10;
         //强制让angular对这个变量进行脏检查
-		setInterval(function () {
+		var a = setInterval(function () {
             $scope.$apply(function () {
-                $scope.count++;
+                $scope.count--;
+                if($scope.count==0){
+                    a.clearInterval();
+                }
             })
         },1000)
+
 
     }
 ]);
